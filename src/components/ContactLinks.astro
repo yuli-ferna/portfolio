@@ -1,0 +1,30 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import Gmail from "./icons/Gmail";
+import Github from "./icons/Github";
+import Linkedin from "./icons/Linkedin";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const contact: any = t("contact"); // TO DO define type properly
+console.log(contact.links);
+
+---
+<div class="flex flex-wrap justify-center items-center gap-8 mt-8">
+  {contact && Object.keys(contact.links).map((link) => {
+    const icon = () => {
+      switch (link) {
+        case "github":
+          return <Github />;
+        case "linkedin":
+          return <Linkedin />;
+        case "gmail":
+          return <Gmail />;
+        default:
+          return null;
+      }
+    };
+    return <a href={contact.links[link].link} class="icon-button" target="_blank" rel="noopener noreferrer">
+      {icon()}
+    </a>
+  })}
+</div>

@@ -1,12 +1,59 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@custom-variant dark (&:where(.dark, .dark *));
-* {
-  @apply transition-colors delay-300 ease-in-out;
+main {
+  @apply transition-colors delay-200 ease-in-out;
 }
 
 :root {
+  --color-falcon-50:  #ffd8e4;
+  --color-falcon-100: #f4eff2;
+  --color-falcon-200: #ebdfe5;
+  --color-falcon-300: #dbc6cf;
+  --color-falcon-400: #c4a2b1;
+  --color-falcon-500: #b08496;
+  --color-falcon-600: #99697a;
+  --color-falcon-700: #7d5260; 
+  --color-falcon-800: #6c4854;
+  --color-falcon-900: #5c3f48;
+  --color-falcon-950: #352227;
+  
+  --color-pink-50:  #fdf3f6;
+  --color-pink-100: #fae9ed;
+  --color-pink-200: #ffd8e4;
+  --color-pink-300: #efb8c8;
+  --color-pink-400: #e488a5;
+  --color-pink-500: #d55e86;
+  --color-pink-600: #c03e71;
+  --color-pink-700: #a12f5e;
+  --color-pink-800: #872a54;
+  --color-pink-900: #74274c;
+  --color-pink-950: #31111D;
+
+  --color-text-primary: #352227;
+  --color-text-secondary: #7D5260;
+  --color-text-disabled: #7d5260bf;
+
+  --color-bg-default: #ffd8e4;
+
+  --color-primary: #efb8c8;
+  --color-primary-hover: #d55e86;
+  --color-secondary: #d55e86;
+}
+[data-theme="dark"] {
+  --color-text-primary: #ffd8e4;
+  --color-text-secondary: #efb8c8;
+  --color-text-disabled: #efb8c8bf;
+
+  --color-bg-default: var(--color-pink-950);
+
+  --color-primary: #7D5260;
+  --color-primary-hover: #5c3f48;
+  --color-secondary: #1D1B20;
+}
+
+@theme inline {
   --color-falcon-50:  #ffd8e4;
   --color-falcon-100: #f4eff2;
   --color-falcon-200: #ebdfe5;
@@ -31,33 +78,34 @@
   --color-pink-900: #74274c;
   --color-pink-950: #31111D;
 
-
-  --color-text-primary: #352227;
-  --color-text-secondary: #7D5260;
-  --color-text-disabled: #7d5260bf;
-
-  --color-bg-default: #ffd8e4;
-
-  --color-primary: #ffd8e4;
-  --color-secondary: #efb8c8;
-}
-[data-theme="dark"] {
-  --color-text-primary: #ffd8e4;
-  --color-text-secondary: #efb8c8;
-  --color-text-disabled: #efb8c8bf;
-
-  --color-bg-default: var(--color-pink-950);
-
-  --color-primary: #7D5260;
-  --color-secondary: #1D1B20;
-}
-
-@theme inline {
+  
   --color-primary: var(--color-text-primary);
   --color-secondary: var(--color-text-secondary);
   --color-disabled: var(--color-text-disabled);
 
   --color-container-paper: var(--color-bg-default);
   --color-container-primary: var(--color-primary);
+  --color-hover-primary: var(--color-primary-hover);
   --color-container-secondary: var(--color-secondary);
+}
+
+@layer components {
+  .icon-button {
+    @apply flex justify-center items-center flex-grow-0 flex-shrink-0 w-[54px];
+    @apply h-[54px] gap-2.5 p-2 rounded-[17px] cursor-pointer;
+    @apply bg-container-primary border border-primary/[0.16];
+    box-shadow: "0px 4px 4px 0 rgba(0,0,0,0.25)";
+  }
+  .icon-button:hover {
+    @apply bg-hover-primary;
+  }
+  .icon-button:active {
+    @apply bg-container-secondary;
+  }
+  .icon-button:disabled {
+    @apply bg-container-secondary cursor-not-allowed;
+  }
+  .title {
+    font-family: "Pixelify Sans", sans-serif;
+  }
 }
