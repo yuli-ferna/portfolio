@@ -1,0 +1,17 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div
+  class="flex flex-col items-center justify-center gap-8 w-85 size-4 h-screen relative"
+>
+  <div>
+    <h1 class="title">{t("skills")["title"]}</h1>
+    <p>
+      {t("skills")["description"]}
+    </p>
+  </div>
+</div>

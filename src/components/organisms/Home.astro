@@ -1,0 +1,48 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import DecryptedText from "../molecules/DecryptedText";
+import BlurText from "../molecules/BlurText";
+import ContactLinks from "../molecules/ContactLinks.astro";
+import Logo from "../atoms/icons/Logo";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<!-- <section
+  id="home"
+  class="h-screen flex flex-col items-center justify-center text-center"
+> -->
+<div
+  class="flex flex-col items-center justify-center gap-8 w-85 size-4 h-screen relative"
+>
+  <div class="flex flex-col items-center justify-center gap-5">
+    <div class="transform-3d -rotate-10">
+      <DecryptedText
+        client:load
+        className="title text-lg "
+        text={`${t("home")["hello"]} ✨`}
+        animateOn="view"
+        revealDirection="start"
+        speed={60}
+        sequential
+      />
+    </div>
+    <div>
+      <BlurText
+        client:load
+        text={t("home")["description"]}
+        className="title text-xl mt-6 justify-center"
+        delay={50}
+        animateBy="words"
+        direction="top"
+      />
+    </div>
+  </div>
+  <div class="image-home bg-container-primary w-55 h-55 shadow-lg border-1 border-secondary rounded flex items-center justify-center">
+  <!-- TO DO Animate this svg -->
+    <Logo />
+  </div>
+  <ContactLinks />
+</div>
+<!-- </section> -->

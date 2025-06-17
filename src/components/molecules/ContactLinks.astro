@@ -1,15 +1,14 @@
 ---
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import Gmail from "./icons/Gmail";
-import Github from "./icons/Github";
-import Linkedin from "./icons/Linkedin";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import Gmail from "../atoms/icons/Gmail";
+import Github from "../atoms/icons/Github";
+import Linkedin from "../atoms/icons/Linkedin";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const contact: any = t("contact"); // TO DO define type properly
-console.log(contact.links);
 
 ---
-<div class="flex flex-wrap justify-center items-center gap-8 mt-8">
+<div class="flex flex-wrap justify-center items-center gap-8">
   {contact && Object.keys(contact.links).map((link) => {
     const icon = () => {
       switch (link) {

@@ -90,6 +90,7 @@ main {
 }
 
 @layer components {
+  /* Common styles */
   .icon-button {
     @apply flex justify-center items-center flex-grow-0 flex-shrink-0 w-[54px];
     @apply h-[54px] gap-2.5 p-2 rounded-[17px] cursor-pointer;
@@ -107,5 +108,32 @@ main {
   }
   .title {
     font-family: "Pixelify Sans", sans-serif;
+    font-size: 40px;
+  }
+  .image-home #logo {
+    @apply w-[200px] h-[200px];
+  }
+  /* Navbar styles */
+  .navbar {
+    @apply flex gap-3 justify-between w-[378px] pt-3 pb-3 pl-4 pr-4 rounded-[23px] bg-black/20 border-2 border-[#efb8c8]/[0.59] backdrop-blur-[10px];
+  }
+  .navbar-item {
+    @apply  flex justify-center items-center  w-[53px] h-[53px] relative gap-2.5 p-2 rounded-[17px] bg-[#ffd8e4]/[0.16] border border-[#ffd8e4]/[0.16] cursor-pointer;
+  }
+  .navbar-item:hover {
+    @apply bg-[#ffd8e4]/[0.32];
+  }
+  .navbar-item.active {
+    background-color: var(--color-text-primary);
+  }
+  .navbar-item.active:hover {
+    background-color: var(--color-text-secondary);
+  }
+  .navbar-item.active:active {
+    background-color: var(--color-primary);
+  }
+  .navbar-item.active svg path {
+    fill: var(--color-bg-default);
+    stroke: var(--color-bg-default);
   }
 }

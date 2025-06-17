@@ -1,3 +1,51 @@
 {
-  "hello": "Hola mundo!"
+  "home": {
+    "hello": "Hola, soy Yuliana Fernandez",
+    "description": "Soy una desarrolladora de software apasionada por crear soluciones innovadoras y eficientes. Mi especialidad es el desarrollo web, y siempre estoy dispuesta a aprender nuevas tecnologías y mejorar mis habilidades."
+  },
+  "navbar": {
+    "home": {
+      "name": "Inicio",
+      "section": "home"
+    },
+    "skills": {
+      "name": "Sobre mí",
+      "section": "skills"
+    },
+    "experience": {
+      "name": "Proyectos",
+      "section": "experience"
+    },
+    "education": {
+      "name": "Proyectos",
+      "section": "education"
+    },
+    "contact": {
+      "name": "Contacto",
+      "section": "contact"
+    }
+  },
+  "contact" : {
+    "email": "Email",
+    "fullName": "Nombre",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "links": {
+      "github": {
+        "name": "GitHub",
+        "icon": "github.svg",
+        "link": "https://github.com/yuli-ferna"
+      },
+      "linkedin": {
+        "name": "LinkedIn",
+        "icon": "linkedin.svg",
+        "link": "https://www.linkedin.com/in/yuliana-fern%C3%A1ndez-950057126/"
+      },
+      "gmail": {
+        "name": "Gmail",
+        "icon": "gmail.svg",
+        "link": "https://mail.google.com/mail/u/0/?fs=1&to=yuliferna123@gmail.com&su=Hey+Yuli!&tf=cm"
+      }
+    }
+  }
 }

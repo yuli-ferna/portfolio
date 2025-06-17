@@ -1,0 +1,46 @@
+---
+import Home from "../organisms/Home.astro";
+import Skills from "../organisms/Skills.astro";
+import { easeInOut, motion } from "motion/react";
+const variants = {
+  whileInView: {
+    opacity: 1,
+    transition: { delay: 0.3, easeInOut },
+    skewY: 0,
+  },
+  initial: {
+    opacity: 0,
+    transition: { delay: 0.3, easeInOut },
+    skewY: 10,
+  },
+  viewport: {
+    amount: 0.08,
+  },
+  layout: true
+};
+const sections = [
+  {
+    id: "home",
+    title: "Home",
+    component: Home
+  },
+  {
+    id: "skills",
+    title: "Skills",
+    component: Skills
+  },
+];
+---
+
+<main>
+  {sections.map((section) => (
+  <section id={section.id} class="h-screen flex flex-col items-center justify-center text-center">
+      <motion.div
+        client:only="react"
+        {...variants}
+      >
+        <section.component />
+      </motion.div>
+  </section>
+  ))}
+</main>

@@ -1,17 +1,10 @@
 ---
-import Home from '../components/Home.astro';
-import LanguagePicker from '../components/LanguagePicker.astro';
-import ThemeIcon from '../components/ThemeIcon.astro';
 import Layout from '../layouts/Layout.astro';
+import Main from '../components/template/Main.astro';
 import "../styles/global.css";
 ---
 
 <Layout>
-	<div class="flex justify-end items-center p-4 gap-4">
-		<ThemeIcon />
-		<LanguagePicker /> 
-	</div>
-	<main>
-		<Home />
-	</main>
+	<Main />
 </Layout>
+
