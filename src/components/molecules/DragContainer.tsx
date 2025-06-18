@@ -9,9 +9,9 @@ export default function DragConstraints({ lang }) {
   const t = useTranslations(lang)
   const skillsList = t("skills")["skillsList"];
   const positions = [
-    "md:top-5 md:left-100",
-    "md:top-90 md:left-5",
-    "md:top-110 md:left-90",
+    "md:top-10 md:left-70",
+    "md:top-10 md:left-170",
+    "md:top-110 md:left-80",
     "md:top-100 md:left-175",
   ]
   return (
@@ -19,8 +19,8 @@ export default function DragConstraints({ lang }) {
       md:block
     relative">
 
-      <div className="flex flex-col items-center justify-center gap-4 pt-10 pb-10
-      md:justify-start md:gap-8 w-80 md:ml-20 md:mt-20
+      <div className="flex flex-col items-center justify-center gap-4 pt-10 pb-10 w-80
+      md:justify-center md:h-screen md:gap-8 md:ml-5 md:max-w-60
       ">
         <h1 className="title">{t("skills")["title"]}</h1>
         <p>

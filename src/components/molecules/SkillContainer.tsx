@@ -16,7 +16,8 @@ const SkillContainer = ({ title, skills, constraintsRef, position }: SkillContai
     <motion.div
       drag={!isMobile()}
       dragConstraints={constraintsRef}
-      dragElastic={0}
+      dragElastic={0.2}
+      dragMomentum={false}
       className={`w-[365px] h-fit min-h-[335px] rounded-[20px] bg-[#7d5260] border-[3px] border-primary relative flex flex-col pl-4 pr-4 pt-14 pb-6 gap-4 cursor-grab
       md:absolute ${position}
       `}>
