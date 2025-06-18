@@ -23,7 +23,7 @@ main {
   --color-pink-100: #fae9ed;
   --color-pink-200: #ffd8e4;
   --color-pink-300: #efb8c8;
-  --color-pink-400: #e488a5;
+  --color-pink-400: #A55F77;
   --color-pink-500: #d55e86;
   --color-pink-600: #c03e71;
   --color-pink-700: #a12f5e;
@@ -70,7 +70,7 @@ main {
   --color-pink-100: #fae9ed;
   --color-pink-200: #ffd8e4;
   --color-pink-300: #efb8c8;
-  --color-pink-400: #e488a5;
+  --color-pink-400: #A55F77;
   --color-pink-500: #d55e86;
   --color-pink-600: #c03e71;
   --color-pink-700: #a12f5e;
@@ -115,13 +115,15 @@ main {
   }
   /* Navbar styles */
   .navbar {
-    @apply flex gap-3 justify-between w-[378px] pt-3 pb-3 pl-4 pr-4 rounded-[23px] bg-black/20 border-2 border-[#efb8c8]/[0.59] backdrop-blur-[10px];
+    @apply flex gap-3 justify-between w-[378px] pt-3 pb-3 pl-4 pr-4 rounded-[23px];
+    @apply bg-pink-400/40 dark:bg-container-paper/20 border-2 border-secondary/[0.59] backdrop-blur-[10px];
   }
   .navbar-item {
-    @apply  flex justify-center items-center  w-[53px] h-[53px] relative gap-2.5 p-2 rounded-[17px] bg-[#ffd8e4]/[0.16] border border-[#ffd8e4]/[0.16] cursor-pointer;
+    @apply  flex justify-center items-center  w-[53px] h-[53px] relative gap-2.5 p-2 rounded-[17px];
+    @apply bg-pink-400/80 dark:bg-primary/[0.16] border border-primary/[0.16] cursor-pointer;
   }
   .navbar-item:hover {
-    @apply bg-[#ffd8e4]/[0.32];
+    @apply bg-pink-400 dark:bg-primary/[0.32];
   }
   .navbar-item.active {
     background-color: var(--color-text-primary);
@@ -135,5 +137,10 @@ main {
   .navbar-item.active svg path {
     fill: var(--color-bg-default);
     stroke: var(--color-bg-default);
+  }
+
+  .skill-elem path {
+    fill: var(--color-text-primary);
+    stroke: var(--color-text-primary);
   }
 }

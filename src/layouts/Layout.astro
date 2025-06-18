@@ -5,6 +5,7 @@ import Navbar from "../components/organisms/Navbar";
 import ThemeIcon from "../components/molecules/ThemeIcon.astro";
 import { getLangFromUrl } from "../i18n/utils";
 import { ClientRouter } from "astro:transitions";
+import Footer from "../components/organisms/Footer.astro";
 const lang = getLangFromUrl(Astro.url);
 ---
 
@@ -12,7 +13,7 @@ const lang = getLangFromUrl(Astro.url);
 <html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Yuliana</title>
@@ -22,6 +23,7 @@ const lang = getLangFromUrl(Astro.url);
 			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pixelify+Sans:wght@400..700&display=swap"
 			rel="stylesheet"
 		/>
+		<link href="../../src/global.css" rel="stylesheet">
 		<ClientRouter />
 	</head>
 	<body class="bg-container-paper text-primary">
@@ -31,8 +33,10 @@ const lang = getLangFromUrl(Astro.url);
 			<ThemeIcon />
 			<LanguagePicker client:load />
 		</div>
-		<div class="fixed top-0 left-0 p-5">
-			<Logo />
+		<div class="fixed top-0 left-0 p-5 z-10">
+			<div class="bg-container-paper/[40] rounded-xl backdrop-blur-md">
+				<Logo />
+			</div>
 		</div>
 		<slot />
 		<div
@@ -40,6 +44,7 @@ const lang = getLangFromUrl(Astro.url);
 		>
 			<Navbar client:only="react" />
 		</div>
+		<!-- <Footer /> -->
 	</body>
 </html>
 

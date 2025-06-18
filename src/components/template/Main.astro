@@ -1,4 +1,6 @@
 ---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import Footer from "../organisms/Footer.astro";
 import Home from "../organisms/Home.astro";
 import Skills from "../organisms/Skills.astro";
 import { easeInOut, motion } from "motion/react";
@@ -30,16 +32,19 @@ const sections = [
     component: Skills
   },
 ];
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <main>
   {sections.map((section) => (
-  <section id={section.id} class="h-screen flex flex-col items-center justify-center text-center">
+  <section id={section.id} class="flex flex-col items-center justify-center text-center">
       <motion.div
         client:only="react"
         {...variants}
       >
-        <section.component />
+        <section.component t={t} />
       </motion.div>
   </section>
   ))}

@@ -30,9 +30,9 @@ const Navbar = () => {
   useEffect(() => {
     const lang = getLangFromUrl(new URL(location.href));
     const t = useTranslations(lang);
-    
+
   }, []);
-  return (
+  return (<>
     <nav id="main-nav" className="navbar">
       {items.map((item, index) => (
         <a key={`${item.section}-${index}`} className={`${item.section} navbar-item ${index == 0 ? 'active' : ''}`} onClick={() => {
@@ -42,7 +42,21 @@ const Navbar = () => {
         </a>
       ))}
     </nav>
-  );
+    {/* To do scroll to top button when is not in Home section */}
+    {/* <div
+      className="fixed bottom-4 right-4 z-50 p-2 bg-gray-800 border rounded-full cursor-pointer hover:bg-gray-700 transition-colors"
+      onClick={() => onClick("home")}
+    >
+      <span className="material-icons">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="Arrow-Up--Streamline-Solar-Ar" height="24" width="24">
+          <desc>
+            Arrow Up Streamline Icon: https://streamlinehq.com
+          </desc>
+          <path d="m12 20 0 -16m0 0 6 6m-6 -6 -6 6" stroke="var(--color-text-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+        </svg>
+      </span>
+    </div> */}
+  </>);
 }
 export default Navbar;
 

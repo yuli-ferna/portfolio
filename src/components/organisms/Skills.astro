@@ -1,17 +1,19 @@
 ---
+import { useRef } from "react";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-
+import SkillContainer from "../molecules/SkillContainer";
+import { motion } from "motion/react";
+import DragConstraints from "../molecules/DragContainer";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const skillsList = t("skills")["skillsList"];
+console.log(Object.keys(skillsList));
+// const constraintsRef = useRef<HTMLDivElement>(null)
 ---
 
 <div
-  class="flex flex-col items-center justify-center gap-8 w-85 size-4 h-screen relative"
+  class="flex flex-col md:flex-row items-center justify-center gap-8 w-screen size-4 h-fit relative
+  md:h-screen"
 >
-  <div>
-    <h1 class="title">{t("skills")["title"]}</h1>
-    <p>
-      {t("skills")["description"]}
-    </p>
-  </div>
-</div>
+  <DragConstraints lang={lang} client:only="react" />
+<div/>

@@ -5,55 +5,35 @@
   },
   "navbar": {
     "home": {
-      "name": "Inicio",
+      "name": "Home",
       "section": "home"
     },
     "skills": {
-      "name": "Sobre mí",
+      "name": "Skills",
       "section": "skills"
     },
     "experience": {
-      "name": "Proyectos",
+      "name": "Experience",
       "section": "experience"
     },
     "education": {
-      "name": "Proyectos",
+      "name": "Education",
       "section": "education"
     },
     "contact": {
-      "name": "Contacto",
+      "name": "Contact",
       "section": "contact"
     }
   },
   "skills": {
     "title": "Skills",
     "description": "I have a diverse set of skills that I have developed through my education and experience.",
-    "skillsList": [
-      {
-        "name": "JavaScript",
-        "icon": "javascript.svg"
-      },
-      {
-        "name": "React",
-        "icon": "react.svg"
-      },
-      {
-        "name": "Node.js",
-        "icon": "nodejs.svg"
-      },
-      {
-        "name": "HTML5",
-        "icon": "html5.svg"
-      },
-      {
-        "name": "CSS3",
-        "icon": "css3.svg"
-      },
-      {
-        "name": "Git",
-        "icon": "git.svg"
-      }
-    ]
+    "skillsList": {
+      "Frontend": ["HTML", "CSS", "JavaScript", "Typescript", "React", "Astro", "NextJS", "ThreeJS", "Tailwind", "Material UI", "Vue", "Ionic"],
+      "Backend": ["NodeJS", "Express", "SQL", "PostgreSQL", "Firebase", "Oracle", "C++", "Python", "Yii"],
+      "Libs & Tools": ["Git", "Docker", "GitHub", "Figma", "Web3 Wormhole SDK", "Web3 Ethers Lib"],
+      "Soft Skills": ["Teamwork", "Communication", "Adaptability", "Problem Solving", "Time Management"]
+    }
   },
   "contact" : {
     "email": "Email",
