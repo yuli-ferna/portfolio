@@ -1,26 +1,18 @@
+import { useEffect, useState } from "react";
 import SkillElem from "../atoms/SkillElem";
 import { motion } from "motion/react";
 
 interface SkillContainerProps {
   title: string;
   skills: string[];
-  constraintsRef?: React.RefObject<HTMLDivElement>;
   position?: string;
 }
 
-const SkillContainer = ({ title, skills, constraintsRef, position }: SkillContainerProps) => {
-  const isMobile = () => {
-    return window.innerWidth <= 768; // Adjust the breakpoint as needed
-  }
+const SkillContainer = ({ title, skills, position }: SkillContainerProps) => {
+
   return (
     <motion.div
-      drag={!isMobile()}
-      dragConstraints={constraintsRef}
-      dragElastic={0.2}
-      dragMomentum={false}
-      className={`w-[365px] h-fit min-h-[335px] rounded-[20px] bg-[#7d5260] border-[3px] border-primary relative flex flex-col pl-4 pr-4 pt-14 pb-6 gap-4 cursor-grab
-      md:absolute ${position}
-      `}>
+      className={`skill-item w-[365px] h-fit min-h-[335px] rounded-[20px] dark:bg-[#7d5260] bg-pink-400/80 backdrop-blur-2xl border-[3px] border-primary relative flex flex-col pl-4 pr-4 pt-14 pb-6 gap-4 cursor-grab md:absolute ${position}`}>
       <svg
         width="362"
         height="3"
@@ -30,7 +22,8 @@ const SkillContainer = ({ title, skills, constraintsRef, position }: SkillContai
         className="absolute left-0 top-7.5 stroke-primary"
         preserveAspectRatio="none"
       >
-        <path d="M0 1.5H362" stroke-width="3"></path></svg>
+        <path d="M0 1.5H362" stroke-width="3"></path>
+      </svg>
       <svg
         width="16"
         height="15"
@@ -40,8 +33,9 @@ const SkillContainer = ({ title, skills, constraintsRef, position }: SkillContai
         className="absolute left-5 top-2 stroke-primary"
         preserveAspectRatio="none"
       >
-        <circle cx="8" cy="7.5" r="6" fill="none" stroke-width="3"></circle></svg
-      ><svg
+        <circle cx="8" cy="7.5" r="6" fill="none" stroke-width="3"></circle>
+      </svg>
+      <svg
         width="16"
         height="15"
         viewBox="0 0 16 15"
@@ -50,8 +44,9 @@ const SkillContainer = ({ title, skills, constraintsRef, position }: SkillContai
         className="absolute left-10 top-2 stroke-primary"
         preserveAspectRatio="none"
       >
-        <circle cx="8" cy="7.5" r="6" fill="none" stroke-width="3"></circle></svg
-      ><svg
+        <circle cx="8" cy="7.5" r="6" fill="none" stroke-width="3"></circle>
+      </svg>
+      <svg
         width="16"
         height="15"
         viewBox="0 0 16 15"
@@ -73,4 +68,5 @@ const SkillContainer = ({ title, skills, constraintsRef, position }: SkillContai
     </motion.div>
   );
 }
+
 export default SkillContainer;

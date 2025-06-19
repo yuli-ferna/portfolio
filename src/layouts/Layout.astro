@@ -5,7 +5,6 @@ import Navbar from "../components/organisms/Navbar";
 import ThemeIcon from "../components/molecules/ThemeIcon.astro";
 import { getLangFromUrl } from "../i18n/utils";
 import { ClientRouter } from "astro:transitions";
-import Footer from "../components/organisms/Footer.astro";
 const lang = getLangFromUrl(Astro.url);
 ---
 
@@ -28,19 +27,19 @@ const lang = getLangFromUrl(Astro.url);
 	</head>
 	<body class="bg-container-paper text-primary">
 		<div
-			class="flex justify-end items-center p-4 gap-4 fixed top-0 right-0 z-10"
+			class="flex justify-end items-center p-4 gap-4 fixed top-0 right-0 z-99999"
 		>
 			<ThemeIcon />
 			<LanguagePicker client:load />
 		</div>
-		<div class="fixed top-0 left-0 p-5 z-10">
+		<div class="fixed top-0 left-0 p-5 z-99999">
 			<div class="bg-container-paper/[40] rounded-xl backdrop-blur-md">
 				<Logo />
 			</div>
 		</div>
 		<slot />
 		<div
-			class="fixed bottom-0 left-0 right-0 w-screen flex justify-center items-center p-4"
+			class="fixed bottom-0 left-0 right-0 w-screen flex justify-center items-center p-4 z-99999"
 		>
 			<Navbar client:only="react" />
 		</div>
