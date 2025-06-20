@@ -1,6 +1,7 @@
 {
   "home": {
     "hello": "Hi, I'm Yuliana Fernandez",
+    "title": "Frontend Developer | UI/UX enthusiastic",
     "description": "I am a passionate software developer with a focus on creating innovative and efficient solutions. My expertise lies in web development, and I am always eager to learn new technologies and improve my skills."
   },
   "navbar": {
@@ -35,9 +36,23 @@
       "Soft Skills": ["Teamwork", "Communication", "Adaptability", "Problem Solving", "Time Management"]
     }
   },
+  "experience": {
+    "title": "Experience",
+    "description": "Timeline of my professional journey",
+    "positions": [
+      {}
+    ]
+  },
+  "education": {
+    "title": "Education & Certificates",
+    "description": "All my blah blah",
+    "seeCertificate": "See Certificate"
+  },
   "contact" : {
+    "title": "Contact me!",
+    "description": "If you have some project in mind, feel free to contact me! If you have some project in mind, feel free to contact me! If you have some project in mind, feel free to contact me! If you have some project in mind, feel free to contact me! If you have some project in mind, feel free to contact me! If you have some project in mind, feel free to contact me! If you have some project in mind, feel free to contact me!",
     "email": "Email",
-    "fullName": "Name",
+    "name": "Name",
     "message": "Message",
     "send": "Send",
     "links": {
@@ -57,5 +72,20 @@
         "link": "https://mail.google.com/mail/u/0/?fs=1&to=yuliferna123@gmail.com&su=Hey+Yuli!&tf=cm"
       }
     }
-  }
+  },
+  "month": {
+    "1": "Jan",
+    "2": "Feb",
+    "3": "March",
+    "4": "April",
+    "5": "May",
+    "6": "June",
+    "7": "July",
+    "8": "Aug",
+    "9": "Sept",
+    "10": "Oct",
+    "11": "Nov",
+    "12": "Dec"
+  },
+  "seeHere": "See here!"
 }

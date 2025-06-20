@@ -1,0 +1,62 @@
+---
+import Description from "../atoms/Description";
+import TagContainer from "../molecules/TagContainer.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import Link from "../atoms/icons/Link";
+const {
+  title,
+  description,
+  image,
+  tags,
+  companyName,
+  certificate,
+  dateStart,
+  dateEnd,
+} = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<div>
+  <div>
+    <p class="text-xl font-extralight text-left text-[#EFB8C8]">
+      <span>{`${t("month")[new Date(dateStart).getMonth()]} ${new Date(dateStart).getFullYear()}`}</span>
+      {dateEnd ? ` - ${t("month")[new Date(dateEnd).getMonth()]} ${new Date(dateEnd).getFullYear()}` : ""}
+    </p>
+    <div
+      class="flex flex-col justify-end items-end max-w-[355px] h-fit gap-[22px] p-0 rounded-[20px] bg-[#7d5260] border-t-0 border-r-[5px] border-b-[5px] border-l-0 border-[#efb8c8]"
+      style="box-shadow: 9px 9px 8.5px 0 rgba(0,0,0,0.25);"
+    >
+      <div
+        class="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5"
+      >
+      </div>
+      <div class="flex flex-col justify-start items-center gap-3 px-4">
+        <div class="flex flex-row justify-between items-center gap-8 relative">
+          <div class="max-w-20 h-max-20">
+            <img
+            src={image}
+            class="flex-grow-0 flex-shrink-0 w-fit"
+          />
+          </div>
+            <p class="text-2xl font-bold text-left text-[#ffd8e4]">
+              {title}
+            </p>
+        </div>
+        <div>
+          <p class="text-base text-left text-[#efb8c8]">
+            {companyName}
+          </p>
+        </div>
+        <Description text={description} client:load />
+      </div>
+      <TagContainer items={tags} />
+      <div class="flex justify-end items-end gap-2 px-4 pb-4 flex-wrap">
+        {certificate && <a class="button" href={certificate} target="_blank" rel="noopener noreferrer">
+          <Link client:load />
+          {t("education")["seeCertificate"]}
+        </a>}
+      </div>
+    </div>
+  </div>
+</div>
