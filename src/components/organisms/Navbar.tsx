@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getLangFromUrl } from "../../i18n/utils";
 import Education from "../atoms/icons/Education";
 import Home from "../atoms/icons/Home";
 import Send from "../atoms/icons/Send";
@@ -23,18 +23,19 @@ const Navbar = () => {
       const button = buttons[i];
       button && button.classList.remove('active');
     }
+    const buttonSelected = document.getElementsByClassName(`${section} navbar-item`)[0];
+    buttonSelected && buttonSelected.classList.add('active');
     window.scrollTo({
       top: document.getElementById(section)?.offsetTop || 0
     });
   }
   useEffect(() => {
     const lang = getLangFromUrl(new URL(location.href));
-    const t = useTranslations(lang);
-
   }, []);
   return (<>
     <nav id="main-nav" className="navbar">
       {items.map((item, index) => (
+        // TO DO tooltip for each section
         <a key={`${item.section}-${index}`} className={`${item.section} navbar-item ${index == 0 ? 'active' : ''}`} onClick={() => {
           onClick(item.section);
         }}>

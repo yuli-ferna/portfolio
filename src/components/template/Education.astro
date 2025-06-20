@@ -1,0 +1,46 @@
+---
+import Timeline from "../organisms/Timeline.astro";
+import Exp from "../atoms/icons/Education"
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const items = [
+  {
+    title: "Bachelor of Science in Computer Science",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "ucv.svg",
+    type: "education",
+    tags: ["Programming logic", "C++"],
+    companyName: "Universidad Central de Venezuela",
+    dateStart: "2022-12-01",
+  },
+  {
+    title: "Visual Elements of User Interface Design",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "coursera.png",
+    type: "course",
+    tags: ["React", "HTML", "CSS"],
+    companyName: "Coursera",
+    ubication: "Remote",
+    dateStart: "2020-08-01",
+    certificate: "https://example.com",
+  },
+];
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); 
+---
+
+<div
+  class="w-screen min-h-screen flex flex-col items-center justify-center relative education-section pt-100"
+>
+  <div class="flex flex-row gap-4">
+    <h1 class="title font-bold mb-6">{t("education")["title"]}</h1>
+    <Exp client:load />
+  </div>
+  <div>{t("education")["description"]}</div>
+  <div class="mt-17">
+    <Timeline items={items} type="education" />
+  </div>
+</div>

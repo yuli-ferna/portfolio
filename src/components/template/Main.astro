@@ -1,8 +1,10 @@
 ---
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-import Footer from "../organisms/Footer.astro";
-import Home from "../organisms/Home.astro";
-import Skills from "../organisms/Skills.astro";
+import Contact from "./Contact.astro";
+import Education from "./Education.astro";
+import Experience from "./Experience.astro";
+import Home from "./Home.astro";
+import Skills from "./Skills.astro";
 import { easeInOut, motion } from "motion/react";
 const variants = {
   whileInView: {
@@ -31,6 +33,22 @@ const sections = [
     title: "Skills",
     component: Skills
   },
+  {
+    id: "experience",
+    title: "Experience",
+    component: Experience
+  },
+  {
+    id: "education",
+    title: "Education",
+    component: Education
+  },
+  {
+    id: "contact",
+    title: "Contact",
+    component: Contact
+
+  }
 ];
 
 const lang = getLangFromUrl(Astro.url);

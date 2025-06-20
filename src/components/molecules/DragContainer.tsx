@@ -12,10 +12,10 @@ export default function DragConstraints({ lang }) {
   const t = useTranslations(lang)
   const skillsList = t("skills")["skillsList"];
   const positions = [
-    "md:top-20 md:left-120",
-    "md:bottom-15 md:left-20",
-    "md:top-10 md:right-20",
-    "md:bottom-8 md:right-20",
+    "lg:top-60 lg:left-115",
+    "lg:bottom-15 lg:left-20",
+    "lg:top-10 lg:left-220",
+    "lg:bottom-8 lg:left-220",
   ]
   useEffect(() => {
     if (constraintsRef.current) {
@@ -38,24 +38,24 @@ export default function DragConstraints({ lang }) {
         edgeResistance: 0.65,
         inertia: true,
         onDragStart: function () {
-          this.target.className = this.target.className + " shadow-lg/60";
+          this.target.className = this.target.className + " shadow-lg/80";
         },
         onDragEnd: function () {
-          this.target.className = this.target.className.replace(" shadow-lg/60", "");
+          this.target.className = this.target.className.replace(" shadow-lg/80", "");
         }
       });
     }
   }
     , [constraintsRef]);
   return (
-    <motion.div ref={constraintsRef} className="w-fit h-fit md:w-full md:h-full flex flex-row flex-wrap justify-center gap-5">
-      <div className="flex flex-col items-center justify-center gap-4 pt-10 pb-10 w-80 md:absolute top-20 left-15">
+    <motion.div ref={constraintsRef} className="w-fit h-fit md:w-full md:h-full flex flex-row flex-wrap justify-center gap-5 relative">
+      <div className="flex flex-col items-center justify-center gap-4 pt-10 pb-10 w-80 lg:absolute lg:top-20 lg:left-15">
         <h1 className="title flex flex-row gap-4 align-center">
           {t("skills")["title"]}
           <motion.svg
             animate={{
               y: [-30, -10, -30],
-              transition: { duration: 2, repeat: Infinity, ease: "circInOut" }
+              transition: { duration: 1, repeat: Infinity, ease: "anticipate" }
             }}
             whileHover={{ scale: 1.2, rotate: 40, transition: { duration: 0.5 } }}
             whileTap={{ scale: 0.9, rotate: -40, transition: { duration: 0.5 } }}
