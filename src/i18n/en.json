@@ -1,7 +1,7 @@
 {
   "home": {
     "hello": "Hi, I'm Yuliana Fernandez",
-    "title": "Frontend Developer | UI/UX enthusiastic",
+    "titles": ["Software Developer", "Frontend", "UI/UX Enthusiastic"],
     "description": "I am a passionate software developer with a focus on creating innovative and efficient solutions. My expertise lies in web development, and I am always eager to learn new technologies and improve my skills."
   },
   "navbar": {
@@ -33,7 +33,7 @@
       "Frontend": ["HTML", "CSS", "JavaScript", "Typescript", "React", "Astro", "NextJS", "ThreeJS", "Tailwind", "Material UI", "Vue", "Ionic"],
       "Backend": ["NodeJS", "Express", "SQL", "PostgreSQL", "Firebase", "Oracle", "C++", "Python", "Yii"],
       "Libs & Tools": ["Git", "Docker", "GitHub", "Figma", "Web3 Wormhole SDK", "Web3 Ethers Lib"],
-      "Soft Skills": ["Teamwork", "Communication", "Adaptability", "Problem Solving", "Time Management"]
+      "Soft Skills": ["Creativity", "Communication", "Teamwork",  "Adaptability", "Problem Solving", "Time Management"]
     }
   },
   "experience": {

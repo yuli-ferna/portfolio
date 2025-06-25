@@ -47,7 +47,6 @@ const sections = [
     id: "contact",
     title: "Contact",
     component: Contact
-
   }
 ];
 
@@ -59,7 +58,7 @@ const t = useTranslations(lang);
   {sections.map((section) => (
   <section id={section.id} class="flex flex-col items-center justify-center text-center">
       <motion.div
-        client:only="react"
+        client:load
         {...variants}
       >
         <section.component t={t} />

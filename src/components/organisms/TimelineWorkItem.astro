@@ -37,6 +37,7 @@ const t = useTranslations(lang);
         <img
           src={image}
           class="flex-grow-0 flex-shrink-0 w-fit h-48 rounded-tl-[17px] rounded-tr-[17px] object-cover"
+          alt={companyName}
         />
       </div>
       <div class="flex flex-col justify-center items-center gap-3 px-4">
@@ -53,17 +54,17 @@ const t = useTranslations(lang);
             <Ubication text={ubication} />
           </div>
         </div>
-        <Description text={description} client:load />
+        <Description text={description} client:visible />
       </div>
       <TagContainer items={tags} />
       <div class="flex justify-end items-end gap-2 px-4 pb-4 flex-wrap">
-        {github && <a class="button" href={github} target="_blank" rel="noopener noreferrer">
-          <Github client:load />
+        {github && <a class="button" href={github} target="_blank" rel="noopener noreferrer" aria-label="Go to github">
+          <Github client:visible />
           Repo
         </a>}
         {projects && projects.map((project) => {
-          return <a class="button" href={project.link} target="_blank" rel="noopener noreferrer">
-          <Link client:load />
+          return <a class="button" href={project.link} target="_blank" rel="noopener noreferrer" aria-label="Go to link">
+          <Link client:visible />
           {!!project.text ? project.text : t("seeHere")}
         </a>
         })}

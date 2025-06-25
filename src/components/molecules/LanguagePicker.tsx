@@ -10,7 +10,7 @@ const LanguagePicker = () => {
   }
   , []);
 
-  const func = () => {console.log('Changing language')
+  const func = () => {
     const lang = currentLang === 'es' ? 'en' : 'es';
     const value = getTranslatedPath(
       pathname.replace(`/${currentLang}`, '').replace(/^\/+/, ''),
@@ -20,8 +20,9 @@ const LanguagePicker = () => {
   }
 
   return <button
-  className="icon-button"
+    className="icon-button"
     onClick={func}
+    aria-label={currentLang === 'es' ? 'Cambiar idioma' : 'Change language'}
   >
     {currentLang === 'es' ? 'EN' : 'ES'}
   </button>

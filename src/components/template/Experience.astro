@@ -49,11 +49,11 @@ const t = useTranslations(lang);
 ---
 
 <div
-  class="w-screen min-h-screen flex flex-col items-center justify-center relative experience-section pt-100"
+  class="w-fit min-h-screen flex flex-col items-center justify-center relative experience-section pt-100"
 >
   <div class="flex flex-row gap-4">
-    <h1 class="title font-bold mb-6">{t("experience")["title"]}</h1>
-    <Exp client:load />
+    <h1 class="title mb-6">{t("experience")["title"]}</h1>
+    <Exp client:visible />
   </div>
   <div>{t("experience")["description"]}</div>
   <div class="mt-17">

@@ -1,6 +1,6 @@
-const Logo = () => {
+const Logo = ({width = 48, height = 46}) => {
   return (
-    <svg id="logo" width="48" height="46" viewBox="0 0 48 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg id="logo" width={width} height='"46"' viewBox="0 0 48 46" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_d_44_108)">
         <path d="M42.0875 33.3311H5.9V29.5186H4V35.2311H5.9V37.1436H42.0875V35.2311H44V29.5186H42.0875V33.3311Z" className="fill-primary" />
         <path d="M40.1874 25.7064H42.0874V29.5189H40.1874V25.7064ZM26.8499 14.2814H28.7624V16.1814H26.8499V14.2814ZM21.1374 29.5189H26.8499V31.4189H21.1374V29.5189ZM23.0499 14.2814H24.9499V16.1814H23.0499V14.2814ZM19.2374 14.2814H21.1374V16.1814H19.2374V14.2814ZM9.7124 2.85645H38.2874V4.75645H9.7124V2.85645Z" className="fill-primary" />

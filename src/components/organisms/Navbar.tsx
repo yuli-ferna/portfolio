@@ -36,7 +36,11 @@ const Navbar = () => {
     <nav id="main-nav" className="navbar">
       {items.map((item, index) => (
         // TO DO tooltip for each section
-        <a key={`${item.section}-${index}`} className={`${item.section} navbar-item ${index == 0 ? 'active' : ''}`} onClick={() => {
+        <a
+          key={`${item.section}-${index}`}
+          className={`${item.section} navbar-item ${index == 0 ? 'active' : ''}`}
+          aria-label={item.section}
+          onClick={() => {
           onClick(item.section);
         }}>
           {item.component}

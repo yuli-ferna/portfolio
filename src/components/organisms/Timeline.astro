@@ -24,7 +24,7 @@ console.log("itemsSize",itemsSize)
               {icon}
             </div>
             {itemsSize > index + 1 && <motion.div
-              client:only="react"
+              client:visible
               layout
               viewport={{once: true}}
               initial={{ height: 0 }}
@@ -35,7 +35,7 @@ console.log("itemsSize",itemsSize)
             />}
           </div>
           <motion.div
-            client:load
+            client:visible
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{
               amount: 0.7,

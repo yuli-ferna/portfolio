@@ -35,8 +35,8 @@ export default function DragConstraints({ lang }) {
       Draggable.create(".skill-item", {
         type: "x,y",
         bounds: constraintsRef.current,
-        edgeResistance: 0.65,
-        inertia: true,
+        edgeResistance: 1,
+        inertia: false,
         onDragStart: function () {
           this.target.className = this.target.className + " shadow-lg/80";
         },
@@ -48,7 +48,11 @@ export default function DragConstraints({ lang }) {
   }
     , [constraintsRef]);
   return (
-    <motion.div ref={constraintsRef} className="w-fit h-fit md:w-full md:h-full flex flex-row flex-wrap justify-center gap-5 relative">
+    <div
+      ref={constraintsRef}
+      className="w-fit h-fit md:w-[98.5vw] lg:h-screen flex flex-col items-center justify-center gap-5 relative overflow-hidden"
+      // style={{ width: "calc(100vw - 25px)"}}
+      >
       <div className="flex flex-col items-center justify-center gap-4 pt-10 pb-10 w-80 lg:absolute lg:top-20 lg:left-15">
         <h1 className="title flex flex-row gap-4 align-center">
           {t("skills")["title"]}
@@ -74,6 +78,6 @@ export default function DragConstraints({ lang }) {
         const skillData = skillsList[skill];
         return <SkillContainer title={skill} skills={skillData} position={positions[index]} />
       })}
-    </motion.div>
+    </div>
   )
 }

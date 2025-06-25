@@ -4,9 +4,4 @@ import DragConstraints from "../molecules/DragContainer";
 const lang = getLangFromUrl(Astro.url);
 ---
 
-<div
-  class="flex flex-col md:flex-row items-center justify-center gap-8 w-screen h-fit relative
-  md:h-screen md:w-screen md:block skills-section" 
->
   <DragConstraints lang={lang} client:only="react" />
-<div/>

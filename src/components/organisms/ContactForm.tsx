@@ -100,10 +100,11 @@ const Contact = ({ lang }) => {
 
 
   return (
-    <div className="h-full">
-      <form id="form" onSubmit={onSubmit} className="h-full mt-10 flex flex-col align-items-center justify-center text-color-primary color-primary">
+    <div className="h-fit">
+      <form id="form" onSubmit={onSubmit} className="md:h-full mb-30 mt-10 flex flex-col items-center justify-center text-color-primary color-primary">
+        <h2 className="title text-xl font-semibold">Contact Form</h2>
         {/* name */}
-        <div className="mt-3 text-left">
+        <div className="w-full mt-3 text-left">
           <label htmlFor="name" className="block text-sm/6 font-medium">{t("contact")["name"]}</label>
           <div className="mt-2">
             <div className={`flex items-center rounded-md outline-1 -outline-offset-1 outline-primary focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-blue-300 ${!!messageError.fullName && "outline-red-600 focus-within:outline-red-600"}`}>
@@ -124,7 +125,7 @@ const Contact = ({ lang }) => {
           </div>
         </div>
         {/* email */}
-        <div className="mt-8 text-left">
+        <div className="w-full mt-8 text-left">
           <label htmlFor="email" className="block text-sm/6 font-medium">{t("contact")["email"]}</label>
           <div className="mt-2">
             <div className={`flex items-center rounded-md outline-1 -outline-offset-1 outline-primary focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-blue-300 ${!!messageError.email && "outline-red-600 focus-within:outline-red-600"}`}>
@@ -144,7 +145,7 @@ const Contact = ({ lang }) => {
             </div>
           </div>
         </div>
-        <div className="mt-8 text-left">
+        <div className="w-full mt-8 text-left">
           <label htmlFor="message" className="block text-sm/6 font-medium">{t("contact")["message"]}</label>
           <div className="mt-2">
             <div className={`flex items-center rounded-md outline-1 -outline-offset-1 outline-primary focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-blue-300 ${!!messageError.content && "outline-red-600 focus-within:outline-red-600"}`}>
@@ -168,6 +169,7 @@ const Contact = ({ lang }) => {
         <button
           type="submit"
           className="button w-full mt-5"
+          aria-label="Submit message"
           disabled={isFetching || !isValid()}
         >
           Send!

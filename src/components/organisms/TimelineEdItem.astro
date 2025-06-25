@@ -37,6 +37,7 @@ const t = useTranslations(lang);
             <img
             src={image}
             class="flex-grow-0 flex-shrink-0 w-fit"
+            alt={title}
           />
           </div>
             <p class="text-2xl font-bold text-left text-[#ffd8e4]">
@@ -52,7 +53,7 @@ const t = useTranslations(lang);
       </div>
       <TagContainer items={tags} />
       <div class="flex justify-end items-end gap-2 px-4 pb-4 flex-wrap">
-        {certificate && <a class="button" href={certificate} target="_blank" rel="noopener noreferrer">
+        {certificate && <a class="button" href={certificate} target="_blank" rel="noopener noreferrer" aria-label="Go to certificate">
           <Link client:load />
           {t("education")["seeCertificate"]}
         </a>}

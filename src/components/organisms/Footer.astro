@@ -1,4 +1,11 @@
-<footer>
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); 
+---
+<footer class="pb-30 px-4">
   <p>
       &copy; 2025 Mi Portafolio. Todos los derechos reservados.
       <br>
