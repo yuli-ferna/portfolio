@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { getLangFromUrl, getTranslatedPath } from "../../i18n/utils";
+import { getTranslatedPath } from "../../i18n/utils";
 
-const LanguagePicker = () => {
+const LanguagePicker = ({ lang }) => {
+
   const [currentLang, setCurrentLang] = useState('');
   const [pathname, setPathname] = useState('');
   useEffect(() => {
-    setCurrentLang(getLangFromUrl(new URL(location.href)));
+    setCurrentLang(lang)
     setPathname(location.pathname);
-  }
-  , []);
+  }, [lang]);
 
   const func = () => {
     const lang = currentLang === 'es' ? 'en' : 'es';

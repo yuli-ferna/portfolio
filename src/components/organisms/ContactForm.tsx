@@ -100,7 +100,7 @@ const Contact = ({ lang }) => {
 
 
   return (
-    <div className="h-fit">
+    <div className="h-fit w-full">
       <form id="form" onSubmit={onSubmit} className="md:h-full mb-30 mt-10 flex flex-col items-center justify-center text-color-primary color-primary">
         <h2 className="title text-xl font-semibold">Contact Form</h2>
         {/* name */}
@@ -168,7 +168,7 @@ const Contact = ({ lang }) => {
         </div>
         <button
           type="submit"
-          className="button w-full mt-5"
+          className="bg-container-primary button w-full mt-5"
           aria-label="Submit message"
           disabled={isFetching || !isValid()}
         >

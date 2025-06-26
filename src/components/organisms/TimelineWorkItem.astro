@@ -23,19 +23,16 @@ const t = useTranslations(lang);
 ---
 <div>
   <div>
-    <p class="text-xl font-extralight text-left text-[#ffd8e4]">
+    <p class="time-date">
       <span>{`${t("month")[new Date(dateStart).getMonth()]} ${new Date(dateStart).getFullYear()}`}</span>
       {dateEnd ? ` - ${t("month")[new Date(dateEnd).getMonth()]} ${new Date(dateEnd).getFullYear()}` : ""}
     </p>
-    <div
-      class="flex flex-col justify-end items-end max-w-[355px] h-fit gap-[22px] p-0 rounded-[20px] bg-[#7d5260] border-t-0 border-r-[5px] border-b-[5px] border-l-0 border-[#efb8c8]"
-      style="box-shadow: 9px 9px 8.5px 0 rgba(0,0,0,0.25);"
-    >
+    <div class="time-item">
       <div
         class="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5"
       >
         <img
-          src={image}
+          src={`/${image}`}
           class="flex-grow-0 flex-shrink-0 w-fit h-48 rounded-tl-[17px] rounded-tr-[17px] object-cover"
           alt={companyName}
         />
@@ -43,10 +40,10 @@ const t = useTranslations(lang);
       <div class="flex flex-col justify-center items-center gap-3 px-4">
         <div class="flex flex-row justify-between items-start relative">
           <div class="flex flex-col justify-start items-start relative gap-[5px]">
-            <p class="text-2xl font-bold text-left text-[#ffd8e4]">
+            <p class="text-2xl font-bold text-left text-pink-200">
               {jobTitle}
             </p>
-            <p class="left-[4.04px] top-[37px] text-base text-left text-[#efb8c8]">
+            <p class="left-[4.04px] top-[37px] text-base text-left text-pink-300">
               {companyName}
             </p>
           </div>

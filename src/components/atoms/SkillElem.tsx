@@ -14,7 +14,7 @@ const SkillElem = ({ skill }: { skill: string }) => {
       initial={{ opacity: 0, y: 20 }}
       transition={{ duration: 2, type: "spring", bounce: 0.2 }}
       >
-      <div><img className="w-6 h-6" src={`./${icon}.svg`} alt={icon} /></div>
+      <div><img className="w-6 h-6" src={`/${icon}.svg`} alt={icon} /></div>
       <div className="text-pink-200 text-start w-min min-w-20 whitespace-nowrap">{skill}</div>
     </motion.div>
   );

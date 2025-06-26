@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-import { getLangFromUrl } from "../../i18n/utils";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import Education from "../atoms/icons/Education";
 import Home from "../atoms/icons/Home";
 import Send from "../atoms/icons/Send";
 import Skill from "../atoms/icons/Skill";
 import Experience from "../atoms/icons/Work";
 
-const Navbar = () => {
-
+const Navbar = ({ lang }) => {
+  const t = useTranslations(lang) 
   const items = [
     { component: <Home />, section: "home", onView: false },
     { component: <Skill />, section: "skills", onView: false },
@@ -40,6 +40,7 @@ const Navbar = () => {
           key={`${item.section}-${index}`}
           className={`${item.section} navbar-item ${index == 0 ? 'active' : ''}`}
           aria-label={item.section}
+          title={t("navbar")[item.section].name}
           onClick={() => {
           onClick(item.section);
         }}>

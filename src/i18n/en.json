@@ -2,7 +2,8 @@
   "home": {
     "hello": "Hi, I'm Yuliana Fernandez",
     "titles": ["Software Developer", "Frontend", "UI/UX Enthusiastic"],
-    "description": "I am a passionate software developer with a focus on creating innovative and efficient solutions. My expertise lies in web development, and I am always eager to learn new technologies and improve my skills."
+    "description": "I am a passionate software developer with a focus on creating innovative and efficient solutions. My expertise lies in web development, and I am always eager to learn new technologies and improve my skills.",
+    "cvLink": "https://drive.google.com/file/d/1sSVrtH3qR1Me4MWeMP9hFFDV4c7bqtxF/view?usp=sharing"
   },
   "navbar": {
     "home": {

@@ -50,9 +50,7 @@ export default function DragConstraints({ lang }) {
   return (
     <div
       ref={constraintsRef}
-      className="w-fit h-fit md:w-[98.5vw] lg:h-screen flex flex-col items-center justify-center gap-5 relative overflow-hidden"
-      // style={{ width: "calc(100vw - 25px)"}}
-      >
+      className="w-fit h-fit md:w-[98.5vw] lg:h-screen flex flex-col md:flex-row flex-wrap items-center justify-center gap-5 relative overflow-hidden pb-50 pt-10 md:pt-0">
       <div className="flex flex-col items-center justify-center gap-4 pt-10 pb-10 w-80 lg:absolute lg:top-20 lg:left-15">
         <h1 className="title flex flex-row gap-4 align-center">
           {t("skills")["title"]}

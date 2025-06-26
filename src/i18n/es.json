@@ -1,7 +1,9 @@
 {
   "home": {
     "hello": "Hola, soy Yuliana Fernandez",
-    "description": "Soy una desarrolladora de software apasionada por crear soluciones innovadoras y eficientes. Mi especialidad es el desarrollo web, y siempre estoy dispuesta a aprender nuevas tecnologías y mejorar mis habilidades."
+    "titles": ["Software Developer", "Frontend", "UI/UX Enthusiastic"],
+    "description": "Soy una desarrolladora de software apasionada por crear soluciones innovadoras y eficientes. Mi especialidad es el desarrollo web, y siempre estoy dispuesta a aprender nuevas tecnologías y mejorar mis habilidades.",
+    "cvLink": "https://drive.google.com/file/d/1sSVrtH3qR1Me4MWeMP9hFFDV4c7bqtxF/view?usp=sharing"
   },
   "navbar": {
     "home": {
@@ -23,6 +25,16 @@
     "contact": {
       "name": "Contacto",
       "section": "contact"
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "description": "I have a diverse set of skills that I have developed through my education and experience.",
+    "skillsList": {
+      "Frontend": ["HTML", "CSS", "JavaScript", "Typescript", "React", "Astro", "NextJS", "ThreeJS", "Tailwind", "Material UI", "Vue", "Ionic"],
+      "Backend": ["NodeJS", "Express", "SQL", "PostgreSQL", "Firebase", "Oracle", "C++", "Python", "Yii"],
+      "Libs & Tools": ["Git", "Docker", "GitHub", "Figma", "Web3 Wormhole SDK", "Web3 Ethers Lib"],
+      "Soft Skills": ["Creativity", "Communication", "Teamwork",  "Adaptability", "Problem Solving", "Time Management"]
     }
   },
   "contact" : {

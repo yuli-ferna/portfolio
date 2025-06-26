@@ -23,23 +23,24 @@ main {
   --color-pink-100: #fae9ed;
   --color-pink-200: #ffd8e4;
   --color-pink-300: #efb8c8;
-  --color-pink-400: #A55F77;
+  --color-pink-400: #a55f77;
   --color-pink-500: #d55e86;
   --color-pink-600: #c03e71;
   --color-pink-700: #a12f5e;
   --color-pink-800: #872a54;
   --color-pink-900: #74274c;
-  --color-pink-950: #31111D;
+  --color-pink-950: #31111d;
 
   --color-text-primary: #352227;
-  --color-text-secondary: #7D5260;
+  --color-text-secondary: #7d5260;
   --color-text-disabled: #7d5260bf;
 
   --color-bg-default: #ffd8e4;
 
   --color-primary: #efb8c8;
+  --color-item: #a55f77;
   --color-primary-hover: #d55e86;
-  --color-secondary: #d55e86;
+  --color-secondary: #ffd8e4;
 }
 
 [data-theme="dark"] {
@@ -49,9 +50,10 @@ main {
 
   --color-bg-default: var(--color-pink-950);
 
-  --color-primary: #7D5260;
+  --color-primary: #7d5260;
+  --color-item: #7d5260;
   --color-primary-hover: #5c3f48;
-  --color-secondary: #1D1B20;
+  --color-secondary: #1d1b20;
 }
 
 @theme inline {
@@ -71,14 +73,13 @@ main {
   --color-pink-100: #fae9ed;
   --color-pink-200: #ffd8e4;
   --color-pink-300: #efb8c8;
-  --color-pink-400: #A55F77;
+  --color-pink-400: #a55f77;
   --color-pink-500: #d55e86;
   --color-pink-600: #c03e71;
   --color-pink-700: #a12f5e;
   --color-pink-800: #872a54;
   --color-pink-900: #74274c;
-  --color-pink-950: #31111D;
-
+  --color-pink-950: #31111d;
 
   --color-primary: var(--color-text-primary);
   --color-secondary: var(--color-text-secondary);
@@ -86,18 +87,18 @@ main {
 
   --color-container-paper: var(--color-bg-default);
   --color-container-primary: var(--color-primary);
+  --color-container-item: var(--color-item);
   --color-hover-primary: var(--color-primary-hover);
   --color-container-secondary: var(--color-secondary);
 }
 
 @layer components {
-
   /* Common styles */
   .icon-button {
     @apply flex justify-center items-center flex-grow-0 flex-shrink-0 w-[54px];
     @apply h-[54px] gap-2.5 p-2 rounded-[17px] cursor-pointer;
     @apply bg-container-primary border border-primary/[0.16];
-    box-shadow: "0px 4px 4px 0 rgba(0,0,0,0.25)";
+    box-shadow: "0px 4px 4px 0 #1d1b2063";
   }
 
   .icon-button:hover {
@@ -113,17 +114,18 @@ main {
   }
 
   .button {
-    @apply flex justify-center items-center min-w-[135px] max-h-[35px] relative gap-2.5 p-2 rounded-[10px] bg-[#1d1b20] border border-[#ffd8e4]/[0.16] cursor-pointer px-4 text-sm font-light;
+    @apply flex justify-center items-center min-w-[135px] max-h-[35px] relative gap-2.5 p-2 rounded-[10px] bg-container-secondary border border-primary/[0.16] cursor-pointer px-4 text-sm font-light;
     box-shadow: "0px 4px 4px 0 rgba(0,0,0,0.25)";
-
   }
 
   .button:hover {
-    @apply bg-[#d55e86] text-[#ffd8e4];
+    @apply bg-hover-primary text-primary;
+    transform: scale(1.05);
+    transition: all 0.05s ease-in-out;
   }
 
   .button:active {
-    @apply bg-[#7d5260] text-[#ffd8e4];
+    @apply bg-container-primary text-primary;
   }
 
   .button svg {
@@ -133,7 +135,7 @@ main {
   .title {
     font-family: "Pixelify Sans", sans-serif;
     font-size: 40px;
-    @apply md:text-6xl
+    @apply md:text-6xl;
   }
 
   .image-home #logo {
@@ -180,7 +182,16 @@ main {
 
   /* Timeline */
   .time-point {
-    @apply flex justify-center items-center flex-grow-0 flex-shrink-0 w-[49px] h-[49px] relative gap-2.5 px-2 py-1.5 rounded-[50px] bg-container-primary border-2 border-primary z-2;
+    @apply flex justify-center items-center flex-grow-0 flex-shrink-0 w-[49px] h-[49px] relative gap-2.5 px-2 py-1.5 rounded-[50px] bg-container-primary dark:bg-container-item border-2 border-primary z-2;
+  }
+
+  .time-date {
+    @apply text-xl font-light text-left text-secondary;
+  }
+
+  .time-item {
+    @apply flex flex-col justify-end items-end max-w-[355px] h-fit gap-[22px] p-0 rounded-[20px] bg-container-item/[0.95] border-t-0 border-r-[5px] border-b-[5px] border-l-0 border-secondary;
+    box-shadow: 9px 9px 8.5px 0 rgba(0, 0, 0, 0.25);
   }
 
   input:-webkit-autofill,
