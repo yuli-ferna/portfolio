@@ -10,15 +10,15 @@ const Description = ({ text, amountOfWords = 36 }) => {
     : text
   const endText = splittedText.slice(amountOfWords - 1).join(' ')
   return <p className="font-light text-left text-md text-[#ffd8e4]">
-    {beginText}
+    {beginText} {" "}
     {itCanOverflow && <>
       {!isExpanded && <span>... </span>}
       <span className={`${!isExpanded && 'hidden'}`} >
         {endText}
       </span>
 
-      <span className="text-left text-[#d0bcff]">
-        {isExpanded ? "Show less" : "Show more"}
+      <span className="text-left text-[#d0bcff] cursor-pointer" onClick={() => setIsExpanded(!isExpanded)}>
+        {isExpanded ? " Show less" : " Show more"}
       </span>
     </>}
   </p>

@@ -49,8 +49,8 @@ const t = useTranslations(lang);
         <Description text={description} client:load />
       </div>
       <TagContainer items={tags} />
-      <div class="flex justify-end items-end gap-2 px-4 pb-4 flex-wrap">
-        {certificate && <a class="button" href={certificate} target="_blank" rel="noopener noreferrer" aria-label="Go to certificate">
+      <div class="flex justify-end items-end gap-2 px-4 pb-4 flex-wrap w-full">
+        {certificate && <a class="button w-full" href={certificate} target="_blank" rel="noopener noreferrer" aria-label="Go to certificate">
           <Link client:load />
           {t("education")["seeCertificate"]}
         </a>}

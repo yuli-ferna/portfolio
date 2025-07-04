@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import SkillElem from "../atoms/SkillElem";
 import { motion } from "motion/react";
 
@@ -19,7 +18,7 @@ const SkillContainer = ({ title, skills, position }: SkillContainerProps) => {
       }}
       initial={{ opacity: 0, y: 50 }}
       transition={{ duration: 2, type: "spring", bounce: 0.2 }}
-      className={`skill-item lg:absolute ${position} w-[365px] h-fit min-h-[335px] rounded-[20px] dark:bg-[#7d5260] bg-pink-400/80 backdrop-blur-2xl border-[3px] border-primary relative flex flex-col pl-4 pr-4 pt-14 pb-6 gap-4 cursor-grab`}>
+      className={`skill-item min-[1320px]:absolute ${position} w-[365px] h-fit min-h-[335px] rounded-[20px] dark:bg-[#7d5260] bg-pink-400/80 backdrop-blur-2xl border-[3px] border-primary relative flex flex-col pl-4 pr-4 pt-14 pb-6 gap-4 cursor-grab`}>
       <svg
         width="362"
         height="3"

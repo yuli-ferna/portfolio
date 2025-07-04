@@ -22,7 +22,7 @@ const contact: any = t("contact"); // TO DO define type properly
           return null;
       }
     };
-    return <a href={contact.links[link].link} class="icon-button" target="_blank" rel="noopener noreferrer" aria-label={`Go to ${link}`}>
+    return <a href={contact.links[link].link} title={link} class="icon-button" target="_blank" rel="noopener noreferrer" aria-label={`Go to ${link}`}>
       {icon()}
     </a>
   })}

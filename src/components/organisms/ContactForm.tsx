@@ -96,13 +96,12 @@ const Contact = ({ lang }) => {
       isError: false,
       content: "",
     })
-  }
-
+  };
 
   return (
     <div className="h-fit w-full">
-      <form id="form" onSubmit={onSubmit} className="md:h-full mb-30 mt-10 flex flex-col items-center justify-center text-color-primary color-primary">
-        <h2 className="title text-xl font-semibold">Contact Form</h2>
+      <form id="form" onSubmit={onSubmit} className="md:h-full mt-10 flex flex-col items-center justify-center text-color-primary color-primary">
+        <h2 className="title text-xl font-semibold">{t("contact")["form"]}</h2>
         {/* name */}
         <div className="w-full mt-3 text-left">
           <label htmlFor="name" className="block text-sm/6 font-medium">{t("contact")["name"]}</label>

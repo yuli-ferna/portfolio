@@ -35,7 +35,7 @@ const lang = getLangFromUrl(Astro.url);
 			<LanguagePicker lang={lang} client:load />
 		</div>
 		<div class="fixed top-0 left-0 p-5 z-99999">
-			<div class="bg-container-paper/[40] rounded-xl backdrop-blur-md">
+			<div class="bg-container-paper/[40] rounded-xl backdrop-blur-md cursor-pointer" onclick="window.scrollTo(0,0)">
 				<Logo client:load />
 			</div>
 		</div>

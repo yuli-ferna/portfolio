@@ -134,7 +134,7 @@ main {
 
   .title {
     font-family: "Pixelify Sans", sans-serif;
-    font-size: 40px;
+    font-size: 50px;
     @apply md:text-6xl;
   }
 

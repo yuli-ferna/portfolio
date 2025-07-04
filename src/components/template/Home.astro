@@ -4,13 +4,14 @@ import DecryptedText from "../molecules/DecryptedText";
 import BlurText from "../molecules/BlurText";
 import ContactLinks from "../molecules/ContactLinks.astro";
 import SplitText from "../SplitText";
+import { motion } from "motion/react";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <div
-  class="flex flex-col-reverse md:flex-row items-center justify-around md:gap-20 w-85 md:w-full size-4 h-fit md:h-screen relative"
+  class="flex flex-col-reverse md:flex-row items-center justify-around lg:gap-20 w-85 md:w-full size-4 h-fit md:h-screen relative"
 >
   <div
     class="h-screen flex flex-col items-center justify-center gap-14 md:gap-7 md:max-w-100 md:items-start"
@@ -38,11 +39,20 @@ const t = useTranslations(lang);
     </div>
 
     <div class="w-full flex justify-center relative">
-      <a href={t("home")["cvLink"]} class="cursor-pointer" target="_blank">
+      <motion.a
+        client:load
+        href={t("home")["cvLink"]}
+        className="cursor-pointer"
+        animate={{
+          y: [0, 20, 0],
+          transition: { duration: 1, repeat: Infinity, ease: "easeInOut" },
+        }}
+        target="_blank"
+      >
         <SplitText
           client:load
           text="CV"
-          className="title absolute top-7 left-0 right-0"
+          className="title absolute top-3 md:top-7 left-0 right-0 text-[80px]"
           delay={200}
           duration={4}
           ease="elastic.out(1,0.3)"
@@ -105,7 +115,7 @@ const t = useTranslations(lang);
             </filter>
           </defs>
         </svg>
-      </a>
+      </motion.a>
     </div>
   </div>
   <div
@@ -126,26 +136,42 @@ const t = useTranslations(lang);
       class="image-home bg-container-primary w-55 h-55 md:w-80 md:h-80 shadow-lg border-1 border-secondary rounded relative"
     >
       <!-- TO DO Animate this svg -->
-      <img
-        class="h-fit w-fit absolute mix-blend-normal bottom-0"
+      <motion.img
+        client:only="react"
+        className="h-fit w-fit absolute mix-blend-normal bottom-0"
         src={"/image_home.png"}
         alt="Image avatar"
       />
-      <img
-        class="h-fit w-fit absolute opacity-50 mix-blend-lighten bottom-1 left-1"
+      <motion.img
+        client:only="react"
+        initial={{
+          bottom: 0, left: 0
+        }}
+        whileInView={{
+          bottom: [0, "5px", 0], left: [0, "5px", 0], transition: { repeat: Infinity, duration: 8 }
+        }}
+        className="h-fit w-fit absolute opacity-50 mix-blend-lighten bottom-1 left-1"
         src={"/image_home_red.png"}
         alt="Image avatar red"
       />
-      <img
-        class="h-fit w-fit absolute opacity-50 mix-blend-lighten -bottom-1 -left-1"
+      <motion.img
+        client:only="react"
+        initial={{
+          bottom: 0, left: 0
+        }}
+        whileInView={{
+          bottom: [0, "-5px", 0], left: [0, "-5px", 0], transition: { repeat: Infinity, duration: 8 }
+        }}
+        className="h-fit w-fit absolute opacity-50 mix-blend-lighten -bottom-1 -left-1"
         src={"/image_home_blue.png"}
         alt="Image avatar blue"
       />
-      <img
-        class="h-fit w-fit absolute opacity-50 mix-blend-lighten bottom-0"
+      <!-- <motion.img
+        client:only="react"
+        className="h-fit w-fit absolute opacity-50 mix-blend-lighten bottom-0"
         src={"/image_home_green.png"}
         alt="Image avatar green"
-      />
+      /> -->
     </div>
     <div class="title text-lg">
       {

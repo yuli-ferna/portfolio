@@ -4,7 +4,7 @@ const { items } = Astro.props;
 ---
 
 <div
-  class="flex flex-row flex-wrap items-center gap-4 justify-center w-full h-fit relative tag-container"
+  class="flex flex-row flex-wrap items-center gap-4 justify-center w-full h-fit relative tag-container px-3"
 >
-  {items.map((item) => <Tag client:visible text={item} />)}
+  {items.map((item) => <Tag client:only text={item} />)}
 </div>

@@ -17,7 +17,7 @@ console.log("itemsSize",itemsSize)
       let icon = type === "work" ? <Work /> : item.type === "education" ? <Education /> : <Certificate />;
       return (
         <div
-          class={`flex flex-row justify-around sm:justify-center md:justify-end gap-2 sm:gap-10 md:gap-15 pb-10 ${isEven ? " md:flex-row-reverse md:gap-16" : ""}`}
+          class={`flex flex-row justify-around sm:justify-center md:justify-end gap-0 sm:gap-10 md:gap-15 pb-10 ${isEven ? " md:flex-row-reverse md:gap-16" : ""}`}
         >
           <div class="relative">
             <div class="time-point">
