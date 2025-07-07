@@ -29,29 +29,122 @@
   },
   "skills": {
     "title": "Skills",
-    "description": "I have a diverse set of skills that I have developed through my education and experience.",
-    "skillsList": {
-      "Frontend": ["HTML", "CSS", "JavaScript", "Typescript", "React", "Astro", "NextJS", "ThreeJS", "Tailwind", "Material UI", "Vue", "Ionic"],
-      "Backend": ["NodeJS", "Express", "SQL", "PostgreSQL", "Firebase", "Oracle", "C++", "Python", "Yii"],
-      "Libs & Tools": ["Git", "Docker", "GitHub", "Figma", "Web3 Wormhole SDK", "Web3 Ethers Lib"],
-      "Soft Skills": ["Creativity", "Communication", "Teamwork",  "Adaptability", "Problem Solving", "Time Management"]
-    }
+    "description": "Throughout my career, I’ve developed both technical and interpersonal skills that allow me to adapt to various challenges.",
+    "skillsList": [
+      { "name": "Frontend", "items": ["HTML", "CSS", "JavaScript", "Typescript", "React", "Astro", "NextJS", "ThreeJS", "Tailwind", "Material UI", "Vue", "Ionic"]},
+      { "name": "Backend", "items": ["NodeJS", "Express", "SQL", "PostgreSQL", "Firebase", "Oracle", "C++", "Python", "Yii"]},
+      { "name": "Libs & Tools", "items": ["Git", "Docker", "GitHub", "Figma", "Web3 Wormhole SDK", "Web3 Ethers Lib"]},
+      { "name": "Soft Skills", "items": ["Creativity", "Communication", "Teamwork",  "Adaptability", "Problem Solving", "Time Management"]}
+    ]
   },
   "experience": {
     "title": "Experience",
-    "description": "Timeline of my professional journey",
+    "description": "Every stage of my professional journey has been an opportunity to learn, collaborate, and create value. In this section, I share the projects and roles that have shaped my path in software development.",
     "positions": [
-      {}
+      {
+        "jobTitle": "Software Developer",
+        "description":
+          "Developed the company website using Next.js and Framer Motion for animations. I also developed and maintained the Wormhole Portal Token Bridge, a blockchain-based cross-chain bridge project, primarily using Vite and React.",
+        "image": "portfolio/xlabs.png",
+        "tags": ["NextJS", "React", "Vite", "HTML", "CSS", "Typescript", "Framer Motion", "Web3", "Wormhole SDK", "Ethers lib", "Blockchain"],
+        "companyName": "xLabs",
+        "ubication": "Remote",
+        "dateStart": "2023-05-01",
+        "dateEnd": "2025-05-01",
+        "github": "https://github.com/wormhole-foundation/wormhole-connect/",
+        "projects": [{ "text": "Website", "link": "https://xlabs.xyz/" }, { "text": "Portal Bridge", "link": "https://portalbridge.com/" }]
+      },
+      {
+        "jobTitle": "Software Developer",
+        "description":
+          "Focused on web development for the Algo Explorer, a React-based application for exploring blockchain transactions and data on the Algorand network.",
+        "image": "portfolio/randlabs.png",
+        "tags": ["React", "HTML", "CSS", "Typescript", "Web3", "Blockchain", "Algorand"],
+        "companyName": "Rand Labs",
+        "ubication": "Remote",
+        "dateStart": "2021-09-01",
+        "dateEnd": "2023-01-01"
+      },
+      {
+        "jobTitle": "Frontend Web Developer",
+        "description":
+          "Developed web solutions for the Shareity project, utilizing Vue, Yii2, JavaScript, CSS3, and HTML5. And contributed to the development of Ozone, implementing features using React and Three.js.",
+        "image": "portfolio/mipto.png",
+        "tags": ["Vue", "Yii2", "Javascript", "HTML", "CSS", "React", "Three.js"],
+        "companyName": "Mipto Tech",
+        "ubication": "Remote",
+        "dateStart": "2020-07-01",
+        "dateEnd": "2021-08-01"
+      },
+      {
+        "jobTitle": "Software Developer",
+        "description":
+          "Managed Oracle relational databases and developed mobile applications with Ionic, as well as web applications with Angular and a NoSQL database.",
+        "image": "portfolio/survey.png",
+        "tags": ["Oracle", "Ionic", "Angular", "HTML", "CSS", "Firebase", "Database", "SQL", "noSQL"],
+        "companyName": "Deproinf CA",
+        "ubication": "Caracas",
+        "dateStart": "2018-03-01",
+        "dateEnd": "2020-08-01"
+      },
+      {
+        "jobTitle": "Teaching Assistant",
+        "description":
+          "Assisted in teaching the “Algorithms and Programming” course, covering fundamental programming concepts.",
+        "image": "portfolio/teach.png",
+        "tags": ["Programming logic", "Algorithms", "C++", "Computer science", "Teaching"],
+        "companyName": "Universidad Central de Venezuela",
+        "ubication": "Caracas",
+        "dateStart": "2018-03-01",
+        "dateEnd": "2020-08-01"
+      }
     ]
   },
   "education": {
     "title": "Education & Certificates",
-    "description": "All my blah blah",
-    "seeCertificate": "See Certificate"
+    "description": "I hold a degree in Computer Science and have complemented my education with continuous learning in web development. I believe education is a key tool to adapt, grow, and evolve as a professional.",
+    "seeCertificate": "See Certificate",
+    "titles": [
+      {
+        "title": "Bachelor of Science in Computer Science",
+        "description":
+          "During my studies at the Central University of Venezuela, I gained a strong foundation in computer science, covering areas such as programming, data structures, human-computer interaction, databases, and computer graphics. This academic journey strengthened both my technical skills and my critical thinking, preparing me to solve complex problems in a structured and analytical way. It also sparked a deep passion for software development and a commitment to continuous learning in an ever-evolving tech landscape.",
+        "image": "ucv.svg",
+        "type": "education",
+        "tags": ["Programming logic", "Databases", "Problem Solving", "Data structures",  "C++", "Human-Computer Interaction", "Computer Graphics", "Math"],
+        "companyName": "Universidad Central de Venezuela",
+        "dateStart": "2022-12-01"
+      },
+      {
+        "title": "Git + GitHub for Open Source Collaboration",
+        "description": "Learned the fundamentals of Git and GitHub, including how to push code changes, create and merge branches, fork repositories, and submit pull requests to contribute effectively to open source projects.",
+        "image": "coursera.png",
+        "type": "course",
+        "tags": ["Git", "Github", "Manage versions"],
+        "companyName": "Coursera",
+        "ubication": "Remote",
+        "dateStart": "2020-09-01",
+        "certificate": "https://www.coursera.org/account/accomplishments/certificate/WSRJDV8MU6ET"
+      },
+      {
+        "title": "Visual Elements of User Interface Design",
+        "description":
+          "This course explored the essential visual components of user interface design and examined the broader question of what an interface is, along with the designer’s role in shaping intuitive and effective user experiences.",
+        "image": "coursera.png",
+        "type": "course",
+        "tags": ["User Interface Design", "User Experience Design", "Web Design", "Information Architecture", "Human-Computer Interaction", "IU Components", "Graphic Design"],
+        "companyName": "Coursera",
+        "ubication": "Remote",
+        "dateStart": "2020-08-01",
+        "certificate": "https://www.coursera.org/account/accomplishments/certificate/WX5PL3L58AG8"
+      }
+    ]
   },
   "contact" : {
     "title": "Contact me!",
-    "description": "If you have some project in mind, feel free to contact me! If you have some project in mind, feel free to contact me! If you have some project in mind, feel free to contact me! If you have some project in mind, feel free to contact me! If you have some project in mind, feel free to contact me! If you have some project in mind, feel free to contact me! If you have some project in mind, feel free to contact me!",
+    "form": "Contact Form",
+    "myLinks": "My contact links",
+    "description": "Interested in collaborating or learning more about my work? I’m open to new opportunities and professional connections. Let’s talk!",
     "email": "Email",
     "name": "Name",
     "message": "Message",

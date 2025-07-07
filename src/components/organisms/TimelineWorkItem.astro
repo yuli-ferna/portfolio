@@ -21,11 +21,20 @@ const {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
+
 <div>
   <div>
     <p class="time-date">
-      <span>{`${t("month")[new Date(dateStart).getMonth()]} ${new Date(dateStart).getFullYear()}`}</span>
-      {dateEnd ? ` - ${t("month")[new Date(dateEnd).getMonth()]} ${new Date(dateEnd).getFullYear()}` : ""}
+      <span
+        >{
+          `${t("month")[new Date(dateStart).getMonth()]} ${new Date(dateStart).getFullYear()}`
+        }</span
+      >
+      {
+        dateEnd
+          ? ` - ${t("month")[new Date(dateEnd).getMonth()]} ${new Date(dateEnd).getFullYear()}`
+          : ""
+      }
     </p>
     <div class="time-item">
       <div
@@ -39,11 +48,15 @@ const t = useTranslations(lang);
       </div>
       <div class="flex flex-col justify-center items-center gap-3 px-4">
         <div class="flex flex-row justify-between items-start relative">
-          <div class="flex flex-col justify-start items-start relative gap-[5px]">
+          <div
+            class="flex flex-col justify-start items-start relative gap-[5px]"
+          >
             <p class="text-2xl font-bold text-left text-pink-200">
               {jobTitle}
             </p>
-            <p class="left-[4.04px] top-[37px] text-base text-left text-pink-300">
+            <p
+              class="left-[4.04px] top-[37px] text-base text-left text-pink-300"
+            >
               {companyName}
             </p>
           </div>
@@ -55,16 +68,38 @@ const t = useTranslations(lang);
       </div>
       <TagContainer items={tags} />
       <div class="flex justify-end items-end gap-2 px-4 pb-4 flex-wrap">
-        {github && <a class="button" href={github} target="_blank" rel="noopener noreferrer" aria-label="Go to github">
-          <Github client:visible />
-          Repo
-        </a>}
-        {projects && projects.map((project) => {
-          return <a class="button" href={project.link} target="_blank" rel="noopener noreferrer" aria-label="Go to link">
-          <Link client:visible />
-          {!!project.text ? project.text : t("seeHere")}
-        </a>
-        })}
+        {
+          github &&
+            github.map((repo) => {
+              <a
+                class="button"
+                href={repo.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Go to github"
+              >
+                <Github client:visible />
+                {!!repo.text ? repo.text : "Repo"}
+              </a>;
+            })
+        }
+        {
+          projects &&
+            projects.map((project) => {
+              return (
+                <a
+                  class="button"
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Go to link"
+                >
+                  <Link client:visible />
+                  {!!project.text ? project.text : t("seeHere")}
+                </a>
+              );
+            })
+        }
       </div>
     </div>
   </div>
