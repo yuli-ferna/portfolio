@@ -3,7 +3,7 @@
     "hello": "Hola, soy Yuliana Fernandez",
     "titles": ["Software Developer", "Frontend", "UI/UX Enthusiastic"],
     "description": "Soy una desarrolladora de software apasionada por crear soluciones innovadoras y eficientes. Mi especialidad es el desarrollo web, y siempre estoy dispuesta a aprender nuevas tecnologías y mejorar mis habilidades.",
-    "cvLink": "https://drive.google.com/file/d/1sSVrtH3qR1Me4MWeMP9hFFDV4c7bqtxF/view?usp=sharing"
+    "cvLink": "https://drive.google.com/file/d/1yGJ6dtxZoq8EVMc8knAGbRMry4jchf6V/view?usp=sharing"
   },
   "navbar": {
     "home": {
@@ -34,7 +34,7 @@
       { "name": "Frontend", "items": ["HTML", "CSS", "JavaScript", "Typescript", "React", "Astro", "NextJS", "ThreeJS", "Tailwind", "Material UI", "Vue", "Ionic"]},
       { "name": "Backend", "items": ["NodeJS", "Express", "SQL", "PostgreSQL", "Firebase", "Oracle", "C++", "Python", "Yii"]},
       { "name": "Libs & Tools", "items": ["Git", "Docker", "GitHub", "Figma", "Web3 Wormhole SDK", "Web3 Ethers Lib"]},
-      { "name": "Skills Blandos", "items": ["Creativity", "Communication", "Teamwork",  "Adaptability", "Problem Solving", "Time Management"]}
+      { "name": "Skills Blandos", "items": ["Creatividad", "Communicación", "Teamwork",  "Adaptability", "Time Management", "Critical Thinking"]}
     ]
   },
   "experience": {
@@ -44,14 +44,14 @@
       {
         "jobTitle": "Software Developer",
         "description":
-          "Desarrollé el sitio web de la empresa utilizando Next.js y Framer Motion para animaciones. Desarrollé e hice mantenimiento al Wormhole Portal Token Bridge, un proyecto de puente entre cadenas basado en blockchain (web 3), utilizando principalmente Vite y React.",
+          "Desarrollé el sitio web de la compañía utilizando Next.js. Además, desarrollé y mantuve el Wormhole Portal Token Bridge, un proyecto de puente entre cadenas basado en blockchain que incluye el widget Wormhole Connect, utilizando principalmente Vite y React.",
         "image": "portfolio/xlabs.png",
         "tags": ["NextJS", "React", "Vite", "HTML", "CSS", "Typescript", "Framer Motion", "Web3", "Wormhole SDK", "Ethers lib", "Blockchain"],
         "companyName": "xLabs",
         "ubication": "Remoto",
         "dateStart": "2023-05-01",
         "dateEnd": "2025-05-01",
-        "github": [{ "text": "Connect Repo", "link": "https://github.com/wormhole-foundation/wormhole-connect/" }, { "text": "Portal Repo", "link": "https://github.com/XLabs/portal-bridge-ui" }],
+        "github": [{ "text": "Connect", "link": "https://github.com/wormhole-foundation/wormhole-connect/" }, { "text": "Portal", "link": "https://github.com/XLabs/portal-bridge-ui" }],
         "projects": [{ "text": "Website", "link": "https://xlabs.xyz/" }, { "text": "Portal Bridge", "link": "https://portalbridge.com/" }]
       },
       {

@@ -34,7 +34,7 @@
       { "name": "Frontend", "items": ["HTML", "CSS", "JavaScript", "Typescript", "React", "Astro", "NextJS", "ThreeJS", "Tailwind", "Material UI", "Vue", "Ionic"]},
       { "name": "Backend", "items": ["NodeJS", "Express", "SQL", "PostgreSQL", "Firebase", "Oracle", "C++", "Python", "Yii"]},
       { "name": "Libs & Tools", "items": ["Git", "Docker", "GitHub", "Figma", "Web3 Wormhole SDK", "Web3 Ethers Lib"]},
-      { "name": "Soft Skills", "items": ["Creativity", "Communication", "Teamwork",  "Adaptability", "Problem Solving", "Time Management"]}
+      { "name": "Soft Skills", "items": ["Creativity", "Communication", "Teamwork",  "Adaptability", "Time Management", "Critical Thinking"]}
     ]
   },
   "experience": {
@@ -44,14 +44,14 @@
       {
         "jobTitle": "Software Developer",
         "description":
-          "Developed the company website using Next.js and Framer Motion for animations. I also developed and maintained the Wormhole Portal Token Bridge, a blockchain-based cross-chain bridge project, primarily using Vite and React.",
+          "Developed the company website using Next.js. Additionally, I developed and maintained the Wormhole Portal Token Bridge, a blockchain-based cross-chain bridge project that includes the Wormhole Connect widget, primarily using Vite and React.",
         "image": "portfolio/xlabs.png",
         "tags": ["NextJS", "React", "Vite", "HTML", "CSS", "Typescript", "Framer Motion", "Web3", "Wormhole SDK", "Ethers lib", "Blockchain"],
         "companyName": "xLabs",
         "ubication": "Remote",
         "dateStart": "2023-05-01",
         "dateEnd": "2025-05-01",
-        "github": "https://github.com/wormhole-foundation/wormhole-connect/",
+        "github": [{ "text": "Connect", "link": "https://github.com/wormhole-foundation/wormhole-connect/" }, { "text": "Portal", "link": "https://github.com/XLabs/portal-bridge-ui" }],
         "projects": [{ "text": "Website", "link": "https://xlabs.xyz/" }, { "text": "Portal Bridge", "link": "https://portalbridge.com/" }]
       },
       {

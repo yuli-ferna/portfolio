@@ -145,10 +145,10 @@ const t = useTranslations(lang);
       <motion.img
         client:only="react"
         initial={{
-          bottom: 0, left: 0
+          bottom: "6px", left: "6px"
         }}
         whileInView={{
-          bottom: [0, "5px", 0], left: [0, "5px", 0], transition: { repeat: Infinity, duration: 8 }
+          bottom: [0, "6px", 0], left: [0, "6px", 0], transition: { repeat: Infinity, duration: 8 }
         }}
         className="h-fit w-fit absolute opacity-50 mix-blend-lighten bottom-1 left-1"
         src={"/image_home_red.png"}
@@ -157,12 +157,12 @@ const t = useTranslations(lang);
       <motion.img
         client:only="react"
         initial={{
-          bottom: 0, left: 0
+          bottom: "-6px", left: "-6px", mixBlendMode: "lighten"
         }}
         whileInView={{
-          bottom: [0, "-5px", 0], left: [0, "-5px", 0], transition: { repeat: Infinity, duration: 8 }
+          bottom: [0, "-6px", 0], left: [0, "-6px", 0], mixBlendMode: ["normal", "lighten"], transition: { repeat: Infinity, duration: 8 }
         }}
-        className="h-fit w-fit absolute opacity-50 mix-blend-lighten -bottom-1 -left-1"
+        className="h-fit w-fit absolute opacity-50 -bottom-1 -left-1"
         src={"/image_home_blue.png"}
         alt="Image avatar blue"
       />

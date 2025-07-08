@@ -190,7 +190,7 @@ main {
   }
 
   .time-item {
-    @apply flex flex-col justify-end items-end max-w-[355px] h-fit gap-[22px] p-0 rounded-[20px] bg-container-item/[0.95] border-t-0 border-r-[5px] border-b-[5px] border-l-0 border-secondary;
+    @apply flex flex-col justify-end items-end max-w-[355px] w-fit h-fit gap-[22px] p-0 rounded-[20px] bg-container-item/[0.95] border-t-0 border-r-[5px] border-b-[5px] border-l-0 border-secondary;
     box-shadow: 9px 9px 8.5px 0 rgba(0, 0, 0, 0.25);
   }
 

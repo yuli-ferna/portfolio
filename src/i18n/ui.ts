@@ -28,6 +28,5 @@ export async function fetchTranslations(): Promise<{
     }));
   });
   const [en, es] = await Promise.all(translations);
-  console.log('Translations fetched:', { en, es });
   return { en, es };
 }

@@ -16,7 +16,7 @@ const Navbar = ({ lang }) => {
     { component: <Send />, section: "contact", onView: false },
   ];
   const onClick = (section: string) => {
-    console.log(`Navigating to ${section}`);
+    //console.log(`Navigating to ${section}`);
 
     const buttons = document.getElementsByClassName(`navbar-item`);
     for (let i = 0; i < buttons.length; i++) {

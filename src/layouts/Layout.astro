@@ -66,7 +66,7 @@ const lang = getLangFromUrl(Astro.url);
 	window.addEventListener(
 		"load",
 		(event) => {
-			// window.scrollTo(0, 0); // TO DO: Uncomment
+			window.scrollTo(0, 0);
 			const elements = document.getElementsByTagName("section");
 			for (let i = 0; i < elements.length; i++) {
 				const boxElement = elements[i];
@@ -97,20 +97,20 @@ const lang = getLangFromUrl(Astro.url);
 			// Check if the entry is intersecting
 			// The entry.intersectionRatio > 0.9 condition is to avoid some cases when prevRatio is greater but the element is still in view
 			if ((entry.intersectionRatio >= prevRatio[entry.target.id] || entry.intersectionRatio > 0.9) && entry.intersectionRatio > 0.1) {
-				console.log("on view", entry.target.id, entry.intersectionRatio, prevRatio[entry.target.id]);
+				//console.log("on view", entry.target.id, entry.intersectionRatio, prevRatio[entry.target.id]);
 				const button = document.getElementsByClassName(
 					`navbar-item ${entry.target.id}`,
 				)[0];
 				button && button.classList.add("active");
-				console.log(`Adding active class to ${entry.target.id}`);
+				//console.log(`Adding active class to ${entry.target.id}`);
 			} else {
-				console.log("NOT on view",  entry.target.id, entry.intersectionRatio, prevRatio[entry.target.id])
+				//console.log("NOT on view",  entry.target.id, entry.intersectionRatio, prevRatio[entry.target.id])
 
 				const button = document.getElementsByClassName(
 					`navbar-item ${entry.target.id}`,
 				)[0];
 				button && button.classList.remove("active");
-				console.log(`Remove active class to ${entry.target.id}`);
+				//console.log(`Remove active class to ${entry.target.id}`);
 			}
 
 			prevRatio[entry.target.id] = entry.intersectionRatio;

@@ -49,7 +49,7 @@ const Contact = ({ lang }) => {
     event.preventDefault();
     const formData = new FormData(event.target as HTMLFormElement);
     setIsFetching(true);
-    console.log("Submitting form", event.target, formData);
+    //console.log("Submitting form", event.target, formData);
 
     formData.append("access_key", "16bba9b2-716e-4213-a979-3aa37ebe1b63");
     formData.append(
@@ -65,7 +65,7 @@ const Contact = ({ lang }) => {
     const data = await response.json();
 
     if (data.success) {
-      console.log("Success", data);
+      //console.log("Success", data);
       setResultMessage({
         isError: false,
         content: "Message sent successfully!",
@@ -82,7 +82,7 @@ const Contact = ({ lang }) => {
       });
       setIsFetching(false);
     } else {
-      console.log("Error", data);
+      //console.log("Error", data);
       setResultMessage({
         isError: true,
         content: data.message || "An error occurred while sending the message.",

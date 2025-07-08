@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Description = ({ text, amountOfWords = 36 }) => {
+const Description = ({ text, amountOfWords = 40 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const splittedText = text.split(' ')

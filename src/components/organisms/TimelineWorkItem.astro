@@ -67,39 +67,43 @@ const t = useTranslations(lang);
         <Description text={description} client:visible />
       </div>
       <TagContainer items={tags} />
-      <div class="flex justify-end items-end gap-2 px-4 pb-4 flex-wrap">
-        {
-          github &&
-            github.map((repo) => {
-              <a
-                class="button"
-                href={repo.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Go to github"
-              >
-                <Github client:visible />
-                {!!repo.text ? repo.text : "Repo"}
-              </a>;
-            })
-        }
-        {
-          projects &&
-            projects.map((project) => {
-              return (
-                <a
-                  class="button"
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Go to link"
-                >
-                  <Link client:visible />
-                  {!!project.text ? project.text : t("seeHere")}
-                </a>
-              );
-            })
-        }
+      <div>
+        <div class="flex justify-end items-end gap-2 px-4 pb-4 flex-wrap">
+          {
+            github &&
+              github.map((repo) => {
+                return (
+                  <a
+                    class="button"
+                    href={repo.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Go to github"
+                  >
+                    <Github client:visible />
+                    {!!repo.text ? repo.text : "Repo"}
+                  </a>
+                );
+              })
+          }
+          {
+            projects &&
+              projects.map((project) => {
+                return (
+                  <a
+                    class="button"
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Go to link"
+                  >
+                    <Link client:visible />
+                    {!!project.text ? project.text : t("seeHere")}
+                  </a>
+                );
+              })
+          }
+        </div>
       </div>
     </div>
   </div>
