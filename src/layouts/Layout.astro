@@ -31,7 +31,7 @@ const lang = getLangFromUrl(Astro.url);
 		<div
 			class="flex justify-end items-center p-4 gap-4 fixed top-0 right-0 z-99999"
 		>
-			<ThemeIcon client:load />
+			<ThemeIcon />
 			<LanguagePicker lang={lang} client:load />
 		</div>
 		<div class="fixed top-0 left-0 p-5 z-99999">
@@ -45,7 +45,7 @@ const lang = getLangFromUrl(Astro.url);
 		>
 			<Navbar lang={lang} client:only="react" />
 		</div>
-		<Footer client:visible />
+		<Footer />
 	</body>
 </html>
 

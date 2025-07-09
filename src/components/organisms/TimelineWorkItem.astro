@@ -5,6 +5,7 @@ import TagContainer from "../molecules/TagContainer.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import Github from "../atoms/icons/Github";
 import Link from "../atoms/icons/Link";
+import DateTimeline from "../atoms/DateTimeline.astro";
 const {
   jobTitle,
   description,
@@ -24,18 +25,7 @@ const t = useTranslations(lang);
 
 <div>
   <div>
-    <p class="time-date">
-      <span
-        >{
-          `${t("month")[new Date(dateStart).getMonth()]} ${new Date(dateStart).getFullYear()}`
-        }</span
-      >
-      {
-        dateEnd
-          ? ` - ${t("month")[new Date(dateEnd).getMonth()]} ${new Date(dateEnd).getFullYear()}`
-          : ""
-      }
-    </p>
+    <DateTimeline dateStart={dateStart} dateEnd={dateEnd} />
     <div class="time-item">
       <div
         class="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5"
