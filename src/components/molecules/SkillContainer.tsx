@@ -1,5 +1,5 @@
 import SkillElem from "../atoms/SkillElem";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 interface SkillContainerProps {
   title: string;

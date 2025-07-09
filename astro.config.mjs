@@ -9,7 +9,6 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://yuli-ferna.github.io',
-  output: "static",
   devToolbar: {
     enabled: false
   },
@@ -24,6 +23,11 @@ export default defineConfig({
     react(),
   ],
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    server: {
+      watch: {
+        usePolling: true
+      }
+    }
   }
 });

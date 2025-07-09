@@ -19,7 +19,6 @@
     "astro-react-i18next": "^0.3.2",
     "framer-motion": "^12.18.1",
     "gsap": "^3.13.0",
-    "motion": "^12.18.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwindcss": "^4.1.10",
@@ -34,7 +33,6 @@
   },
   "lint-staged": {
     "*.{js,css,md}": "prettier --write",
-    "*.js": "eslint --cache --fix",
-    "*.css": "stylelint --fix"
+    "*.js": "eslint --cache --fix"
   }
 }

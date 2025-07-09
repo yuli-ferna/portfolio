@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const Experience = () => {
   return <div className="flex gap-2">

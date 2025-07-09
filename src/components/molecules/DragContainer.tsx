@@ -1,5 +1,5 @@
 
-import * as motion from "motion/react-client"
+import { motion } from "framer-motion"
 import { useEffect, useRef } from "react"
 import SkillContainer from "./SkillContainer";
 import { useTranslations } from "../../i18n/utils";

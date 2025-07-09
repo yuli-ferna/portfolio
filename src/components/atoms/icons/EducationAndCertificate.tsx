@@ -1,5 +1,5 @@
 
-import { motion } from "motion/react"
+import { motion } from "framer-motion"
 
 const draw = {
   hidden: { pathLength: 0, opacity: 0 },
