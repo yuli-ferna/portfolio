@@ -9,7 +9,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://yuli-ferna.github.io',
-  base: "/",
+  base: "portfolio",
   devToolbar: {
     enabled: false
   },
