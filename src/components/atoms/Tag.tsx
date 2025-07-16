@@ -15,6 +15,7 @@ const Tag = ({
   
   return (
     <motion.div
+      translate="no"
       initial={{
         boxShadow: "none"
       }}

@@ -138,7 +138,7 @@ const t = useTranslations(lang);
       <!-- TO DO Animate this svg -->
       <motion.img
         client:only="react"
-        className="h-fit w-fit absolute mix-blend-normal bottom-0"
+        className=" w-fit absolute mix-blend-normal bottom-0"
         src={"/image_home.png"}
         alt="Image avatar"
       />
@@ -150,7 +150,7 @@ const t = useTranslations(lang);
         whileInView={{
           bottom: [0, "6px", 0], left: [0, "6px", 0], transition: { repeat: Infinity, duration: 8 }
         }}
-        className="h-fit w-fit absolute opacity-50 mix-blend-lighten bottom-1 left-1"
+        className="w-fit absolute opacity-50 mix-blend-lighten bottom-1 left-1"
         src={"/image_home_red.png"}
         alt="Image avatar red"
       />
@@ -162,16 +162,10 @@ const t = useTranslations(lang);
         whileInView={{
           bottom: [0, "-6px", 0], left: [0, "-6px", 0], mixBlendMode: ["normal", "lighten"], transition: { repeat: Infinity, duration: 8 }
         }}
-        className="h-fit w-fit absolute opacity-50 -bottom-1 -left-1"
+        className="w-fit absolute opacity-50 -bottom-1 -left-1"
         src={"/image_home_blue.png"}
         alt="Image avatar blue"
       />
-      <!-- <motion.img
-        client:only="react"
-        className="h-fit w-fit absolute opacity-50 mix-blend-lighten bottom-0"
-        src={"/image_home_green.png"}
-        alt="Image avatar green"
-      /> -->
     </div>
     <div class="title text-lg">
       {

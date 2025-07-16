@@ -199,6 +199,7 @@ export default function DecryptedText({
         <motion.span
             ref={containerRef}
             className={`inline-block whitespace-pre-wrap ${parentClassName}`}
+            translate='no'
             {...hoverProps}
             {...props}
         >

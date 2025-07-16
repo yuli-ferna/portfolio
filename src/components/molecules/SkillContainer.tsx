@@ -11,10 +11,11 @@ const SkillContainer = ({ title, skills, position }: SkillContainerProps) => {
 
   return (
     <motion.div
+      translate="no"
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{
         once: true,
-        amount: 0.8 
+        amount: 0.8
       }}
       initial={{ opacity: 0, y: 50 }}
       transition={{ duration: 2, type: "spring", bounce: 0.2 }}
