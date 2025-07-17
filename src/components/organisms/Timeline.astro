@@ -17,7 +17,7 @@ const itemsSize = items.length;
       let icon = type === "work" ? <Work /> : item.type === "education" ? <Education /> : <Certificate />;
       return (
         <div
-          class={`flex flex-row justify-around sm:justify-center md:justify-end gap-0 sm:gap-10 md:gap-15 pb-10 ${isEven ? " md:flex-row-reverse md:gap-16" : ""}`}
+          class={`flex flex-row justify-center min-[900px]:justify-end xs:gap-3 sm:gap-10 md:gap-15 pb-10 ${isEven ? " min-[900px]:flex-row-reverse md:gap-16" : ""}`}
         >
           <div class="relative">
             <div class="time-point">
@@ -38,7 +38,7 @@ const itemsSize = items.length;
             client:visible
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{
-              amount: 0.7,
+              amount: 0.4,
             }}
             initial={{ opacity: 0, y: 50 }}
             transition={{ duration: 1, type: "spring", bounce: 0.2 }}

@@ -19,9 +19,9 @@ const SkillContainer = ({ title, skills, position }: SkillContainerProps) => {
       }}
       initial={{ opacity: 0, y: 50 }}
       transition={{ duration: 2, type: "spring", bounce: 0.2 }}
-      className={`skill-item min-[1320px]:absolute ${position} w-[365px] h-fit min-h-[335px] rounded-[20px] dark:bg-[#7d5260] bg-pink-400/80 backdrop-blur-2xl border-[3px] border-primary relative flex flex-col pl-4 pr-4 pt-14 pb-6 gap-4 cursor-grab`}>
+      className={`skill-item min-[1320px]:absolute ${position} w-[350px] sm:w-[365px] h-fit min-h-[335px] rounded-[20px] dark:bg-[#7d5260] bg-pink-400/80 backdrop-blur-2xl border-[3px] border-primary relative flex flex-col pl-3 pr-2 sm:pl-4 sm:pr-4 pt-14 pb-6 sm:gap-4 gap-2 cursor-grab`}>
       <svg
-        width="362"
+        width="100%"
         height="3"
         viewBox="0 0 362 3"
         fill="none"
@@ -64,7 +64,7 @@ const SkillContainer = ({ title, skills, position }: SkillContainerProps) => {
       >
         <circle cx="8" cy="7.5" r="6" fill="none" stroke-width="3"></circle>
       </svg>
-      <p className="text-3xl text-left text-[#ffd8e4]">{title}</p>
+      <p className="text-3xl text-left text-[#ffd8e4] pb-3 sm:pb-0">{title}</p>
       <div
         className="flex flex-wrap justify-start items-start gap-2 gap-y-4 flex-1"
       >

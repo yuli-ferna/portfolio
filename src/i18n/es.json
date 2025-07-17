@@ -34,7 +34,7 @@
       { "name": "Frontend", "items": ["HTML", "CSS", "JavaScript", "Typescript", "React", "Astro", "NextJS", "ThreeJS", "Tailwind", "Material UI", "Vue", "Ionic"]},
       { "name": "Backend", "items": ["NodeJS", "Express", "SQL", "PostgreSQL", "Firebase", "Oracle", "C++", "Python", "Yii"]},
       { "name": "Libs & Tools", "items": ["Git", "Docker", "GitHub", "Figma", "Web3 Wormhole SDK", "Web3 Ethers Lib"]},
-      { "name": "Skills Blandos", "items": ["Creatividad", "Communicación", "Teamwork",  "Adaptability", "Time Management", "Critical Thinking"]}
+      { "name": "Skills Blandos", "items": ["Creatividad", "Responsibilidad", "Teamwork",  "Adaptabilidad", "Comunicación", "Manejo de Tiempo", "Pensamiento Crítico"]}
     ]
   },
   "experience": {
@@ -49,8 +49,8 @@
         "tags": ["NextJS", "React", "Vite", "HTML", "CSS", "Typescript", "Framer Motion", "Web3", "Wormhole SDK", "Ethers lib", "Blockchain"],
         "companyName": "xLabs",
         "ubication": "Remoto",
-        "dateStart": "2023-05-01",
-        "dateEnd": "2025-05-01",
+        "dateStart": "May 2023",
+        "dateEnd": "May 2025",
         "github": [{ "text": "Connect", "link": "https://github.com/wormhole-foundation/wormhole-connect/" }, { "text": "Portal", "link": "https://github.com/XLabs/portal-bridge-ui" }],
         "projects": [{ "text": "Website", "link": "https://xlabs.xyz/" }, { "text": "Portal Bridge", "link": "https://portalbridge.com/" }]
       },
@@ -62,8 +62,8 @@
         "tags": ["React", "HTML", "CSS", "Typescript", "Web3", "Blockchain", "Algorand"],
         "companyName": "Rand Labs",
         "ubication": "Remoto",
-        "dateStart": "2021-09-01",
-        "dateEnd": "2023-01-01"
+        "dateStart": "Sep 2021",
+        "dateEnd": "Ene 2023"
       },
       {
         "jobTitle": "Frontend Web Developer",
@@ -73,8 +73,8 @@
         "tags": ["Vue", "Yii2", "Javascript", "HTML", "CSS", "React", "Three.js"],
         "companyName": "Mipto Tech",
         "ubication": "Remoto",
-        "dateStart": "2020-07-01",
-        "dateEnd": "2021-08-01"
+        "dateStart": "Jul 2020",
+        "dateEnd": "Ago 2021"
       },
       {
         "jobTitle": "Software Developer",
@@ -84,8 +84,8 @@
         "tags": ["Oracle", "Ionic", "Angular", "HTML", "CSS", "Firebase", "Database", "SQL", "noSQL"],
         "companyName": "Deproinf CA",
         "ubication": "Caracas",
-        "dateStart": "2018-03-01",
-        "dateEnd": "2020-08-01"
+        "dateStart": "Mar 2018",
+        "dateEnd": "Ago 2020"
       },
       {
         "jobTitle": "Teaching Assistant",
@@ -95,8 +95,8 @@
         "tags": ["Programming logic", "Algorithms", "C++", "Computer science", "Teaching"],
         "companyName": "Universidad Central de Venezuela",
         "ubication": "Caracas",
-        "dateStart": "2018-03-01",
-        "dateEnd": "2020-08-01"
+        "dateStart": "Mar 2018",
+        "dateEnd": "Ago 2020"
       }
     ]
   },
@@ -113,7 +113,7 @@
         "type": "education",
         "tags": ["Programming logic", "Databases", "Problem Solving", "Data structures",  "C++", "Human-Computer Interaction", "Computer Graphics", "Math"],
         "companyName": "Universidad Central de Venezuela",
-        "dateStart": "2022-12-01"
+        "dateStart": "Dic 2022"
       },
       {
         "title": "Git + GitHub for Open Source Collaboration",
@@ -123,7 +123,7 @@
         "tags": ["Git", "Github", "Manage versions"],
         "companyName": "Coursera",
         "ubication": "Remoto",
-        "dateStart": "2020-09-01",
+        "dateStart": "Sep 2020",
         "certificate": "https://www.coursera.org/account/accomplishments/certificate/WSRJDV8MU6ET"
       },
       {
@@ -134,7 +134,7 @@
         "tags": ["User Interface Design", "User Experience Design", "Web Design", "Information Architecture", "Human-Computer Interaction", "IU Components", "Graphic Design"],
         "companyName": "Coursera",
         "ubication": "Remoto",
-        "dateStart": "2020-08-01",
+        "dateStart": "Ago 2020",
         "certificate": "https://www.coursera.org/account/accomplishments/certificate/WX5PL3L58AG8"
       }
     ]

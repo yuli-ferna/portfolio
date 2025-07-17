@@ -50,7 +50,7 @@ export default function DragConstraints({ lang }) {
   return (
     <div
       ref={constraintsRef}
-      className="w-fit h-fit md:w-[98.5vw] lg:h-screen flex flex-col md:flex-row flex-wrap items-center justify-center gap-5 relative overflow-hidden pb-50 pt-10">
+      className="w-screen h-fit md:w-[98.5vw] lg:h-screen flex flex-col md:flex-row flex-wrap items-center justify-center gap-5 relative overflow-hidden pb-50 pt-10">
       <div className="flex flex-col items-center justify-center gap-4 pt-10 pb-10 w-80 min-[1320px]:absolute min-[1320px]:top-20 min-[1320px]:left-15">
         <h1 className="title flex flex-row gap-4 align-center">
           {t("skills")["title"]}
@@ -70,7 +70,7 @@ export default function DragConstraints({ lang }) {
             <path d="M55.0377 32.3639H61.5189V35.6152H55.0377V32.3639ZM48.5777 61.5189H51.8077V64.7489H48.5777V61.5189ZM42.0964 58.2889H48.5777V61.5189H42.0964V58.2889ZM42.0964 16.1927H45.3264V22.6527H42.0964V16.1927ZM38.8664 55.0377H42.0964V58.2889H38.8664V55.0377ZM38.8664 9.71143H42.0964V16.1927H38.8664V9.71143ZM35.6152 51.8077H38.8664V55.0377H35.6152V51.8077ZM12.9627 45.3264H16.1927V51.8077H12.9627V45.3264ZM9.71143 51.8077H12.9627V58.2889H9.71143V51.8077Z" fill="var(--color-text-primary)" />
           </motion.svg>
         </h1>
-        <p className="md:max-w-60 text-lg">
+        <p className="md:max-w-60 text-lg px-3 md:px-0">
           {t("skills")["description"]}
         </p>
       </div>

@@ -98,7 +98,7 @@ main {
     @apply flex justify-center items-center flex-grow-0 flex-shrink-0 w-[54px];
     @apply h-[54px] gap-2.5 p-2 rounded-[17px] cursor-pointer;
     @apply bg-container-primary border border-primary/[0.16];
-    box-shadow: "0px 4px 4px 0 #1d1b2063";
+    box-shadow: 0px 3px 3px 0 #31111d;
   }
 
   .icon-button:hover {
@@ -144,7 +144,7 @@ main {
 
   /* Navbar styles */
   .navbar {
-    @apply flex gap-3 justify-between w-[378px] pt-3 pb-3 pl-4 pr-4 rounded-[23px];
+    @apply flex gap-3 justify-between w-[378px] py-3 px-3 sm:px-4 rounded-[23px];
     @apply bg-pink-400/40 dark:bg-container-paper/20 border-2 border-secondary/[0.59] backdrop-blur-[10px];
   }
 
@@ -186,7 +186,7 @@ main {
   }
 
   .time-date {
-    @apply text-xl font-light text-left text-secondary;
+    @apply text-xl font-light text-left text-secondary pl-3 md:pl-0 pb-3 md:pb-0;
   }
 
   .time-item {

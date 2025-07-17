@@ -10,6 +10,6 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 <p class="time-date">
-<span>{`${t("month")[new Date(dateStart).getMonth()]} ${new Date(dateStart).getFullYear()}`}</span>
-{dateEnd ? ` - ${t("month")[new Date(dateEnd).getMonth()]} ${new Date(dateEnd).getFullYear()}` : ""}
+<span>{dateStart}</span>
+{dateEnd ? ` - ${dateEnd}` : ""}
 </p>
