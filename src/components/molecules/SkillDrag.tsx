@@ -1,5 +1,5 @@
 
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { useEffect, useRef } from "react"
 import SkillContainer from "./SkillContainer";
 import { useTranslations } from "../../i18n/utils";
@@ -10,7 +10,8 @@ gsap.registerPlugin(Draggable);
 export default function DragConstraints({ lang }) {
   const constraintsRef = useRef<HTMLDivElement>(null)
   const t = useTranslations(lang)
-  const skillsList = t("skills")["skillsList"];
+  const skills = t("skills") ?? {};
+  const skillsList = skills["skillsList"];
   const positions = [
     "min-[1320px]:top-60 min-[1320px]:left-115",
     "min-[1320px]:bottom-15 min-[1320px]:left-20",
@@ -53,7 +54,7 @@ export default function DragConstraints({ lang }) {
       className="w-screen h-fit md:w-[98.5vw] lg:h-screen flex flex-col md:flex-row flex-wrap items-center justify-center gap-5 relative overflow-hidden pb-50 pt-10">
       <div className="flex flex-col items-center justify-center gap-4 pt-10 pb-10 w-80 min-[1320px]:absolute min-[1320px]:top-20 min-[1320px]:left-15">
         <h1 className="title flex flex-row gap-4 align-center">
-          {t("skills")["title"]}
+          {skills["title"]}
           <motion.svg
             initial={{
               rotate: 0
@@ -71,7 +72,7 @@ export default function DragConstraints({ lang }) {
           </motion.svg>
         </h1>
         <p className="md:max-w-60 text-lg px-3 md:px-0">
-          {t("skills")["description"]}
+          {skills["description"]}
         </p>
       </div>
 

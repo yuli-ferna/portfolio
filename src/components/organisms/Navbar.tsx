@@ -8,6 +8,8 @@ import Experience from "../atoms/icons/Work";
 
 const Navbar = ({ lang }) => {
   const t = useTranslations(lang) 
+  const navbar = t("navbar") ?? {};
+  
   const items = [
     { component: <Home />, section: "home", onView: false },
     { component: <Skill />, section: "skills", onView: false },
@@ -40,7 +42,7 @@ const Navbar = ({ lang }) => {
           key={`${item.section}-${index}`}
           className={`${item.section} navbar-item ${index == 0 ? 'active' : ''}`}
           aria-label={item.section}
-          title={t("navbar")[item.section].name}
+          title={navbar[item.section].name}
           onClick={() => {
           onClick(item.section);
         }}>

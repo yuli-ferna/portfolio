@@ -6,19 +6,20 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang); 
-const items = [ ...t("experience")["positions"]];
+const experience = t("experience") ?? {};
+const items = [ ...(experience["positions"] ?? [])];
 ---
 
 <div
   class="w-fit min-h-screen flex flex-col items-center justify-center relative experience-section pt-50 pb-50"
 >
   <div class="flex flex-row gap-4 mb-10 relative">
-    <h1 class="title mb-6">{t("experience")["title"]}</h1>
+    <h1 class="title mb-6">{experience["title"]}</h1>
     <div class="absolute -top-5 -right-6 md:static">
       <Exp client:visible />
     </div>
   </div>
-  <div class="md:max-w-150 text-lg px-3 md:px-0">{t("experience")["description"]}</div>
+  <div class="md:max-w-150 text-lg px-3 md:px-0">{experience["description"]}</div>
   <div class="mt-17">
     <Timeline items={items} type="work" />
   </div>

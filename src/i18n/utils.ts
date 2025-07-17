@@ -17,7 +17,6 @@ export function useTranslations(lang: keyof typeof ui) {
 export function getTranslatedPath(path: string, lang: string) {
 	const pathWithoutLeadingSlash = path.startsWith('/') ? path.slice(1) : path
 
-	// Si estamos en la ruta raíz
 	if (pathWithoutLeadingSlash === '') {
 		if (lang === defaultLang) return '/'
 		return `/${lang}/`

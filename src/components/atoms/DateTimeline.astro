@@ -1,15 +1,8 @@
 ---
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-
-const {
-  dateStart,
-  dateEnd,
-} = Astro.props;
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { dateStart, dateEnd } = Astro.props;
 ---
+
 <p class="time-date">
-<span>{dateStart}</span>
-{dateEnd ? ` - ${dateEnd}` : ""}
+  <span>{dateStart}</span>
+  {dateEnd ? ` - ${dateEnd}` : ""}
 </p>

@@ -4,6 +4,7 @@ import ContactLinks from "../molecules/ContactLinks.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const contact = t("contact") ?? {};
 ---
 
 <footer
@@ -12,7 +13,7 @@ const t = useTranslations(lang);
 >
   <div class="flex flex-col md:flex-row justify-around gap-10">
     <div class="flex flex-col justify-between gap-8">
-      <p class="title text-[28px]">{t("contact")["myLinks"]}</p>
+      <p class="title text-[28px]">{contact["myLinks"]}</p>
       <ContactLinks />
     </div>
     <div class="max-w-80 flex flex-col gap-2 justify-center self-center md:justify-start">

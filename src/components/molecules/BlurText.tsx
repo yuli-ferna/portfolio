@@ -1,5 +1,5 @@
 /* Modified component: https://www.reactbits.dev/text-animations/blur-text */
-import { motion, type Transition } from "framer-motion";
+import { motion, type Transition } from "motion/react";
 import { useEffect, useRef, useState, useMemo } from "react";
 
 type BlurTextProps = {

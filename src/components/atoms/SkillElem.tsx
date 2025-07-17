@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 const SkillElem = ({ skill }: { skill: string }) => {
   const icon = useMemo(() => (skill.toLowerCase().replace(/\s+/g, "-")), [skill]);
   return (

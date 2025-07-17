@@ -4,10 +4,11 @@ import DecryptedText from "../molecules/DecryptedText";
 import BlurText from "../molecules/BlurText";
 import ContactLinks from "../molecules/ContactLinks.astro";
 import SplitText from "../SplitText";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const home = t("home") ?? {};
 ---
 
 <div
@@ -20,7 +21,7 @@ const t = useTranslations(lang);
       <DecryptedText
         client:load
         className="title text-lg "
-        text={`${t("home")["hello"]} ✨`}
+        text={`${home["hello"] ?? ''} ✨`}
         animateOn="view"
         revealDirection="start"
         speed={60}
@@ -30,7 +31,7 @@ const t = useTranslations(lang);
     <div>
       <BlurText
         client:load
-        text={t("home")["description"]}
+        text={home["description"]}
         className="title text-xl mt-6 justify-center w-max-50 md:justify-start md:text-start px-4 md:px-0"
         delay={50}
         animateBy="words"
@@ -41,7 +42,7 @@ const t = useTranslations(lang);
     <div class="w-full flex justify-center relative">
       <motion.a
         client:load
-        href={t("home")["cvLink"]}
+        href={home["cvLink"]}
         className="cursor-pointer"
         animate={{
           y: [0, 20, 0],
@@ -125,7 +126,7 @@ const t = useTranslations(lang);
       <DecryptedText
         client:load
         className="title text-lg "
-        text={`${t("home")["hello"]} ✨`}
+        text={`${home["hello"]} ✨`}
         animateOn="view"
         revealDirection="start"
         speed={60}
@@ -169,8 +170,8 @@ const t = useTranslations(lang);
     </div>
     <div class="title text-lg">
       {
-        t("home")["titles"] &&
-          t("home")["titles"].map((title) => {
+        home["titles"] &&
+          home["titles"].map((title) => {
             return (
               <>
                 <DecryptedText

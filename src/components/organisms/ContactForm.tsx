@@ -9,6 +9,8 @@ interface message {
 
 const Contact = ({ lang }) => {
   const t = useTranslations(lang);
+  const contact = t("contact") ?? {};
+
   const [message, setMessage] = useState<message>({
     fullName: "",
     email: "",
@@ -101,17 +103,17 @@ const Contact = ({ lang }) => {
   return (
     <div className="h-fit w-full">
       <form id="form" onSubmit={onSubmit} className="md:h-full mt-10 flex flex-col items-center justify-center text-color-primary color-primary">
-        <h2 className="title text-xl font-semibold">{t("contact")["form"]}</h2>
+        <h2 className="title text-xl font-semibold">{contact["form"]}</h2>
         {/* name */}
         <div className="w-full mt-3 text-left">
-          <label htmlFor="name" className="block text-sm/6 font-medium">{t("contact")["name"]}</label>
+          <label htmlFor="name" className="block text-sm/6 font-medium">{contact["name"]}</label>
           <div className="mt-2">
             <div className={`flex items-center rounded-md outline-1 -outline-offset-1 outline-primary focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-blue-300 ${!!messageError.fullName && "outline-red-600 focus-within:outline-red-600"}`}>
               <input
                 id="email"
                 className="block min-w-0 grow py-1.5 pr-3 pl-3 text-base placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
                 name="email"
-                placeholder={t("contact")["name"]}
+                placeholder={contact["name"]}
                 value={message.fullName}
                 onChange={(event) => handleChange(event.target.value, "fullName")}
                 required
@@ -125,7 +127,7 @@ const Contact = ({ lang }) => {
         </div>
         {/* email */}
         <div className="w-full mt-8 text-left">
-          <label htmlFor="email" className="block text-sm/6 font-medium">{t("contact")["email"]}</label>
+          <label htmlFor="email" className="block text-sm/6 font-medium">{contact["email"]}</label>
           <div className="mt-2">
             <div className={`flex items-center rounded-md outline-1 -outline-offset-1 outline-primary focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-blue-300 ${!!messageError.email && "outline-red-600 focus-within:outline-red-600"}`}>
               <input
@@ -145,7 +147,7 @@ const Contact = ({ lang }) => {
           </div>
         </div>
         <div className="w-full mt-8 text-left">
-          <label htmlFor="message" className="block text-sm/6 font-medium">{t("contact")["message"]}</label>
+          <label htmlFor="message" className="block text-sm/6 font-medium">{contact["message"]}</label>
           <div className="mt-2">
             <div className={`flex items-center rounded-md outline-1 -outline-offset-1 outline-primary focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-blue-300 ${!!messageError.content && "outline-red-600 focus-within:outline-red-600"}`}>
               <textarea
@@ -153,7 +155,7 @@ const Contact = ({ lang }) => {
                 className="block min-w-0 grow py-1.5 pr-3 pl-3 text-base placeholder:text-gray-400 focus:outline-none sm:text-sm/6 autofill:!bg-white rounded-md"
                 name="message"
                 rows={3}
-                placeholder={t("contact")["message"]}
+                placeholder={contact["message"]}
                 value={message.content}
                 onChange={(event) => handleChange(event.target.value, "content")}
                 required

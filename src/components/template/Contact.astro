@@ -7,12 +7,13 @@ import Footer from "../organisms/Footer.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang); 
+const contact = t("contact") ?? {};
 ---
 <div class="w-screen">
   <div class="w-fit md:w-screen md:h-screen flex flex-col justify-around items-center md:flex-row gap-5 md:gap-10 algin-middle pt-30 px-4 md:pt-0">
     <div class="max-w-80 md:h-fit md:max-w-100 flex flex-col gap-10 justify-center items-center">
-      <h1 class="title">{t("contact")["title"]}</h1>
-      <p class="text-lg px-3 md:px-0">{t("contact")["description"]}</p>
+      <h1 class="title">{contact["title"]}</h1>
+      <p class="text-lg px-3 md:px-0">{contact["description"]}</p>
       <div class="self-start hidden md:block">
         <Ubication text={"Caracas, Venezuela"}/>
       </div>

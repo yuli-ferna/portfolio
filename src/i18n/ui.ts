@@ -16,17 +16,17 @@ export async function fetchTranslations(): Promise<{
   en: LanguageMap;
   es: LanguageMap;
 }> {
-  // if(process.env.NODE_ENV === 'development') {
+  if(process.env.NODE_ENV === 'development') {
     return { en: english, es: spanish };
-  // }
-  // let translations: Promise<{}>[] = [];
-  // Object.keys(languages).forEach(lang => {
-  //   translations.push(new Promise((resolve) => {
-  //     const url = `https://raw.githubusercontent.com/yuli-ferna/portfolio-assets/refs/heads/main/locale/${lang}.json`;
-  //     resolve(fetch(url)
-  //     .then(res => res.json()).catch(() => ({})))
-  //   }));
-  // });
-  // const [en, es] = await Promise.all(translations);
-  // return { en, es };
+  }
+  let translations: Promise<{}>[] = [];
+  Object.keys(languages).forEach(lang => {
+    translations.push(new Promise((resolve) => {
+      const url = `https://raw.githubusercontent.com/yuli-ferna/portfolio-assets/refs/heads/main/locale/${lang}.json`;
+      resolve(fetch(url)
+      .then(res => res.json()).catch(() => ({})))
+    }));
+  });
+  const [en, es] = await Promise.all(translations);
+  return { en, es };
 }
