@@ -10,7 +10,7 @@ const { items, type = "work" } = Astro.props;
 const itemsSize = items.length;
 ---
 
-<div class="w-screen h-fit relative max-w-200">
+<div class="h-fit relative max-w-200">
   {
     items.map((item, index) => {
       const isEven = (index + 1) % 2 === 0;

@@ -98,7 +98,7 @@ main {
     @apply flex justify-center items-center flex-grow-0 flex-shrink-0 w-[54px];
     @apply h-[54px] gap-2.5 p-2 rounded-[17px] cursor-pointer;
     @apply bg-container-primary border border-primary/[0.16];
-    box-shadow: 0px 3px 3px 0 #31111d;
+    box-shadow: 4px 3px 0px 0 #31111d;
   }
 
   .icon-button:hover {
@@ -192,6 +192,10 @@ main {
   .time-item {
     @apply flex flex-col justify-end items-end max-w-[355px] w-fit h-fit gap-[22px] p-0 rounded-[20px] bg-container-item/[0.95] border-t-0 border-r-[5px] border-b-[5px] border-l-0 border-secondary;
     box-shadow: 9px 9px 8.5px 0 rgba(0, 0, 0, 0.25);
+  }
+  /* Patch for astro-island beahvior */
+  section > astro-island > div {
+    width: 100%;
   }
 
   input:-webkit-autofill,
