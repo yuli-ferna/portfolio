@@ -38,7 +38,7 @@ const Navbar = ({ lang }) => {
     <nav id="main-nav" className="navbar">
       {items.map((item, index) => (
         // TO DO tooltip for each section
-        <a
+        <button
           key={`${item.section}-${index}`}
           className={`${item.section} navbar-item ${index == 0 ? 'active' : ''}`}
           aria-label={item.section}
@@ -47,7 +47,7 @@ const Navbar = ({ lang }) => {
           onClick(item.section);
         }}>
           {item.component}
-        </a>
+        </button>
       ))}
     </nav>
     {/* To do scroll to top button when is not in Home section */}
