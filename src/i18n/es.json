@@ -45,7 +45,7 @@
         "jobTitle": "Software Developer",
         "description":
           "Desarrollé el sitio web de la compañía utilizando Next.js. Además, desarrollé y mantuve el Wormhole Portal Token Bridge, un proyecto de puente entre cadenas basado en blockchain que incluye el widget Wormhole Connect, utilizando principalmente Vite y React.",
-        "image": "portfolio/xlabs.png",
+        "image": "portfolio/xlabs.webp",
         "tags": ["NextJS", "React", "Vite", "HTML", "CSS", "Typescript", "Framer Motion", "Web3", "Wormhole SDK", "Ethers lib", "Blockchain"],
         "companyName": "xLabs",
         "ubication": "Remoto",
@@ -58,7 +58,7 @@
         "jobTitle": "Software Developer",
         "description":
           "Me enfoqué en el desarrollo web para Algo Explorer, una aplicación basada en React para explorar transacciones y datos de blockchain en la red Algorand.",
-        "image": "portfolio/randlabs.png",
+        "image": "portfolio/randlabs.webp",
         "tags": ["React", "HTML", "CSS", "Typescript", "Web3", "Blockchain", "Algorand"],
         "companyName": "Rand Labs",
         "ubication": "Remoto",
@@ -69,7 +69,7 @@
         "jobTitle": "Frontend Web Developer",
         "description":
           "Desarrollé soluciones web para el proyecto Shareity, utilizando Vue, Yii2, JavaScript, CSS3 y HTML5. Contribuí al desarrollo de Ozone, implementando funcionalidades con React y Three.js.",
-        "image": "portfolio/mipto.png",
+        "image": "portfolio/mipto.webp",
         "tags": ["Vue", "Yii2", "Javascript", "HTML", "CSS", "React", "Three.js"],
         "companyName": "Mipto Tech",
         "ubication": "Remoto",
@@ -80,7 +80,7 @@
         "jobTitle": "Software Developer",
         "description":
           "Administré bases de datos relacionales Oracle y desarrollé aplicaciones móviles con Ionic, así como aplicaciones web con Angular y una base de datos NoSQL.",
-        "image": "portfolio/survey.png",
+        "image": "portfolio/survey.webp",
         "tags": ["Oracle", "Ionic", "Angular", "HTML", "CSS", "Firebase", "Database", "SQL", "noSQL"],
         "companyName": "Deproinf CA",
         "ubication": "Caracas",
@@ -91,7 +91,7 @@
         "jobTitle": "Teaching Assistant",
         "description":
           "Asistí en la enseñanza del curso 'Algoritmos y Programación', cubriendo la parte práctica de los conceptos fundamentales de programación.",
-        "image": "portfolio/teach.png",
+        "image": "portfolio/teach.webp",
         "tags": ["Programming logic", "Algorithms", "C++", "Computer science", "Teaching"],
         "companyName": "Universidad Central de Venezuela",
         "ubication": "Caracas",
