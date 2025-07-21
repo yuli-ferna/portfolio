@@ -78,7 +78,7 @@ export default function DragConstraints({ lang }) {
 
       {skillsList.map((skill, index) => {
         
-        return <SkillContainer title={skill.name} skills={skill.items} position={positions[index]} />
+        return <SkillContainer key={`skill-container-${index}`} title={skill.name} skills={skill.items} soft={skill.soft} position={positions[index]} />
       })}
     </div>
   )

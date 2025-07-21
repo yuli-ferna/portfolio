@@ -5,9 +5,10 @@ interface SkillContainerProps {
   title: string;
   skills: string[];
   position?: string;
+  soft?: boolean;
 }
 
-const SkillContainer = ({ title, skills, position }: SkillContainerProps) => {
+const SkillContainer = ({ title, skills, position, soft }: SkillContainerProps) => {
 
   return (
     <motion.div
@@ -29,7 +30,7 @@ const SkillContainer = ({ title, skills, position }: SkillContainerProps) => {
         className="absolute left-0 top-7.5 stroke-primary"
         preserveAspectRatio="none"
       >
-        <path d="M0 1.5H362" stroke-width="3"></path>
+        <path d="M0 1.5H362" strokeWidth="3"></path>
       </svg>
       <svg
         width="16"
@@ -40,7 +41,7 @@ const SkillContainer = ({ title, skills, position }: SkillContainerProps) => {
         className="absolute left-5 top-2 stroke-primary"
         preserveAspectRatio="none"
       >
-        <circle cx="8" cy="7.5" r="6" fill="none" stroke-width="3"></circle>
+        <circle cx="8" cy="7.5" r="6" fill="none" strokeWidth="3"></circle>
       </svg>
       <svg
         width="16"
@@ -51,7 +52,7 @@ const SkillContainer = ({ title, skills, position }: SkillContainerProps) => {
         className="absolute left-10 top-2 stroke-primary"
         preserveAspectRatio="none"
       >
-        <circle cx="8" cy="7.5" r="6" fill="none" stroke-width="3"></circle>
+        <circle cx="8" cy="7.5" r="6" fill="none" strokeWidth="3"></circle>
       </svg>
       <svg
         width="16"
@@ -62,14 +63,14 @@ const SkillContainer = ({ title, skills, position }: SkillContainerProps) => {
         className="absolute left-15 top-2 stroke-primary"
         preserveAspectRatio="none"
       >
-        <circle cx="8" cy="7.5" r="6" fill="none" stroke-width="3"></circle>
+        <circle cx="8" cy="7.5" r="6" fill="none" strokeWidth="3"></circle>
       </svg>
       <p className="text-3xl text-left text-[#ffd8e4] pb-3 sm:pb-0">{title}</p>
       <div
         className="flex flex-wrap justify-start items-start gap-2 gap-y-4 flex-1"
       >
         {skills.map((skill, index) => (
-          <SkillElem key={`${skill}-${index}`} skill={skill} />
+          <SkillElem key={`${skill}-${index}`} skill={skill} soft={soft} />
         ))}
       </div>
     </motion.div>

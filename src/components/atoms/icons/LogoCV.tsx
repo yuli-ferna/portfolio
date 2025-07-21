@@ -8,8 +8,8 @@ const LogoCV = () => {
   <path d="M76.866 93.7682V88.0082H71.042V58.4402H76.866V52.6162H94.914V58.4402H100.802V70.6002H94.274V59.0802H77.506V87.3682H94.274V75.7202H100.802V88.0082H94.914V93.7682H76.866Z" fill="#FFD8E4"/>
   </g>
   <defs>
-  <filter id="filter0_d_165_1071" x="0" y="0" width="208" height="208" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+  <filter id="filter0_d_165_1071" x="0" y="0" width="208" height="208" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+  <feFlood floodOpacity="0" result="BackgroundImageFix"/>
   <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
   <feOffset dy="4"/>
   <feGaussianBlur stdDeviation="2"/>

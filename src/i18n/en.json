@@ -34,7 +34,7 @@
       { "name": "Frontend", "items": ["HTML", "CSS", "JavaScript", "Typescript", "React", "Astro", "NextJS", "ThreeJS", "Tailwind", "Material UI", "Vue", "Ionic"]},
       { "name": "Backend", "items": ["NodeJS", "Express", "SQL", "PostgreSQL", "Firebase", "Oracle", "C++", "Python", "Yii"]},
       { "name": "Libs & Tools", "items": ["Git", "Docker", "GitHub", "Figma", "Web3 Wormhole SDK", "Web3 Ethers Lib"]},
-      { "name": "Soft Skills", "items": ["Creativity", "Responsibility", "Teamwork",  "Adaptability", "Communication", "Time Management", "Critical Thinking"]}
+      { "name": "Soft Skills", "items": ["Creativity", "Responsibility", "Teamwork",  "Adaptability", "Communication", "Time Management", "Critical Thinking"], "soft": true}
     ]
   },
   "experience": {

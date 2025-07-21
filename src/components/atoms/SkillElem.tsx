@@ -1,7 +1,9 @@
 import { useMemo } from "react";
 import { motion } from "motion/react";
-const SkillElem = ({ skill }: { skill: string }) => {
-  const icon = useMemo(() => (skill.toLowerCase().replace(/\s+/g, "-")), [skill]);
+const SkillElem = ({ skill, soft }: { skill: string, soft: boolean }) => {
+  const icon = useMemo(() => {
+    return soft ? "checkbox" : skill.toLowerCase().replace(/\s+/g, "-")
+  }, [skill, soft]);
   return (
     <motion.div 
       className="skill-elem flex flex-1/3 md:flex-1/4 items-start justify-start gap-3"

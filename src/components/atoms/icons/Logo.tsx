@@ -8,8 +8,8 @@ const Logo = ({ width = 48, height = 46 }) => {
         <path d="M19.4839 18.03V17.15H18.5939V16.28H17.6939V15.41H16.8039V14.53H15.9139V13.3H16.8139V12.43H17.6939V11.55H18.5939V10.68H19.4839V9.81H20.6739V11.06H19.7739V11.92H18.8939V12.8H17.9839V13.67H17.1039V14.16H17.9839V15.04H18.8939V15.9H19.7739V16.78H20.6739V18.03H19.4839ZM21.8699 17.12L25.0499 10.69H26.1199L22.9399 17.12H21.8699ZM27.3299 18.03V16.78H28.2299V15.9H29.1199V15.04H30.0099V14.16H30.9099V13.67H30.0099V12.8H29.1199V11.92H28.2199V11.06H27.3299V9.81H28.5199V10.68H29.4099V11.55H30.2999V12.43H31.1799V13.3H32.0899V14.53H31.1899V15.41H30.2999V16.28H29.4099V17.15H28.5199V18.03H27.3299Z" fill="var(--color-text-primary)" />
       </g>
       <defs>
-        <filter id="filter0_d_165_1071" x="0" y="0" width={width} height={height} filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <filter id="filter0_d_165_1071" x="0" y="0" width={width} height={height} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
           <feOffset dy="4" />
           <feGaussianBlur stdDeviation="2" />
