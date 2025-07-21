@@ -10,14 +10,14 @@ const { items, type = "work" } = Astro.props;
 const itemsSize = items.length;
 ---
 
-<div class="h-fit relative max-w-200">
+<div class="min-[990px]:w-screen h-fit relative max-w-200">
   {
     items.map((item, index) => {
       const isEven = (index + 1) % 2 === 0;
       let icon = type === "work" ? <Work /> : item.type === "education" ? <Education /> : <Certificate />;
       return (
         <div
-          class={`flex flex-row justify-center min-[900px]:justify-end xs:gap-3 sm:gap-10 md:gap-15 pb-10 ${isEven ? " min-[900px]:flex-row-reverse md:gap-16" : ""}`}
+          class={`flex flex-row justify-center min-[990px]:justify-end xs:gap-3 sm:gap-10 md:gap-15 pb-10 ${isEven ? " min-[990px]:flex-row-reverse md:gap-16" : ""}`}
         >
           <div class="relative">
             <div class="time-point">
