@@ -20,7 +20,7 @@ const LanguagePicker = ({ lang }) => {
   }
 
   return <button
-    className="icon-button"
+    className="icon-button title text-xl"
     onClick={func}
     aria-label={currentLang === 'es' ? 'Cambiar idioma' : 'Change language'}
   >
