@@ -12,7 +12,8 @@ const home = t("home") ?? {};
 ---
 
 <div
-  class="flex flex-col-reverse md:flex-row items-center justify-around lg:gap-20 w-fit w-max-85 md:w-full size-4 h-fit md:h-screen relative"
+  class="flex flex-col-reverse md:flex-row items-center justify-around lg:gap-20 w-fit w-max-85 md:w-full size-4 h-fit md:h-[calc(100vh+30px)] relative"
+   transition:animate="none"
 >
   <div
     class="h-screen flex flex-col items-center justify-center gap-14 md:gap-7 md:max-w-100 md:items-start"
@@ -21,7 +22,7 @@ const home = t("home") ?? {};
       <DecryptedText
         client:load
         className="title text-lg "
-        text={`${home["hello"] ?? ''} ✨`}
+        text={`${home["hello"] ?? ""} ✨`}
         animateOn="view"
         revealDirection="start"
         speed={60}
@@ -39,7 +40,7 @@ const home = t("home") ?? {};
       />
     </div>
 
-    <div class="w-full flex justify-center relative">
+    <div class="w-full flex justify-center relative" transition:animate="none">
       <motion.a
         client:load
         href={home["cvLink"]}
@@ -135,11 +136,11 @@ const home = t("home") ?? {};
     </div>
     <div
       class="image-home bg-container-primary w-55 h-55 md:w-80 md:h-80 shadow-lg border-1 border-secondary rounded relative"
+      transition:animate="fade"
     >
-      <!-- TO DO Animate this svg -->
-      <motion.img
-        client:only="react"
-        className=" w-fit absolute mix-blend-normal bottom-0"
+      <img
+        transition:animate="fade"
+        class=" w-fit absolute mix-blend-normal bottom-0"
         src={"/image_home.webp"}
         alt="Image avatar"
       />

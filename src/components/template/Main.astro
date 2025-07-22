@@ -59,7 +59,6 @@ const t = useTranslations(lang);
   <section id={section.id} class={`flex flex-col items-center justify-center text-center ${(index + 1) % 2 === 0 ? "bg-container-item/10" : ""}`}>
       <motion.div
         client:load
-        {...variants}
       >
         <section.component t={t} />
       </motion.div>

@@ -1,31 +1,29 @@
 import { useEffect, useState } from "react";
 import { getTranslatedPath } from "../../i18n/utils";
+import { navigate } from "astro:transitions/client";
 
 const LanguagePicker = ({ lang }) => {
 
   const [currentLang, setCurrentLang] = useState('');
   const [pathname, setPathname] = useState('');
   useEffect(() => {
-    setCurrentLang(lang)
-    setPathname(location.pathname);
+    setCurrentLang(lang);
+    const nextLang = lang === 'es' ? 'en' : 'es';
+    const value = getTranslatedPath(
+      location.pathname.replace(`/${lang}`, '').replace(/^\/+/, ''),
+      nextLang
+    );
+    setPathname(value);
   }, [lang]);
 
-  const func = () => {
-    const lang = currentLang === 'es' ? 'en' : 'es';
-    const value = getTranslatedPath(
-      pathname.replace(`/${currentLang}`, '').replace(/^\/+/, ''),
-      lang
-    );
-    location.pathname = value;
-  }
-
-  return <button
+  return <a
     className="icon-button title text-xl"
-    onClick={func}
+    href={pathname}
     aria-label={currentLang === 'es' ? 'Cambiar idioma' : 'Change language'}
+    data-astro-reload
   >
     {currentLang === 'es' ? 'EN' : 'ES'}
-  </button>
+  </a>
 };
 
 export default LanguagePicker;

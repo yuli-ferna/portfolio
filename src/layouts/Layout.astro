@@ -11,7 +11,7 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} transition:name="root" transition:animate="none">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,7 +44,7 @@ const lang = getLangFromUrl(Astro.url);
 		<div
 			class="fixed bottom-0 left-0 right-0 w-full md:w-fit md:left-[calc(50vw-189px)] flex justify-center items-center p-4 z-99999"
 		>
-			<Navbar lang={lang} client:only="react" />
+			<Navbar lang={lang} client:load transition:animate="slide" />
 		</div>
 	</body>
 </html>
@@ -66,7 +66,6 @@ const lang = getLangFromUrl(Astro.url);
 	window.addEventListener(
 		"load",
 		(event) => {
-			window.scrollTo(0, 0);
 			const elements = document.getElementsByTagName("section");
 			for (let i = 0; i < elements.length; i++) {
 				const boxElement = elements[i];
