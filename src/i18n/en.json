@@ -181,5 +181,10 @@
     "11": "Nov",
     "12": "Dec"
   },
-  "seeHere": "See here!"
+  "seeHere": "See here!",
+  "underConstruction": {
+    "title": "UNDER CONSTRUCTION",
+    "project": "yuli-ferna’s Projects & Demos",
+    "loading": "Loading"    
+  }
 }
