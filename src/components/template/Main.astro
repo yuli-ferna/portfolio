@@ -57,11 +57,9 @@ const t = useTranslations(lang);
 <main class="">
   {sections.map((section, index) => (
   <section id={section.id} class={`flex flex-col items-center justify-center text-center ${(index + 1) % 2 === 0 ? "bg-container-item/10" : ""}`}>
-      <motion.div
-        client:load
-      >
+      <div>
         <section.component t={t} />
-      </motion.div>
+      </div>
   </section>
   ))}
 </main>

@@ -136,20 +136,19 @@ const home = t("home") ?? {};
     </div>
     <div
       class="image-home bg-container-primary w-55 h-55 md:w-80 md:h-80 shadow-lg border-1 border-secondary rounded relative"
-      transition:animate="fade"
     >
       <img
-        transition:animate="fade"
         class=" w-fit absolute mix-blend-normal bottom-0"
         src={"/image_home.webp"}
         alt="Image avatar"
       />
       <motion.img
-        client:only="react"
+        client:load
+        transition:animate="none"
         initial={{
           bottom: "6px", left: "6px"
         }}
-        whileInView={{
+        animate={{
           bottom: [0, "6px", 0], left: [0, "6px", 0], transition: { repeat: Infinity, duration: 8 }
         }}
         className="w-fit absolute opacity-50 mix-blend-lighten bottom-1 left-1"
@@ -157,11 +156,12 @@ const home = t("home") ?? {};
         alt="Image avatar red"
       />
       <motion.img
-        client:only="react"
+        transition:animate="none"
+        client:load
         initial={{
           bottom: "-6px", left: "-6px", mixBlendMode: "lighten"
         }}
-        whileInView={{
+        animate={{
           bottom: [0, "-6px", 0], left: [0, "-6px", 0], mixBlendMode: ["normal", "lighten"], transition: { repeat: Infinity, duration: 8 }
         }}
         className="w-fit absolute opacity-50 -bottom-1 -left-1"
