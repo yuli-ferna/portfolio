@@ -4,4 +4,4 @@ import DragConstraints from "../molecules/SkillDrag";
 const lang = getLangFromUrl(Astro.url);
 ---
 
-  <DragConstraints lang={lang} client:only="react" />
+  <DragConstraints lang={lang} client:load />

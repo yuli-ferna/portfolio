@@ -5,7 +5,6 @@ import SkillContainer from "./SkillContainer";
 import { useTranslations } from "../../i18n/utils";
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
-gsap.registerPlugin(Draggable);
 
 export default function DragConstraints({ lang }) {
   const constraintsRef = useRef<HTMLDivElement>(null)
@@ -18,6 +17,9 @@ export default function DragConstraints({ lang }) {
     "min-[1320px]:top-10 min-[1320px]:left-220",
     "min-[1320px]:bottom-8 min-[1320px]:left-220",
   ]
+  useEffect(() => {
+gsap.registerPlugin(Draggable);
+}, [])
   useEffect(() => {
     if (constraintsRef.current) {
       const safeToAnimate = window.matchMedia('(prefers-reduced-motion: no-preference)')
