@@ -1,8 +1,41 @@
 const Ubication = ({ text }) => {
   return <div className="flex flex-row gap-2 items-center justify-start text-primary">
-    <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7.49976 9.6665C7.49976 10.3295 7.76315 10.9654 8.23199 11.4343C8.70083 11.9031 9.33671 12.1665 9.99976 12.1665C10.6628 12.1665 11.2987 11.9031 11.7675 11.4343C12.2364 10.9654 12.4998 10.3295 12.4998 9.6665C12.4998 9.00346 12.2364 8.36758 11.7675 7.89874C11.2987 7.4299 10.6628 7.1665 9.99976 7.1665C9.33671 7.1665 8.70083 7.4299 8.23199 7.89874C7.76315 8.36758 7.49976 9.00346 7.49976 9.6665Z" stroke="var(--color-text-primary)" stroke-linecap="round" stroke-linejoin="round" />
-      <path d="M14.7138 14.3806L11.178 17.9164C10.8655 18.2286 10.4418 18.404 10.0001 18.404C9.55836 18.404 9.13469 18.2286 8.82218 17.9164L5.28551 14.3806C4.3532 13.4482 3.71829 12.2603 3.46108 10.9671C3.20388 9.67394 3.33592 8.33352 3.84051 7.11536C4.34511 5.89721 5.19959 4.85604 6.29591 4.12351C7.39223 3.39098 8.68115 3 9.99968 3C11.3182 3 12.6071 3.39098 13.7034 4.12351C14.7998 4.85604 15.6542 5.89721 16.1588 7.11536C16.6634 8.33352 16.7955 9.67394 16.5383 10.9671C16.2811 12.2603 15.6462 13.4482 14.7138 14.3806Z" stroke="var(--color-text-primary)" stroke-linecap="round" stroke-linejoin="round" />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="Map-Navigation-Pin-Location-2--Streamline-Pixel" height="30" width="30">
+      <desc>
+        Map Navigation Pin Location 2 Streamline Icon: https://streamlinehq.com
+      </desc>
+      <title>map-navigation-pin-location-2</title>
+      <g>
+        <path d="M36.193749999999994 32.375h1.9v3.8125h-1.9Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M32.38125 30.474999999999998h3.8125v1.9h-3.8125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M32.38125 36.1875h3.8125v1.9h-3.8125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M28.56875 28.5625h3.8125v1.9125h-3.8125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M30.481250000000003 7.6125h1.9v9.525h-1.9Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M7.6187499999999995 38.0875h24.7625V40H7.6187499999999995Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M28.56875 17.137500000000003h1.9125v5.7125h-1.9125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M28.56875 3.8h1.9125v3.8125h-1.9125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M26.668750000000003 22.85h1.9v3.8125h-1.9Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M24.76875 26.662499999999998h1.9v3.8125h-1.9Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M24.76875 1.9h3.8v1.9h-3.8Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M22.85625 30.474999999999998h1.9125v1.9h-1.9125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M22.85625 7.6125h1.9125v1.9h-1.9125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M20.95625 32.375h1.9v1.9h-1.9Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M19.04375 34.275000000000006h1.9125v1.9125h-1.9125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M17.14375 32.375h1.9v1.9h-1.9Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M15.24375 0h9.525v1.9h-9.525Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M15.24375 30.474999999999998h1.9v1.9h-1.9Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="m15.24375 17.137500000000003 1.9 0 0 1.9 5.7125 0 0 -1.9 1.9125 0 0 -1.9 1.9 0 0 -5.725 -1.9 0 0 3.8125 -1.9125 0 0 -3.8125 -1.9 0 0 -1.9 1.9 0 0 -1.9 -5.7125 0 0 1.9 -1.9 0 0 1.9 -1.9125 0 0 5.725 1.9125 0 0 1.9z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M13.331249999999999 26.662499999999998h1.9125v3.8125h-1.9125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M11.431249999999999 1.9h3.8125v1.9h-3.8125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M11.431249999999999 22.85h1.9v3.8125h-1.9Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M7.6187499999999995 28.5625h3.8125v1.9125h-3.8125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M9.51875 17.137500000000003h1.9125v5.7125h-1.9125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M9.51875 3.8h1.9125v3.8125h-1.9125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M7.6187499999999995 7.6125h1.9v9.525h-1.9Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M3.80625 36.1875h3.8125v1.9h-3.8125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M3.80625 30.474999999999998h3.8125v1.9h-3.8125Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+        <path d="M1.90625 32.375h1.9v3.8125h-1.9Z" fill="var(--color-text-primary)" stroke-width="1.25"></path>
+      </g>
     </svg>
     <span className="flex-grow-0 flex-shrink-0 text-base font-light text-left text-primary">{text}</span>
   </div>;

@@ -10,14 +10,14 @@ const { items, type = "work" } = Astro.props;
 const itemsSize = items.length;
 ---
 
-<div class="min-[990px]:w-screen h-fit relative max-w-200">
+<div class="min-[990px]:w-screen h-fit relative max-w-[900px]">
   {
     items.map((item, index) => {
       const isEven = (index + 1) % 2 === 0;
       let icon = type === "work" ? <Work /> : item.type === "education" ? <Education /> : <Certificate />;
       return (
         <div
-          class={`flex flex-row justify-center min-[990px]:justify-end xs:gap-3 sm:gap-10 md:gap-15 pb-10 ${isEven ? " min-[990px]:flex-row-reverse md:gap-16" : ""}`}
+          class={`flex flex-row justify-center min-[990px]:justify-end xs:gap-3 sm:gap-10 md:gap-[70.5px] pb-10 ${isEven ? " min-[990px]:flex-row-reverse md:gap-16" : ""}`}
         >
           <div class="relative">
             <div class="time-point">
@@ -31,7 +31,7 @@ const itemsSize = items.length;
               whileInView={{ height: [0, "100%"] }}
               transition={{ duration: 1, ease: "easeInOut" }}
               exit={{ height: 0 }}
-              className="w-1 bg-primary absolute top-10 left-5 z-0"
+              className="w-1 bg-primary absolute top-10 left-[22.5px] z-0"
             />}
           </div>
           <motion.div
