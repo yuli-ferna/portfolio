@@ -18,8 +18,8 @@ export default function DragConstraints({ lang }) {
     "min-[1320px]:bottom-8 min-[1320px]:left-220",
   ]
   useEffect(() => {
-gsap.registerPlugin(Draggable);
-}, [])
+    gsap.registerPlugin(Draggable);
+  }, [])
   useEffect(() => {
     if (constraintsRef.current) {
       const safeToAnimate = window.matchMedia('(prefers-reduced-motion: no-preference)')
@@ -79,7 +79,7 @@ gsap.registerPlugin(Draggable);
       </div>
 
       {skillsList.map((skill, index) => {
-        
+
         return <SkillContainer key={`skill-container-${index}`} title={skill.name} skills={skill.items} soft={skill.soft} position={positions[index]} />
       })}
     </div>
