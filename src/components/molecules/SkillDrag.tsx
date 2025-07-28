@@ -2,24 +2,20 @@
 import { motion } from "motion/react"
 import { useEffect, useRef } from "react"
 import SkillContainer from "./SkillContainer";
-import { useTranslations } from "../../i18n/utils";
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
+gsap.registerPlugin(Draggable);
 
-export default function DragConstraints({ lang }) {
+export default function DragConstraints({ skills, skillsList }) {
   const constraintsRef = useRef<HTMLDivElement>(null)
-  const t = useTranslations(lang)
-  const skills = t("skills") ?? {};
-  const skillsList = skills["skillsList"];
+  
   const positions = [
     "min-[1320px]:top-60 min-[1320px]:left-115",
     "min-[1320px]:bottom-15 min-[1320px]:left-20",
     "min-[1320px]:top-10 min-[1320px]:left-220",
     "min-[1320px]:bottom-8 min-[1320px]:left-220",
   ]
-  useEffect(() => {
-    gsap.registerPlugin(Draggable);
-  }, [])
+
   useEffect(() => {
     if (constraintsRef.current) {
       const safeToAnimate = window.matchMedia('(prefers-reduced-motion: no-preference)')
@@ -79,7 +75,7 @@ export default function DragConstraints({ lang }) {
       </div>
 
       {skillsList.map((skill, index) => {
-
+        
         return <SkillContainer key={`skill-container-${index}`} title={skill.name} skills={skill.items} soft={skill.soft} position={positions[index]} />
       })}
     </div>

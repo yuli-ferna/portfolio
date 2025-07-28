@@ -1,6 +1,7 @@
-import { defaultLang, fetchTranslations } from './ui';
+import { defaultLang, fetchTranslations, localLang } from './ui';
 
-const ui = await fetchTranslations();
+export let ui;
+ui = await fetchTranslations();
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/');
@@ -8,8 +9,13 @@ export function getLangFromUrl(url: URL) {
   return defaultLang;
 }
 
-export function useTranslations(lang: keyof typeof ui) {
-  return function t(key: keyof typeof ui[typeof defaultLang]) {
+export function useTranslations(lang) {
+  return function t(key) {
+		let UI = ui;
+		if (UI === undefined) {
+			const localUi = localLang();
+			return localUi[lang][key] || localUi[defaultLang][key];
+		}
     return ui[lang][key] || ui[defaultLang][key];
   }
 }

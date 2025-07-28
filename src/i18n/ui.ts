@@ -11,7 +11,9 @@ const english = en as LanguageMap;
 const spanish = es as LanguageMap;
 
 export const defaultLang = 'en';
-
+export function localLang() {
+    return { en: english, es: spanish };
+}
 export async function fetchTranslations(): Promise<{
   en: LanguageMap;
   es: LanguageMap;

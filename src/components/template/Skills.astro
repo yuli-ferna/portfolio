@@ -1,7 +1,10 @@
 ---
-import { getLangFromUrl } from "../../i18n/utils";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import DragConstraints from "../molecules/SkillDrag";
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const skills = t("skills") ?? {};
+const skillsList = skills["skillsList"];
 ---
 
-  <DragConstraints lang={lang} client:load />
+<DragConstraints skills={skills} skillsList={skillsList} client:only="react" />
