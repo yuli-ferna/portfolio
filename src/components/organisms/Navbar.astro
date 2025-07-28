@@ -1,0 +1,67 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import Home from "../atoms/icons/Home.jsx";
+import Skill from "../atoms/icons/Skill.jsx";
+import Experience from "../atoms/icons/Work.jsx";
+import Education from "../atoms/icons/Education.jsx";
+import Send from "../atoms/icons/Send.jsx";
+
+const { lang = getLangFromUrl(Astro.url) } = Astro.props;
+const t = useTranslations(lang);
+const navbar = t("navbar") ?? {};
+
+const items = [
+  { component: Home, section: "home" },
+  { component: Skill, section: "skills" },
+  { component: Experience, section: "experience" },
+  { component: Education, section: "education" },
+  { component: Send, section: "contact" },
+];
+---
+<nav id="main-nav" class="navbar">
+  {
+    items.map((item) => (
+      <button
+        class={`${item.section} navbar-item`}
+        aria-label={item.section}
+        title={navbar[item.section]?.name || item.section}
+        onclick={`onClick(${item.section})`}
+      >
+        <item.component />
+      </button>
+    ))
+  }
+</nav>
+
+<script is:inline>
+  const onClick = (section) => {
+    //console.log(`Navigating to ${section}`);
+
+    const buttons = document.getElementsByClassName(`navbar-item`);
+    for (let i = 0; i < buttons.length; i++) {
+      const button = buttons[i];
+      button && button.classList.remove("active");
+    }
+    const buttonSelected = document.getElementsByClassName(
+      `${section} navbar-item`,
+    )[0];
+    buttonSelected && buttonSelected.classList.add("active");
+    window.scrollTo({
+      top: document.getElementById(section)?.offsetTop || 0,
+    });
+  };
+  const items = [
+   "home",
+   "skills",
+   "experience",
+   "education",
+   "contact",
+  ];
+  const elemsNavbar = document.getElementsByClassName("navbar-item");
+  for (let i = 0; i < items.length; i++) {
+    const element = items[i];
+    elemsNavbar[i]?.addEventListener("click", () => {
+      onClick(element);
+    });
+  }
+</script>
