@@ -118,7 +118,7 @@ const Contact = ({ lang }) => {
                 onChange={(event) => handleChange(event.target.value, "fullName")}
                 required
               />
-              <div className="shrink-0 text-base text-red-500 select-none sm:text-sm/6">{!!messageError.fullName && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" className="jmn jmo jmp jms jmw jnc jnd jnp jnz"><path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"></path></svg>}</div>
+              <div className="shrink-0 text-base text-red-500 select-none sm:text-sm/6">{!!messageError.fullName && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" className="jmn jmo jmp jms jmw jnc jnd jnp jnz"><path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clipRule="evenodd"></path></svg>}</div>
             </div>
             <div className="mt-1 text-xs text-red-500 absolute capitalize">
               {!!messageError.fullName && messageError.fullName}
@@ -139,7 +139,7 @@ const Contact = ({ lang }) => {
                 onChange={(event) => handleChange(event.target.value, "email")}
                 required
               />
-              <div className="shrink-0 text-base text-red-500 select-none sm:text-sm/6">{!!messageError.email && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" className="jmn jmo jmp jms jmw jnc jnd jnp jnz"><path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"></path></svg>}</div>
+              <div className="shrink-0 text-base text-red-500 select-none sm:text-sm/6">{!!messageError.email && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" className="jmn jmo jmp jms jmw jnc jnd jnp jnz"><path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clipRule="evenodd"></path></svg>}</div>
             </div>
             <div className="mt-1 text-xs text-red-500 absolute capitalize">
               {!!messageError.email && messageError.email}
@@ -160,7 +160,7 @@ const Contact = ({ lang }) => {
                 onChange={(event) => handleChange(event.target.value, "content")}
                 required
               />
-              <div className="shrink-0 text-base text-red-500 select-none sm:text-sm/6">{!!messageError.content && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" className="jmn jmo jmp jms jmw jnc jnd jnp jnz"><path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"></path></svg>}</div>
+              <div className="shrink-0 text-base text-red-500 select-none sm:text-sm/6">{!!messageError.content && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" className="jmn jmo jmp jms jmw jnc jnd jnp jnz"><path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clipRule="evenodd"></path></svg>}</div>
             </div>
             <div className="mt-1 text-xs text-red-500 absolute capitalize">
               {!!messageError.content && messageError.content}
