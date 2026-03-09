@@ -6,6 +6,8 @@ import Education from "./Education.astro";
 import Skills from "./Skills.astro";
 import Contact from "./Contact.astro";
 import { easeInOut, motion } from "motion/react";
+import Projects from "./Projects.astro";
+
 const variants = {
   whileInView: {
     opacity: 1,
@@ -37,6 +39,11 @@ const sections = [
     id: "experience",
     title: "Experience",
     component: Experience
+  },
+  {
+    id: "projects",
+    title: "Projects",
+    component: Projects
   },
   {
     id: "education",
