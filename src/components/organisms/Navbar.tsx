@@ -60,7 +60,7 @@ const Navbar = ({ lang }) => {
           <desc>
             Arrow Up Streamline Icon: https://streamlinehq.com
           </desc>
-          <path d="m12 20 0 -16m0 0 6 6m-6 -6 -6 6" stroke="var(--color-text-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+          <path d="m12 20 0 -16m0 0 6 6m-6 -6 -6 6" stroke="var(--color-text-primary)" stroke-linecap="round" stroke-linejoin="round" strokeWidth="1.5"></path>
         </svg>
       </span>
     </div> */}

@@ -2,7 +2,7 @@
   "home": {
     "hello": "Hola, soy Yuliana Fernández",
     "titles": ["Software Developer", "Frontend", "UI/UX Enthusiastic"],
-    "description": "Soy una desarrolladora de software apasionada por crear soluciones innovadoras y eficientes. Mi especialidad es el desarrollo web, y siempre estoy dispuesta a aprender nuevas tecnologías y mejorar mis habilidades.",
+    "description": "Soy una desarrolladora de software apasionada, con {years} años de experiencia, enfocada en crear soluciones innovadoras y eficientes. Mi especialidad es el desarrollo web, y siempre estoy dispuesta a aprender nuevas tecnologías y perfeccionar mis habilidades.",
     "cvLink": "https://drive.google.com/file/d/1yGJ6dtxZoq8EVMc8knAGbRMry4jchf6V/view?usp=sharing"
   },
   "navbar": {

@@ -4,20 +4,39 @@ export let ui;
 ui = await fetchTranslations();
 
 export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
-  if (lang in ui) return lang as keyof typeof ui;
-  return defaultLang;
+	const [, lang] = url.pathname.split('/');
+	if (lang in ui) return lang as keyof typeof ui;
+	return defaultLang;
+}
+
+export function replaceVariableField(translation: string, fieldsVar, variable) {
+	// console.log("replaceVariableField", fieldsVar)
+	for (let ii = 0; ii < fieldsVar.length; ii++) {
+		const key = fieldsVar[ii];
+		translation = translation.replaceAll(`{${key}}`, `${variable[key]}`)
+
+	}
+	return translation;
 }
 
 export function useTranslations(lang) {
-  return function t(key) {
+	return function t(key, variable = {}) {
 		let UI = ui;
+		const fieldsVar = Object.keys(variable);
+		// debugger
+		// console.log("fieldsVar", fieldsVar)
 		if (UI === undefined) {
 			const localUi = localLang();
-			return localUi[lang][key] || localUi[defaultLang][key];
+			let translation = localUi[lang][key] || localUi[defaultLang][key];
+			if (typeof translation === "string") {
+				translation = replaceVariableField(translation, fieldsVar, variable);
+			}
+			return translation;
 		}
-    return ui[lang][key] || ui[defaultLang][key];
-  }
+		let translation = ui[lang][key] || ui[defaultLang][key];
+		translation = replaceVariableField(translation, fieldsVar, variable);
+		return translation;
+	}
 }
 
 export function getTranslatedPath(path: string, lang: string) {
