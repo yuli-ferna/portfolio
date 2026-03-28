@@ -1,5 +1,6 @@
 import { useState, useTransition, type FormEvent } from "react";
 import { useTranslations } from "../../i18n/utils";
+import LoadingSpinner from "../atoms/LoadingSpinner";
 
 interface message {
   fullName: string;
@@ -169,11 +170,12 @@ const Contact = ({ lang }) => {
         </div>
         <button
           type="submit"
-          className="bg-container-primary button w-full mt-5"
+          className="bg-container-primary button w-full mt-5 flex items-center justify-center gap-2"
           aria-label="Submit message"
           disabled={isFetching || !isValid()}
         >
-          Send!
+          {isFetching && <LoadingSpinner size="sm" />}
+          {isFetching ? "Sending..." : "Send!"}
         </button>
         {!!resultMessage.content && (
           <div className={`mt-10 flex flex-row justify-between p-5 rounded-md bg-primary/40 border-primary ${resultMessage.isError && "bg-red-500/30 border-red-200"}`}>
