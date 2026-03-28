@@ -4,7 +4,6 @@ import DecryptedText from "../molecules/DecryptedText";
 import BlurText from "../molecules/BlurText";
 import ContactLinks from "../molecules/ContactLinks.astro";
 import SplitText from "../SplitText";
-import HomeIcon from "../atoms/icons/HomeIcon";
 import { motion } from "motion/react";
 
 const lang = getLangFromUrl(Astro.url);
@@ -127,7 +126,7 @@ const description = t("home.description", { years: currentYear - initDate });
   <div
     class="h-screen md:h-fit flex flex-col items-center justify-center gap-8 md:gap-8 w-full md:w-100 size-4 relative"
   >
-    <div class="transform-3d -rotate-10 md:hidden mb-10 flex items-center gap-3">
+    <div class="transform-3d -rotate-10 md:hidden mb-10">
       <DecryptedText
         client:load
         className="title text-lg "
@@ -137,20 +136,14 @@ const description = t("home.description", { years: currentYear - initDate });
         speed={60}
         sequential
       />
-      <div class="hidden sm:block">
-        <HomeIcon client:visible />
-      </div>
     </div>
     <div
       class="image-home bg-container-primary w-55 h-55 md:w-80 md:h-80 shadow-lg border-1 border-secondary rounded relative"
     >
       <img
-        class="w-fit absolute mix-blend-normal bottom-0"
+        class=" w-fit absolute mix-blend-normal bottom-0"
         src={"/image_home.webp"}
-        srcset="/image_home.webp 1x, /image_home.webp 2x"
-        alt="Avatar profile image"
-        loading="lazy"
-        decoding="async"
+        alt="Image avatar"
       />
       <motion.img
         client:load
@@ -162,10 +155,7 @@ const description = t("home.description", { years: currentYear - initDate });
         }}
         className="w-fit absolute opacity-50 mix-blend-lighten bottom-1 left-1"
         src={"/image_home_red.webp"}
-        srcset="/image_home_red.webp 1x, /image_home_red.webp 2x"
-        alt="Avatar overlay red"
-        loading="lazy"
-        decoding="async"
+        alt="Image avatar red"
       />
       <motion.img
         client:load
@@ -177,10 +167,7 @@ const description = t("home.description", { years: currentYear - initDate });
         }}
         className="w-fit absolute opacity-50 -bottom-1 -left-1"
         src={"/image_home_blue.webp"}
-        srcset="/image_home_blue.webp 1x, /image_home_blue.webp 2x"
-        alt="Avatar overlay blue"
-        loading="lazy"
-        decoding="async"
+        alt="Image avatar blue"
       />
     </div>
     <div class="title text-lg">

@@ -1,7 +1,6 @@
 ---
 // ProjectsSection.astro
 // Place this component below your Experience section
-import { motion } from "motion/react";
 ---
 
 <section class="projects-section">
@@ -25,15 +24,12 @@ import { motion } from "motion/react";
         <span class="monitor-title">yuli-ferna.github.io</span>
       </div>
       <div class="screen">
-        <motion.iframe
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+        <iframe
           src="https://yuli-ferna.github.io/"
           title="Proyectos y Demos de yuli-ferna"
           loading="lazy"
           scrolling="yes"
-        ></motion.iframe>
+        ></iframe>
         <div class="screen-glare"></div>
       </div>
     </div>
