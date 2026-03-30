@@ -4,50 +4,17 @@ import Home from "./Home.astro";
 import Experience from "./Experience.astro";
 import Education from "./Education.astro";
 import Skills from "./Skills.astro";
+import Projects from "./Projects.astro";
 import Contact from "./Contact.astro";
 import { easeInOut, motion } from "motion/react";
-const variants = {
-  whileInView: {
-    opacity: 1,
-    transition: { delay: 0.3, easeInOut },
-    skewY: 0,
-  },
-  initial: {
-    opacity: 0,
-    transition: { delay: 0.3, easeInOut },
-    skewY: 10,
-  },
-  viewport: {
-    amount: 0.08,
-  },
-  layout: true
-};
+
 const sections = [
-  {
-    id: "home",
-    title: "Home",
-    component: Home
-  },
-  {
-    id: "skills",
-    title: "Skills",
-    component: Skills
-  },
-  {
-    id: "experience",
-    title: "Experience",
-    component: Experience
-  },
-  {
-    id: "education",
-    title: "Education",
-    component: Education
-  },
-  {
-    id: "contact",
-    title: "Contact",
-    component: Contact
-  }
+  { id: "home",       component: Home },
+  { id: "skills",     component: Skills },
+  { id: "experience", component: Experience },
+  // { id: "experience",   component: Projects },
+  { id: "education",  component: Education },
+  { id: "contact",    component: Contact },
 ];
 
 const lang = getLangFromUrl(Astro.url);
@@ -56,12 +23,46 @@ const t = useTranslations(lang);
 
 <main class="">
   {sections.map((section, index) => (
-  <section id={section.id} class={`flex flex-col items-center justify-center text-center ${(index + 1) % 2 === 0 ? "bg-container-item/10" : ""}`}>
-      <motion.div
-        client:load
-      >
-        <section.component t={t} />
-      </motion.div>
+  <section
+    id={section.id}
+    class={`flex flex-col items-center justify-center text-center
+      ${section.accent
+        ? "projects-bg"
+        : (index + 1) % 2 === 0 ? "bg-container-item/10" : ""
+      }`}
+  >
+    <motion.div client:load>
+      <section.component t={t} />
+    </motion.div>
   </section>
   ))}
 </main>
+
+<style>
+  .projects-bg {
+    background: linear-gradient(
+      160deg,
+      var(--color-pink-950) 0%,
+      var(--color-falcon-800) 50%,
+      var(--color-pink-950) 100%
+    );
+  }
+
+  :root .projects-bg {
+    background: linear-gradient(
+      160deg,
+      var(--color-falcon-300) 0%,
+      var(--color-falcon-400) 50%,
+      var(--color-falcon-300) 100%
+    );
+  }
+
+  [data-theme="dark"] .projects-bg {
+    background: linear-gradient(
+      160deg,
+      var(--color-pink-950) 0%,
+      var(--color-falcon-800) 50%,
+      var(--color-pink-950) 100%
+    );
+  }
+</style>

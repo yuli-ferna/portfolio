@@ -1,0 +1,276 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const projects = t("projects") ?? {};
+const underConstruction = t("underConstruction") ?? {};
+---
+
+<section class="projects-section pb-40">
+  <!-- Title usando la misma clase que el resto de secciones -->
+  <div class="section-header">
+    <span class="pixel-sparkle">✦</span>
+    <h1 class="title projects-title">{projects["title"] ?? underConstruction["project"]}</h1>
+    <span class="pixel-sparkle">✦</span>
+  </div>
+
+  <p class="section-desc">
+    {projects["description"]}
+  </p>
+
+  <div class="monitor-wrapper">
+    <!-- Monitor body -->
+    <div class="monitor">
+      <div class="monitor-top-bar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="monitor-title">yuli-ferna.github.io</span>
+      </div>
+      <div class="screen">
+        <iframe
+          src="https://yuli-ferna.github.io/"
+          title={projects["title"]}
+          loading="lazy"
+          scrolling="yes"
+        ></iframe>
+        <div class="screen-glare"></div>
+      </div>
+    </div>
+    <!-- Monitor stand -->
+    <div class="monitor-neck"></div>
+    <div class="monitor-base"></div>
+
+    <!-- Pixel decorations -->
+    <span class="deco deco-star1">✦</span>
+    <span class="deco deco-star2">✧</span>
+    <span class="deco deco-floppy">💾</span>
+  </div>
+
+  <a
+    href="https://yuli-ferna.github.io/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="pixel-btn"
+  >
+    <span class="btn-icon">🖥️</span>
+    {projects["cta"]}
+    <span class="btn-arrow">→</span>
+  </a>
+</section>
+
+<style>
+  .projects-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 4rem 1rem 5rem;
+    width: 100%;
+  }
+
+  /* ── Header – usa la fuente Pixelify Sans via clase .title ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Sobreescribimos solo el tamaño para que encaje con los sparkles */
+  .projects-title {
+    margin: 0;
+    line-height: 1;
+    font-size: 2.5rem;
+  }
+
+  .pixel-sparkle {
+    color: var(--color-pink-300, #efb8c8);
+    font-size: 1.4rem;
+    animation: sparkle 2s ease-in-out infinite alternate;
+  }
+
+  .pixel-sparkle:last-child {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes sparkle {
+    from { opacity: 0.4; transform: scale(0.9) rotate(-10deg); }
+    to   { opacity: 1;   transform: scale(1.2) rotate(10deg); }
+  }
+
+  .section-desc {
+    max-width: 480px;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    opacity: 0.85;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+
+  /* ── Monitor wrapper ── */
+  .monitor-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Floating pixel decorations */
+  .deco {
+    position: absolute;
+    pointer-events: none;
+    font-size: 1.4rem;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .deco-star1 { top: -1rem; left: -2rem; color: var(--color-pink-300, #efb8c8); animation-delay: 0s; }
+  .deco-star2 { top: 2rem;  right: -2rem; color: #a5f3fc; animation-delay: 1s; font-size: 1rem; }
+  .deco-floppy { bottom: 4rem; right: -2.5rem; animation-delay: 0.5s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%       { transform: translateY(-8px) rotate(5deg); }
+  }
+
+  /* ── Monitor frame – colores adaptados al tema ── */
+  .monitor {
+    width: min(520px, 92vw);
+    background: var(--color-container-primary);
+    border: 3px solid var(--color-text-primary);
+    border-radius: 12px 12px 4px 4px;
+    box-shadow:
+      4px 4px 0 var(--color-text-primary),
+      inset 0 0 0 2px var(--color-container-paper);
+    overflow: hidden;
+  }
+
+  .monitor-top-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-container-secondary);
+    border-bottom: 2px solid var(--color-text-primary);
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-text-primary);
+    display: inline-block;
+  }
+  .dot.red    { background: #fca5a5; }
+  .dot.yellow { background: #fde68a; }
+  .dot.green  { background: #bbf7d0; }
+
+  .monitor-title {
+    flex: 1;
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--color-text-primary);
+    opacity: 0.7;
+    margin-right: 1.5rem;
+    font-family: 'Courier New', monospace;
+  }
+
+  .screen {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    background: #0f172a;
+    overflow: hidden;
+  }
+
+  .screen iframe {
+    border: none;
+    display: block;
+    transform: scale(0.75);
+    transform-origin: top left;
+    width: 133.33%;
+    height: 133.33%;
+    pointer-events: auto;
+  }
+
+  .screen-glare {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,0.08) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  /* ── Stand ── */
+  .monitor-neck {
+    width: 28px;
+    height: 24px;
+    background: var(--color-container-secondary);
+    border-left: 3px solid var(--color-text-primary);
+    border-right: 3px solid var(--color-text-primary);
+    border-bottom: 3px solid var(--color-text-primary);
+  }
+
+  .monitor-base {
+    width: 140px;
+    height: 14px;
+    background: var(--color-container-primary);
+    border: 3px solid var(--color-text-primary);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 3px 3px 0 var(--color-text-primary);
+  }
+
+  /* ── Pixel button – usa colores del sistema ── */
+  .pixel-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+    padding: 0.7rem 1.4rem;
+    font-family: 'Pixelify Sans', 'Courier New', monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+        color: #374151;
+    background: #fde68a; /* yellow, like the button in the screenshot */
+    border: 2px solid #374151;
+    border-radius: 4px;
+    box-shadow: 3px 3px 0 #374151;
+    text-decoration: none;
+    transition: transform 0.1s, box-shadow 0.1s;
+    cursor: pointer;
+  }
+
+  .pixel-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--color-text-primary);
+    background: var(--color-hover-primary);
+  }
+
+  .pixel-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--color-text-primary);
+  }
+
+  .btn-arrow {
+    transition: transform 0.2s;
+  }
+
+  .pixel-btn:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 480px) {
+    .monitor { width: 95vw; }
+    .screen  { height: 260px; }
+    .deco-star1, .deco-star2, .deco-floppy { display: none; }
+  }
+</style>

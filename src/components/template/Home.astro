@@ -9,6 +9,9 @@ import { motion } from "motion/react";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const home = t("home") ?? {};
+const currentYear = (new Date()).getFullYear();
+const initDate = 2018;
+const description = t("home.description", { years: currentYear - initDate });
 ---
 
 <div
@@ -32,7 +35,7 @@ const home = t("home") ?? {};
     <div>
       <BlurText
         client:load
-        text={home["description"]}
+        text={description}
         className="title text-xl mt-6 justify-center w-max-50 md:justify-start md:text-start px-4 md:px-0"
         delay={50}
         animateBy="words"

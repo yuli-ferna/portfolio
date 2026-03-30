@@ -1,0 +1,87 @@
+{
+  "images": {
+    "home": {
+      "avatar": "image_home.webp",
+      "avatarRed": "image_home_red.webp",
+      "avatarBlue": "image_home_blue.webp"
+    },
+    "portfolio": {
+      "xlabs": "portfolio/xlabs.webp",
+      "randlabs": "portfolio/randlabs.webp",
+      "mipto": "portfolio/mipto.webp",
+      "survey": "portfolio/survey.webp",
+      "teach": "portfolio/teach.webp"
+    },
+    "education": {
+      "ucv": "ucv.svg",
+      "coursera": "coursera.png"
+    },
+    "projects": {
+      "portalBridge": "portfolio/xlabs.webp",
+      "wormholeConnect": "portfolio/xlabs.webp",
+      "algoExplorer": "portfolio/randlabs.webp",
+      "shareity": "portfolio/mipto.webp",
+      "ozone": "portfolio/mipto.webp"
+    },
+    "icons": {
+      "astro": "astro.svg",
+      "tailwind": "tailwind.svg",
+      "favicon": "favicon.svg",
+      "logo": "logo.svg"
+    }
+  },
+  "skills": {
+    "html": "html.svg",
+    "css": "css.svg",
+    "javascript": "javascript.svg",
+    "typescript": "typescript.svg",
+    "react": "react.svg",
+    "astro": "astro.svg",
+    "nextjs": "nextjs.svg",
+    "threejs": "threejs.svg",
+    "tailwind": "tailwind.svg",
+    "material-ui": "material-ui.svg",
+    "vue": "vue.svg",
+    "ionic": "ionic.svg",
+    "nodejs": "nodejs.svg",
+    "express": "express.svg",
+    "sql": "sql.svg",
+    "postgresql": "postgresql.svg",
+    "firebase": "firebase.svg",
+    "oracle": "oracle.svg",
+    "c++": "c++.svg",
+    "python": "python.svg",
+    "yii": "yii.svg",
+    "git": "git.svg",
+    "docker": "docker.svg",
+    "github": "github.svg",
+    "figma": "figma.svg",
+    "web3-wormhole-sdk": "web3-wormhole-sdk.svg",
+    "web3-ethers-lib": "web3-ethers-lib.svg",
+    "framer-motion": "framer-motion.svg",
+    "graphql": "graphql.svg",
+    "mongodb": "mongodb.svg",
+    "redux": "redux.svg",
+    "vite": "vite.svg",
+    "webgl": "webgl.svg",
+    "android": "android.svg",
+    "apple": "apple.svg",
+    "swift": "swift.svg",
+    "java": "java.svg",
+    "aws": "aws.svg",
+    "google-cloud": "google-cloud.svg",
+    "unity": "unity.svg",
+    "go": "go.svg",
+    "checkbox": "checkbox.svg",
+    "soft": "soft.svg"
+  },
+  "social": {
+    "github": "github.svg",
+    "linkedin": "linkedin.svg",
+    "gmail": "gmail.svg"
+  },
+  "footer": {
+    "astro": "astro.svg",
+    "tailwind": "tailwind.svg"
+  }
+}

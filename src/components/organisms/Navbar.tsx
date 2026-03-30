@@ -5,17 +5,19 @@ import Home from "../atoms/icons/Home";
 import Send from "../atoms/icons/Send";
 import Skill from "../atoms/icons/Skill";
 import Experience from "../atoms/icons/Work";
+import Projects from "../atoms/icons/Projects";
 
 const Navbar = ({ lang }) => {
   const t = useTranslations(lang) 
   const navbar = t("navbar") ?? {};
   
   const items = [
-    { component: <Home />, section: "home", onView: false },
-    { component: <Skill />, section: "skills", onView: false },
-    { component: <Experience />, section: "experience", onView: false },
-    { component: <Education />, section: "education", onView: false },
-    { component: <Send />, section: "contact", onView: false },
+    { component: <Home />,     section: "home",       onView: false },
+    { component: <Skill />,    section: "skills",     onView: false },
+    { component: <Experience />,section: "experience",onView: false },
+    { component: <Projects />, section: "projects",   onView: false },
+    { component: <Education />,section: "education",  onView: false },
+    { component: <Send />,     section: "contact",    onView: false },
   ];
   const onClick = (section: string) => {
     //console.log(`Navigating to ${section}`);
@@ -60,11 +62,10 @@ const Navbar = ({ lang }) => {
           <desc>
             Arrow Up Streamline Icon: https://streamlinehq.com
           </desc>
-          <path d="m12 20 0 -16m0 0 6 6m-6 -6 -6 6" stroke="var(--color-text-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+          <path d="m12 20 0 -16m0 0 6 6m-6 -6 -6 6" stroke="var(--color-text-primary)" stroke-linecap="round" stroke-linejoin="round" strokeWidth="1.5"></path>
         </svg>
       </span>
     </div> */}
   </>);
 }
 export default Navbar;
-

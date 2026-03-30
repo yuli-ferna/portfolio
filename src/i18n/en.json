@@ -1,8 +1,12 @@
 {
+  "home.description": "I am a passionate software developer with {years} years of experience, focused on creating innovative and efficient solutions. My expertise lies in web development, and I am always eager to learn new technologies and enhance my skills.",
   "home": {
     "hello": "Hi, I'm Yuliana Fernandez",
-    "titles": ["Software Developer", "Frontend", "UI/UX Enthusiastic"],
-    "description": "I am a passionate software developer with a focus on creating innovative and efficient solutions. My expertise lies in web development, and I am always eager to learn new technologies and improve my skills.",
+    "titles": [
+      "Software Developer",
+      "Frontend",
+      "UI/UX Enthusiastic"
+    ],
     "cvLink": "https://drive.google.com/file/d/1sSVrtH3qR1Me4MWeMP9hFFDV4c7bqtxF/view?usp=sharing"
   },
   "navbar": {
@@ -22,6 +26,10 @@
       "name": "Education",
       "section": "education"
     },
+    "projects": {
+      "name": "Projects",
+      "section": "projects"
+    },
     "contact": {
       "name": "Contact",
       "section": "contact"
@@ -29,12 +37,63 @@
   },
   "skills": {
     "title": "Skills",
-    "description": "Throughout my career, I’ve developed both technical and interpersonal skills that allow me to adapt to various challenges.",
+    "description": "Throughout my career, I've developed both technical and interpersonal skills that allow me to adapt to various challenges.",
     "skillsList": [
-      { "name": "Frontend", "items": ["HTML", "CSS", "JavaScript", "Typescript", "React", "Astro", "NextJS", "ThreeJS", "Tailwind", "Material UI", "Vue", "Ionic"]},
-      { "name": "Backend", "items": ["NodeJS", "Express", "SQL", "PostgreSQL", "Firebase", "Oracle", "C++", "Python", "Yii"]},
-      { "name": "Libs & Tools", "items": ["Git", "Docker", "GitHub", "Figma", "Web3 Wormhole SDK", "Web3 Ethers Lib"]},
-      { "name": "Soft Skills", "items": ["Creativity", "Responsibility", "Teamwork",  "Adaptability", "Communication", "Time Management", "Critical Thinking"], "soft": true}
+      {
+        "name": "Frontend",
+        "items": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Typescript",
+          "React",
+          "Astro",
+          "NextJS",
+          "ThreeJS",
+          "Tailwind",
+          "Material UI",
+          "Vue",
+          "Ionic"
+        ]
+      },
+      {
+        "name": "Backend",
+        "items": [
+          "NodeJS",
+          "Express",
+          "SQL",
+          "PostgreSQL",
+          "Firebase",
+          "Oracle",
+          "C++",
+          "Python",
+          "Yii"
+        ]
+      },
+      {
+        "name": "Libs & Tools",
+        "items": [
+          "Git",
+          "Docker",
+          "GitHub",
+          "Figma",
+          "Web3 Wormhole SDK",
+          "Web3 Ethers Lib"
+        ]
+      },
+      {
+        "name": "Soft Skills",
+        "items": [
+          "Creativity",
+          "Responsibility",
+          "Teamwork",
+          "Adaptability",
+          "Communication",
+          "Time Management",
+          "Critical Thinking"
+        ],
+        "soft": true
+      }
     ]
   },
   "experience": {
@@ -43,23 +102,59 @@
     "positions": [
       {
         "jobTitle": "Software Developer",
-        "description":
-          "Developed the company website using Next.js. Additionally, I developed and maintained the Wormhole Portal Token Bridge, a blockchain-based cross-chain bridge project that includes the Wormhole Connect widget, primarily using Vite and React.",
+        "description": "Developed the company website using Next.js. Additionally, I developed and maintained the Wormhole Portal Token Bridge, a blockchain-based cross-chain bridge project that includes the Wormhole Connect widget, primarily using Vite and React.",
         "image": "portfolio/xlabs.webp",
-        "tags": ["NextJS", "React", "Vite", "HTML", "CSS", "Typescript", "Framer Motion", "Web3", "Wormhole SDK", "Ethers lib", "Blockchain"],
+        "tags": [
+          "NextJS",
+          "React",
+          "Vite",
+          "HTML",
+          "CSS",
+          "Typescript",
+          "Framer Motion",
+          "Web3",
+          "Wormhole SDK",
+          "Ethers lib",
+          "Blockchain"
+        ],
         "companyName": "xLabs",
         "ubication": "Remote",
         "dateStart": "May 2023",
         "dateEnd": "May 2025",
-        "github": [{ "text": "Connect", "link": "https://github.com/wormhole-foundation/wormhole-connect/" }, { "text": "Portal", "link": "https://github.com/XLabs/portal-bridge-ui" }],
-        "projects": [{ "text": "Website", "link": "https://xlabs.xyz/" }, { "text": "Portal Bridge", "link": "https://portalbridge.com/" }]
+        "github": [
+          {
+            "text": "Connect",
+            "link": "https://github.com/wormhole-foundation/wormhole-connect/"
+          },
+          {
+            "text": "Portal",
+            "link": "https://github.com/XLabs/portal-bridge-ui"
+          }
+        ],
+        "projects": [
+          {
+            "text": "Website",
+            "link": "https://xlabs.xyz/"
+          },
+          {
+            "text": "Portal Bridge",
+            "link": "https://portalbridge.com/"
+          }
+        ]
       },
       {
         "jobTitle": "Software Developer",
-        "description":
-          "Focused on web development for the Algo Explorer, a React-based application for exploring blockchain transactions and data on the Algorand network.",
+        "description": "Focused on web development for the Algo Explorer, a React-based application for exploring blockchain transactions and data on the Algorand network.",
         "image": "portfolio/randlabs.webp",
-        "tags": ["React", "HTML", "CSS", "Typescript", "Web3", "Blockchain", "Algorand"],
+        "tags": [
+          "React",
+          "HTML",
+          "CSS",
+          "Typescript",
+          "Web3",
+          "Blockchain",
+          "Algorand"
+        ],
         "companyName": "Rand Labs",
         "ubication": "Remote",
         "dateStart": "Sep 2021",
@@ -67,10 +162,17 @@
       },
       {
         "jobTitle": "Frontend Web Developer",
-        "description":
-          "Developed web solutions for the Shareity project, utilizing Vue, Yii2, JavaScript, CSS3, and HTML5. And contributed to the development of Ozone, implementing features using React and Three.js.",
+        "description": "Developed web solutions for the Shareity project, utilizing Vue, Yii2, JavaScript, CSS3, and HTML5. And contributed to the development of Ozone, implementing features using React and Three.js.",
         "image": "portfolio/mipto.webp",
-        "tags": ["Vue", "Yii2", "Javascript", "HTML", "CSS", "React", "Three.js"],
+        "tags": [
+          "Vue",
+          "Yii2",
+          "Javascript",
+          "HTML",
+          "CSS",
+          "React",
+          "Three.js"
+        ],
         "companyName": "Mipto Tech",
         "ubication": "Remote",
         "dateStart": "Jul 2020",
@@ -78,10 +180,19 @@
       },
       {
         "jobTitle": "Software Developer",
-        "description":
-          "Managed Oracle relational databases and developed mobile applications with Ionic, as well as web applications with Angular and a NoSQL database.",
+        "description": "Managed Oracle relational databases and developed mobile applications with Ionic, as well as web applications with Angular and a NoSQL database.",
         "image": "portfolio/survey.webp",
-        "tags": ["Oracle", "Ionic", "Angular", "HTML", "CSS", "Firebase", "Database", "SQL", "noSQL"],
+        "tags": [
+          "Oracle",
+          "Ionic",
+          "Angular",
+          "HTML",
+          "CSS",
+          "Firebase",
+          "Database",
+          "SQL",
+          "noSQL"
+        ],
         "companyName": "Deproinf CA",
         "ubication": "Caracas",
         "dateStart": "Mar 2018",
@@ -89,10 +200,15 @@
       },
       {
         "jobTitle": "Teaching Assistant",
-        "description":
-          "Assisted in teaching the “Algorithms and Programming” course, covering fundamental programming concepts.",
+        "description": "Assisted in teaching the 'Algorithms and Programming' course, covering fundamental programming concepts.",
         "image": "portfolio/teach.webp",
-        "tags": ["Programming logic", "Algorithms", "C++", "Computer science", "Teaching"],
+        "tags": [
+          "Programming logic",
+          "Algorithms",
+          "C++",
+          "Computer science",
+          "Teaching"
+        ],
         "companyName": "Universidad Central de Venezuela",
         "ubication": "Caracas",
         "dateStart": "Mar 2018",
@@ -107,11 +223,19 @@
     "titles": [
       {
         "title": "Bachelor of Science in Computer Science",
-        "description":
-          "During my studies at the Central University of Venezuela, I gained a strong foundation in computer science, covering areas such as programming, data structures, human-computer interaction, databases, and computer graphics. This academic journey strengthened both my technical skills and my critical thinking, preparing me to solve complex problems in a structured and analytical way. It also sparked a deep passion for software development and a commitment to continuous learning in an ever-evolving tech landscape.",
+        "description": "During my studies at the Central University of Venezuela, I gained a strong foundation in computer science, covering areas such as programming, data structures, human-computer interaction, databases, and computer graphics. This academic journey strengthened both my technical skills and my critical thinking, preparing me to solve complex problems in a structured and analytical way. It also sparked a deep passion for software development and a commitment to continuous learning in an ever-evolving tech landscape.",
         "image": "ucv.svg",
         "type": "education",
-        "tags": ["Programming logic", "Databases", "Problem Solving", "Data structures",  "C++", "Human-Computer Interaction", "Computer Graphics", "Math"],
+        "tags": [
+          "Programming logic",
+          "Databases",
+          "Problem Solving",
+          "Data structures",
+          "C++",
+          "Human-Computer Interaction",
+          "Computer Graphics",
+          "Math"
+        ],
         "companyName": "Universidad Central de Venezuela",
         "dateStart": "Dec 2022"
       },
@@ -120,7 +244,11 @@
         "description": "Learned the fundamentals of Git and GitHub, including how to push code changes, create and merge branches, fork repositories, and submit pull requests to contribute effectively to open source projects.",
         "image": "coursera.png",
         "type": "course",
-        "tags": ["Git", "Github", "Manage versions"],
+        "tags": [
+          "Git",
+          "Github",
+          "Manage versions"
+        ],
         "companyName": "Coursera",
         "ubication": "Remote",
         "dateStart": "Sep 2020",
@@ -128,11 +256,18 @@
       },
       {
         "title": "Visual Elements of User Interface Design",
-        "description":
-          "This course explored the essential visual components of user interface design and examined the broader question of what an interface is, along with the designer’s role in shaping intuitive and effective user experiences.",
+        "description": "This course explored the essential visual components of user interface design and examined the broader question of what an interface is, along with the designer's role in shaping intuitive and effective user experiences.",
         "image": "coursera.png",
         "type": "course",
-        "tags": ["User Interface Design", "User Experience Design", "Web Design", "Information Architecture", "Human-Computer Interaction", "IU Components", "Graphic Design"],
+        "tags": [
+          "User Interface Design",
+          "User Experience Design",
+          "Web Design",
+          "Information Architecture",
+          "Human-Computer Interaction",
+          "IU Components",
+          "Graphic Design"
+        ],
         "companyName": "Coursera",
         "ubication": "Remote",
         "dateStart": "Aug 2020",
@@ -140,11 +275,16 @@
       }
     ]
   },
-  "contact" : {
+  "projects": {
+    "title": "Projects & Demos",
+    "description": "A selection of projects where I apply my knowledge to build functional and innovative solutions.",
+    "cta": "See all my projects"
+  },
+  "contact": {
     "title": "Contact me!",
     "form": "Contact Form",
     "myLinks": "My contact links",
-    "description": "Interested in collaborating or learning more about my work? I’m open to new opportunities and professional connections. Let’s talk!",
+    "description": "Interested in collaborating or learning more about my work? I'm open to new opportunities and professional connections. Let's talk!",
     "email": "Email",
     "name": "Name",
     "message": "Message",
@@ -167,6 +307,13 @@
       }
     }
   },
+  "footer": {
+    "builtWith": "Built with",
+    "styledWith": "Styled with",
+    "iconsFrom": "Icons from",
+    "licensedUnder": "licensed under",
+    "allRightsReserved": "All rights reserved"
+  },
   "month": {
     "1": "Jan",
     "2": "Feb",
@@ -184,7 +331,7 @@
   "seeHere": "See here!",
   "underConstruction": {
     "title": "UNDER CONSTRUCTION",
-    "project": "yuli-ferna’s Projects & Demos",
-    "loading": "Loading"    
+    "project": "yuli-ferna's Projects & Demos",
+    "loading": "Loading"
   }
 }

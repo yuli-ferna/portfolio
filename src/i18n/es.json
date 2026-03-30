@@ -1,8 +1,13 @@
 {
+  "home.description": "Soy una desarrolladora de software apasionada, con {years} años de experiencia, enfocada en crear soluciones innovadoras y eficientes. Mi especialidad es el desarrollo web, y siempre estoy dispuesta a aprender nuevas tecnologías y perfeccionar mis habilidades.",
   "home": {
     "hello": "Hola, soy Yuliana Fernández",
-    "titles": ["Software Developer", "Frontend", "UI/UX Enthusiastic"],
-    "description": "Soy una desarrolladora de software apasionada por crear soluciones innovadoras y eficientes. Mi especialidad es el desarrollo web, y siempre estoy dispuesta a aprender nuevas tecnologías y mejorar mis habilidades.",
+    "titles": [
+      "Software Developer",
+      "Frontend",
+      "UI/UX Enthusiastic"
+    ],
+    "description": "Soy una desarrolladora de software apasionada, con {years} años de experiencia, enfocada en crear soluciones innovadoras y eficientes. Mi especialidad es el desarrollo web, y siempre estoy dispuesta a aprender nuevas tecnologías y perfeccionar mis habilidades.",
     "cvLink": "https://drive.google.com/file/d/1yGJ6dtxZoq8EVMc8knAGbRMry4jchf6V/view?usp=sharing"
   },
   "navbar": {
@@ -15,12 +20,16 @@
       "section": "skills"
     },
     "experience": {
-      "name": "Proyectos",
+      "name": "Experiencia",
       "section": "experience"
     },
     "education": {
-      "name": "Proyectos",
+      "name": "Educación",
       "section": "education"
+    },
+    "projects": {
+      "name": "Proyectos",
+      "section": "projects"
     },
     "contact": {
       "name": "Contacto",
@@ -31,10 +40,61 @@
     "title": "Habilidades",
     "description": "A lo largo de mi carrera he desarrollado competencias técnicas y personales que me permiten adaptarme a diferentes desafíos.",
     "skillsList": [
-      { "name": "Frontend", "items": ["HTML", "CSS", "JavaScript", "Typescript", "React", "Astro", "NextJS", "ThreeJS", "Tailwind", "Material UI", "Vue", "Ionic"]},
-      { "name": "Backend", "items": ["NodeJS", "Express", "SQL", "PostgreSQL", "Firebase", "Oracle", "C++", "Python", "Yii"]},
-      { "name": "Libs & Tools", "items": ["Git", "Docker", "GitHub", "Figma", "Web3 Wormhole SDK", "Web3 Ethers Lib"]},
-      { "name": "Skills Blandos", "soft": true, "items": ["Creatividad", "Responsibilidad", "Teamwork",  "Adaptabilidad", "Comunicación", "Administración del Tiempo", "Pensamiento Crítico"]}
+      {
+        "name": "Frontend",
+        "items": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Typescript",
+          "React",
+          "Astro",
+          "NextJS",
+          "ThreeJS",
+          "Tailwind",
+          "Material UI",
+          "Vue",
+          "Ionic"
+        ]
+      },
+      {
+        "name": "Backend",
+        "items": [
+          "NodeJS",
+          "Express",
+          "SQL",
+          "PostgreSQL",
+          "Firebase",
+          "Oracle",
+          "C++",
+          "Python",
+          "Yii"
+        ]
+      },
+      {
+        "name": "Libs & Tools",
+        "items": [
+          "Git",
+          "Docker",
+          "GitHub",
+          "Figma",
+          "Web3 Wormhole SDK",
+          "Web3 Ethers Lib"
+        ]
+      },
+      {
+        "name": "Skills Blandos",
+        "soft": true,
+        "items": [
+          "Creatividad",
+          "Responsibilidad",
+          "Teamwork",
+          "Adaptabilidad",
+          "Comunicación",
+          "Administración del Tiempo",
+          "Pensamiento Crítico"
+        ]
+      }
     ]
   },
   "experience": {
@@ -43,23 +103,59 @@
     "positions": [
       {
         "jobTitle": "Software Developer",
-        "description":
-          "Desarrollé el sitio web de la compañía utilizando Next.js. Además, desarrollé y mantuve el Wormhole Portal Token Bridge, un proyecto de puente entre cadenas basado en blockchain que incluye el widget Wormhole Connect, utilizando principalmente Vite y React.",
+        "description": "Desarrollé el sitio web de la compañía utilizando Next.js. Además, desarrollé y mantuve el Wormhole Portal Token Bridge, un proyecto de puente entre cadenas basado en blockchain que incluye el widget Wormhole Connect, utilizando principalmente Vite y React.",
         "image": "portfolio/xlabs.webp",
-        "tags": ["NextJS", "React", "Vite", "HTML", "CSS", "Typescript", "Framer Motion", "Web3", "Wormhole SDK", "Ethers lib", "Blockchain"],
+        "tags": [
+          "NextJS",
+          "React",
+          "Vite",
+          "HTML",
+          "CSS",
+          "Typescript",
+          "Framer Motion",
+          "Web3",
+          "Wormhole SDK",
+          "Ethers lib",
+          "Blockchain"
+        ],
         "companyName": "xLabs",
         "ubication": "Remoto",
         "dateStart": "May 2023",
         "dateEnd": "May 2025",
-        "github": [{ "text": "Connect", "link": "https://github.com/wormhole-foundation/wormhole-connect/" }, { "text": "Portal", "link": "https://github.com/XLabs/portal-bridge-ui" }],
-        "projects": [{ "text": "Website", "link": "https://xlabs.xyz/" }, { "text": "Portal Bridge", "link": "https://portalbridge.com/" }]
+        "github": [
+          {
+            "text": "Connect",
+            "link": "https://github.com/wormhole-foundation/wormhole-connect/"
+          },
+          {
+            "text": "Portal",
+            "link": "https://github.com/XLabs/portal-bridge-ui"
+          }
+        ],
+        "projects": [
+          {
+            "text": "Website",
+            "link": "https://xlabs.xyz/"
+          },
+          {
+            "text": "Portal Bridge",
+            "link": "https://portalbridge.com/"
+          }
+        ]
       },
       {
         "jobTitle": "Software Developer",
-        "description":
-          "Me enfoqué en el desarrollo web para Algo Explorer, una aplicación basada en React para explorar transacciones y datos de blockchain en la red Algorand.",
+        "description": "Me enfoqué en el desarrollo web para Algo Explorer, una aplicación basada en React para explorar transacciones y datos de blockchain en la red Algorand.",
         "image": "portfolio/randlabs.webp",
-        "tags": ["React", "HTML", "CSS", "Typescript", "Web3", "Blockchain", "Algorand"],
+        "tags": [
+          "React",
+          "HTML",
+          "CSS",
+          "Typescript",
+          "Web3",
+          "Blockchain",
+          "Algorand"
+        ],
         "companyName": "Rand Labs",
         "ubication": "Remoto",
         "dateStart": "Sep 2021",
@@ -67,10 +163,17 @@
       },
       {
         "jobTitle": "Frontend Web Developer",
-        "description":
-          "Desarrollé soluciones web para el proyecto Shareity, utilizando Vue, Yii2, JavaScript, CSS3 y HTML5. Contribuí al desarrollo de Ozone, implementando funcionalidades con React y Three.js.",
+        "description": "Desarrollé soluciones web para el proyecto Shareity, utilizando Vue, Yii2, JavaScript, CSS3 y HTML5. Contribuí al desarrollo de Ozone, implementando funcionalidades con React y Three.js.",
         "image": "portfolio/mipto.webp",
-        "tags": ["Vue", "Yii2", "Javascript", "HTML", "CSS", "React", "Three.js"],
+        "tags": [
+          "Vue",
+          "Yii2",
+          "Javascript",
+          "HTML",
+          "CSS",
+          "React",
+          "Three.js"
+        ],
         "companyName": "Mipto Tech",
         "ubication": "Remoto",
         "dateStart": "Jul 2020",
@@ -78,10 +181,19 @@
       },
       {
         "jobTitle": "Software Developer",
-        "description":
-          "Administré bases de datos relacionales Oracle y desarrollé aplicaciones móviles con Ionic, así como aplicaciones web con Angular y una base de datos NoSQL.",
+        "description": "Administré bases de datos relacionales Oracle y desarrollé aplicaciones móviles con Ionic, así como aplicaciones web con Angular y una base de datos NoSQL.",
         "image": "portfolio/survey.webp",
-        "tags": ["Oracle", "Ionic", "Angular", "HTML", "CSS", "Firebase", "Database", "SQL", "noSQL"],
+        "tags": [
+          "Oracle",
+          "Ionic",
+          "Angular",
+          "HTML",
+          "CSS",
+          "Firebase",
+          "Database",
+          "SQL",
+          "noSQL"
+        ],
         "companyName": "Deproinf CA",
         "ubication": "Caracas",
         "dateStart": "Mar 2018",
@@ -89,10 +201,15 @@
       },
       {
         "jobTitle": "Teaching Assistant",
-        "description":
-          "Asistí en la enseñanza del curso 'Algoritmos y Programación', cubriendo la parte práctica de los conceptos fundamentales de programación.",
+        "description": "Asistí en la enseñanza del curso 'Algoritmos y Programación', cubriendo la parte práctica de los conceptos fundamentales de programación.",
         "image": "portfolio/teach.webp",
-        "tags": ["Programming logic", "Algorithms", "C++", "Computer science", "Teaching"],
+        "tags": [
+          "Programming logic",
+          "Algorithms",
+          "C++",
+          "Computer science",
+          "Teaching"
+        ],
         "companyName": "Universidad Central de Venezuela",
         "ubication": "Caracas",
         "dateStart": "Mar 2018",
@@ -103,15 +220,23 @@
   "education": {
     "title": "Educación & Certificados",
     "description": "Soy titulada en Ciencias de la Computación y he reforzado mi educación con un aprendizaje constante en desarrollo web. Considero que la formación es una herramienta fundamental para adaptarse, crecer y evolucionar profesionalmente.",
-    "seeCertificate": "See Certificate",
+    "seeCertificate": "Ver Certificado",
     "titles": [
       {
         "title": "Bachelor of Science in Computer Science",
-        "description":
-          "Durante mi formación en la Universidad Central de Venezuela, adquirí una sólida base en ciencias de la computación, que abarcó desde programación y estructuras de datos hasta interaccion humano computador, bases de datos y computación gráfica. Esta carrera no solo fortaleció mis habilidades técnicas, sino también mi pensamiento crítico y mi capacidad de resolver problemas complejos de manera estructurada. Mi paso por la universidad despertó en mí una profunda vocación por el desarrollo de software y por aprender continuamente en un entorno tecnológico en constante evolución.",
+        "description": "Durante mi formación en la Universidad Central de Venezuela, adquirí una sólida base en ciencias de la computación, que abarcó desde programación y estructuras de datos hasta interaccion humano computador, bases de datos y computación gráfica. Esta carrera no solo fortaleció mis habilidades técnicas, sino también mi pensamiento crítico y mi capacidad de resolver problemas complejos de manera estructurada. Mi paso por la universidad despertó en mí una profunda vocación por el desarrollo de software y por aprender continuamente en un entorno tecnológico en constante evolución.",
         "image": "ucv.svg",
         "type": "education",
-        "tags": ["Programming logic", "Databases", "Problem Solving", "Data structures",  "C++", "Human-Computer Interaction", "Computer Graphics", "Math"],
+        "tags": [
+          "Programming logic",
+          "Databases",
+          "Problem Solving",
+          "Data structures",
+          "C++",
+          "Human-Computer Interaction",
+          "Computer Graphics",
+          "Math"
+        ],
         "companyName": "Universidad Central de Venezuela",
         "dateStart": "Dic 2022"
       },
@@ -120,7 +245,11 @@
         "description": "Aprendí los fundamentos de Git y GitHub, incluyendo cómo subir cambios de código, crear y fusionar ramas, bifurcar repositorios y enviar pull requests para contribuir de manera efectiva a proyectos de código abierto.",
         "image": "coursera.png",
         "type": "course",
-        "tags": ["Git", "Github", "Manage versions"],
+        "tags": [
+          "Git",
+          "Github",
+          "Manage versions"
+        ],
         "companyName": "Coursera",
         "ubication": "Remoto",
         "dateStart": "Sep 2020",
@@ -131,7 +260,15 @@
         "description": "Este curso exploró los elementos visuales esenciales del diseño de interfaces de usuario y abordó la pregunta más amplia de qué es una interfaz, así como el papel del diseñador en la creación de experiencias intuitivas y efectivas.",
         "image": "coursera.png",
         "type": "course",
-        "tags": ["User Interface Design", "User Experience Design", "Web Design", "Information Architecture", "Human-Computer Interaction", "IU Components", "Graphic Design"],
+        "tags": [
+          "User Interface Design",
+          "User Experience Design",
+          "Web Design",
+          "Information Architecture",
+          "Human-Computer Interaction",
+          "IU Components",
+          "Graphic Design"
+        ],
         "companyName": "Coursera",
         "ubication": "Remoto",
         "dateStart": "Ago 2020",
@@ -139,7 +276,12 @@
       }
     ]
   },
-  "contact" : {
+  "projects": {
+    "title": "Proyectos & Demos",
+    "description": "Una selección de proyectos donde aplico mis conocimientos para crear soluciones funcionales e innovadoras.",
+    "cta": "Ver todos mis proyectos"
+  },
+  "contact": {
     "title": "Contáctame!",
     "form": "Formulario de Contacto",
     "myLinks": "Links de contacto",
@@ -166,6 +308,13 @@
       }
     }
   },
+  "footer": {
+    "builtWith": "Construido con",
+    "styledWith": "Estilizado con",
+    "iconsFrom": "Íconos de",
+    "licensedUnder": "con licencia",
+    "allRightsReserved": "Todos los derechos reservados"
+  },
   "month": {
     "1": "Ene",
     "2": "Feb",
@@ -180,5 +329,10 @@
     "11": "Nov",
     "12": "Dic"
   },
-  "seeHere": "Ver aquí!"
+  "seeHere": "Ver aquí!",
+  "underConstruction": {
+    "title": "EN CONSTRUCCIÓN",
+    "project": "Proyectos & Demos de yuli-ferna",
+    "loading": "Cargando"
+  }
 }
