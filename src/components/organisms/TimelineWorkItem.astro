@@ -2,7 +2,7 @@
 import Ubication from "../atoms/Ubication";
 import Description from "../atoms/Description";
 import TagContainer from "../molecules/TagContainer.astro";
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getLangFromUrl, useTranslations, getImage } from "../../i18n/utils";
 import Github from "../atoms/icons/Github";
 import Link from "../atoms/icons/Link";
 import DateTimeline from "../atoms/DateTimeline.astro";
@@ -31,7 +31,7 @@ const t = useTranslations(lang);
         class="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5"
       >
         <img
-          src={`/${image}`}
+          src={getImage(image)}
           class="flex-grow-0 flex-shrink-0 w-fit h-48 rounded-tl-[17px] rounded-tr-[17px] object-cover"
           alt={companyName}
         />

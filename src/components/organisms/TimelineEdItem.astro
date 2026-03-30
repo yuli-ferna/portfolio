@@ -1,7 +1,7 @@
 ---
 import Description from "../atoms/Description";
 import TagContainer from "../molecules/TagContainer.astro";
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getImage, getLangFromUrl, useTranslations } from "../../i18n/utils";
 import Link from "../atoms/icons/Link";
 import DateTimeline from "../atoms/DateTimeline.astro";
 const {
@@ -33,7 +33,7 @@ const education = t("education") ?? {};
         <div class="flex flex-row justify-between items-center gap-8 relative">
           <div class="max-w-20 h-max-20">
             <img
-            src={`/${image}`}
+            src={getImage(image)}
             class="flex-grow-0 flex-shrink-0 w-fit"
             alt={title}
           />

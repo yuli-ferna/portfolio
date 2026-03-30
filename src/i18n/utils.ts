@@ -89,3 +89,7 @@ export function useAssets() {
     raw: a,
   };
 }
+
+export function getImage(image: string) {
+	return String(image).startsWith("https") ? image : `/${image}`;
+}
