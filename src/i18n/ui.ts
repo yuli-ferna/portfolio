@@ -19,7 +19,7 @@ export async function fetchTranslations(): Promise<{
   es: LanguageMap;
 }> {
   if(process.env.NODE_ENV === 'development') {
-    return { en: english, es: spanish };
+  return { en: english, es: spanish };
   }
   let translations: Promise<{}>[] = [];
   Object.keys(languages).forEach(lang => {

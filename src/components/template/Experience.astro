@@ -2,6 +2,7 @@
 import Timeline from "../organisms/Timeline.astro";
 import Exp from "../atoms/icons/Experience"
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import Projects from "./Projects.astro";
 
 
 const lang = getLangFromUrl(Astro.url);
@@ -11,7 +12,7 @@ const items = [ ...(experience["positions"] ?? [])];
 ---
 
 <div
-  class="w-full min-h-screen flex flex-col items-center justify-center relative experience-section pt-50 pb-50"
+  class="w-full min-h-screen flex flex-col items-center justify-center relative experience-section pt-50"
 >
   <div class="flex flex-row gap-4 mb-10 relative">
     <h1 class="title mb-6">{experience["title"]}</h1>
@@ -23,4 +24,6 @@ const items = [ ...(experience["positions"] ?? [])];
   <div class="mt-17">
     <Timeline items={items} type="work" />
   </div>
+
+  <Projects />
 </div>

@@ -10,9 +10,9 @@ export function getLangFromUrl(url: URL) {
 }
 
 export function replaceVariableField(translation: string, fieldsVar, variable) {
-	// console.log("replaceVariableField", fieldsVar)
 	for (let ii = 0; ii < fieldsVar.length; ii++) {
 		const key = fieldsVar[ii];
+		console.log("key", key, variable[key], translation)
 		translation = translation.replaceAll(`{${key}}`, `${variable[key]}`)
 
 	}
@@ -23,17 +23,18 @@ export function useTranslations(lang) {
 	return function t(key, variable = {}) {
 		let UI = ui;
 		const fieldsVar = Object.keys(variable);
-		// debugger
-		// console.log("fieldsVar", fieldsVar)
+		if(!variable) return UI[lang][key] || UI[defaultLang][key];
 		if (UI === undefined) {
 			const localUi = localLang();
 			let translation = localUi[lang][key] || localUi[defaultLang][key];
+			console.log("localUi")
 			if (typeof translation === "string") {
 				translation = replaceVariableField(translation, fieldsVar, variable);
 			}
 			return translation;
 		}
 		let translation = ui[lang][key] || ui[defaultLang][key];
+
 		translation = replaceVariableField(translation, fieldsVar, variable);
 		return translation;
 	}

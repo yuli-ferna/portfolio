@@ -1,17 +1,22 @@
 ---
-// ProjectsSection.astro
-// Place this component below your Experience section
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const projects = t("projects") ?? {};
+const underConstruction = t("underConstruction") ?? {};
 ---
 
-<section class="projects-section">
+<section class="projects-section pb-40">
+  <!-- Title usando la misma clase que el resto de secciones -->
   <div class="section-header">
     <span class="pixel-sparkle">✦</span>
-    <h2>Proyectos & Demos</h2>
+    <h1 class="title projects-title">{projects["title"] ?? underConstruction["project"]}</h1>
     <span class="pixel-sparkle">✦</span>
   </div>
 
   <p class="section-desc">
-    Una selección de proyectos donde aplico mis conocimientos para crear soluciones funcionales e innovadoras.
+    {projects["description"]}
   </p>
 
   <div class="monitor-wrapper">
@@ -26,7 +31,7 @@
       <div class="screen">
         <iframe
           src="https://yuli-ferna.github.io/"
-          title="Proyectos y Demos de yuli-ferna"
+          title={projects["title"]}
           loading="lazy"
           scrolling="yes"
         ></iframe>
@@ -50,7 +55,7 @@
     class="pixel-btn"
   >
     <span class="btn-icon">🖥️</span>
-    Ver todos mis proyectos
+    {projects["cta"]}
     <span class="btn-arrow">→</span>
   </a>
 </section>
@@ -61,28 +66,29 @@
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    padding: 3rem 1rem 4rem;
-    font-family: 'Courier New', monospace;
+    padding: 4rem 1rem 5rem;
+    width: 100%;
   }
 
-  /* ── Header ── */
+  /* ── Header – usa la fuente Pixelify Sans via clase .title ── */
   .section-header {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .section-header h2 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
+  /* Sobreescribimos solo el tamaño para que encaje con los sparkles */
+  .projects-title {
     margin: 0;
-    /* Use whatever heading color/font your portfolio uses */
+    line-height: 1;
+    font-size: 2.5rem;
   }
 
   .pixel-sparkle {
-    color: #f9a8d4; /* pink-300 */
-    font-size: 1.2rem;
+    color: var(--color-pink-300, #efb8c8);
+    font-size: 1.4rem;
     animation: sparkle 2s ease-in-out infinite alternate;
   }
 
@@ -98,10 +104,11 @@
   .section-desc {
     max-width: 480px;
     text-align: center;
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     line-height: 1.7;
-    opacity: 0.75;
+    opacity: 0.85;
     margin: 0;
+    color: var(--color-text-primary);
   }
 
   /* ── Monitor wrapper ── */
@@ -120,7 +127,7 @@
     animation: float 3s ease-in-out infinite;
   }
 
-  .deco-star1 { top: -1rem; left: -2rem; color: #f9a8d4; animation-delay: 0s; }
+  .deco-star1 { top: -1rem; left: -2rem; color: var(--color-pink-300, #efb8c8); animation-delay: 0s; }
   .deco-star2 { top: 2rem;  right: -2rem; color: #a5f3fc; animation-delay: 1s; font-size: 1rem; }
   .deco-floppy { bottom: 4rem; right: -2.5rem; animation-delay: 0.5s; }
 
@@ -129,34 +136,32 @@
     50%       { transform: translateY(-8px) rotate(5deg); }
   }
 
-  /* ── Monitor frame ── */
+  /* ── Monitor frame – colores adaptados al tema ── */
   .monitor {
     width: min(520px, 92vw);
-    background: #fce7f3; /* pastel pink */
-    border: 3px solid #374151;
+    background: var(--color-container-primary);
+    border: 3px solid var(--color-text-primary);
     border-radius: 12px 12px 4px 4px;
     box-shadow:
-      4px 4px 0 #374151,   /* pixel drop shadow */
-      inset 0 0 0 2px #fdf2f8;
+      4px 4px 0 var(--color-text-primary),
+      inset 0 0 0 2px var(--color-container-paper);
     overflow: hidden;
-    image-rendering: pixelated;
   }
 
-  /* Top bar (fake browser chrome) */
   .monitor-top-bar {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 0.75rem;
-    background: #fbcfe8;
-    border-bottom: 2px solid #374151;
+    background: var(--color-container-secondary);
+    border-bottom: 2px solid var(--color-text-primary);
   }
 
   .dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    border: 1.5px solid #374151;
+    border: 1.5px solid var(--color-text-primary);
     display: inline-block;
   }
   .dot.red    { background: #fca5a5; }
@@ -168,12 +173,12 @@
     text-align: center;
     font-size: 0.7rem;
     letter-spacing: 0.08em;
-    color: #374151;
+    color: var(--color-text-primary);
     opacity: 0.7;
-    margin-right: 1.5rem; /* optical balance vs dots */
+    margin-right: 1.5rem;
+    font-family: 'Courier New', monospace;
   }
 
-  /* Screen / iframe area */
   .screen {
     position: relative;
     width: 100%;
@@ -183,11 +188,8 @@
   }
 
   .screen iframe {
-    width: 100%;
-    height: 100%;
     border: none;
     display: block;
-    /* Scale down the page to fit nicely */
     transform: scale(0.75);
     transform-origin: top left;
     width: 133.33%;
@@ -195,7 +197,6 @@
     pointer-events: auto;
   }
 
-  /* Subtle glare overlay */
   .screen-glare {
     position: absolute;
     inset: 0;
@@ -205,40 +206,39 @@
       transparent 50%
     );
     pointer-events: none;
-    border-radius: 0 0 4px 4px;
   }
 
   /* ── Stand ── */
   .monitor-neck {
     width: 28px;
     height: 24px;
-    background: #fbcfe8;
-    border-left: 3px solid #374151;
-    border-right: 3px solid #374151;
-    border-bottom: 3px solid #374151;
+    background: var(--color-container-secondary);
+    border-left: 3px solid var(--color-text-primary);
+    border-right: 3px solid var(--color-text-primary);
+    border-bottom: 3px solid var(--color-text-primary);
   }
 
   .monitor-base {
     width: 140px;
     height: 14px;
-    background: #fce7f3;
-    border: 3px solid #374151;
+    background: var(--color-container-primary);
+    border: 3px solid var(--color-text-primary);
     border-radius: 0 0 8px 8px;
-    box-shadow: 3px 3px 0 #374151;
+    box-shadow: 3px 3px 0 var(--color-text-primary);
   }
 
-  /* ── Pixel button ── */
+  /* ── Pixel button – usa colores del sistema ── */
   .pixel-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
     margin-top: 0.5rem;
     padding: 0.7rem 1.4rem;
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
+    font-family: 'Pixelify Sans', 'Courier New', monospace;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.06em;
-    color: #374151;
+        color: #374151;
     background: #fde68a; /* yellow, like the button in the screenshot */
     border: 2px solid #374151;
     border-radius: 4px;
@@ -250,12 +250,13 @@
 
   .pixel-btn:hover {
     transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0 #374151;
+    box-shadow: 4px 4px 0 var(--color-text-primary);
+    background: var(--color-hover-primary);
   }
 
   .pixel-btn:active {
     transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0 #374151;
+    box-shadow: 1px 1px 0 var(--color-text-primary);
   }
 
   .btn-arrow {
@@ -270,5 +271,6 @@
   @media (max-width: 480px) {
     .monitor { width: 95vw; }
     .screen  { height: 260px; }
+    .deco-star1, .deco-star2, .deco-floppy { display: none; }
   }
 </style>
