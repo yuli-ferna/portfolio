@@ -13,7 +13,7 @@ export function replaceVariableField(translation: string, fieldsVar, variable) {
 	for (let ii = 0; ii < fieldsVar.length; ii++) {
 		const key = fieldsVar[ii];
 		console.log("key", key, variable[key], translation)
-		translation = translation.replaceAll(`{${key}}`, `${variable[key]}`)
+		translation = translation?.replaceAll(`{${key}}`, `${variable[key]}`)
 
 	}
 	return translation;
