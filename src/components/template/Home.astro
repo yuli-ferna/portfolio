@@ -5,22 +5,31 @@ import BlurText from "../molecules/BlurText";
 import ContactLinks from "../molecules/ContactLinks.astro";
 import SplitText from "../SplitText";
 import { motion } from "motion/react";
+import PixelCVFolder from "../molecules/PixelCVFolder";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const home = t("home") ?? {};
-const currentYear = (new Date()).getFullYear();
+const currentYear = new Date().getFullYear();
 const initDate = 2018;
 const description = t("home.description", { years: currentYear - initDate });
 
-const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹️ Astro", "♥ UI/UX", "⭐ Open to work", "💿 CSS", "✦ Web Design"];
+const tickerItems = [
+  "✦ Frontend Dev",
+  "💾 React",
+  "✧ TypeScript",
+  "🕹️ Astro",
+  "♥ UI/UX",
+  "⭐ Open to work",
+  "💿 CSS",
+  "✦ Web Design",
+];
 ---
 
 <div
   class="flex flex-col-reverse md:flex-row items-center justify-around lg:gap-20 w-fit w-max-85 md:w-full size-4 h-fit md:h-[calc(100vh+30px)] relative overflow-hidden"
   transition:animate="none"
 >
-
   <!-- ═══════════════════════════════
        FLOATING PIXEL DECORATIONS
   ════════════════════════════════ -->
@@ -37,12 +46,23 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
     <span class="fi fi-10">📟</span>
   </div>
 
+  <!-- Pixel marquee ticker -->
+  <div class="pixel-ticker" aria-hidden="true">
+    <div class="ticker-track">
+      {
+        [...tickerItems, ...tickerItems].map((item) => (
+          <span class="ticker-item title">{item}</span>
+        ))
+      }
+    </div>
+  </div>
   <!-- ═══════════════════════════════
        LEFT COLUMN
   ════════════════════════════════ -->
-  <div class="h-screen flex flex-col items-center justify-center gap-14 md:gap-7 md:max-w-100 md:items-start">
-
-    <div class="transform-3d -rotate-10 hidden md:block">
+  <div
+    class="h-screen flex flex-col items-center justify-center gap-14 md:gap-7 md:max-w-100 md:items-start"
+  >
+    <div class="transform-3d -rotate-10 hidden md:block md:mt-10">
       <DecryptedText
         client:load
         className="title text-lg"
@@ -64,63 +84,29 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
         direction="top"
       />
     </div>
-
-    <!-- CV button (original, untouched) -->
-    <div class="w-full flex justify-center relative" transition:animate="none">
-      <motion.a
-        client:load
-        href={home["cvLink"]}
-        className="cursor-pointer"
-        animate={{
-          y: [0, 20, 0],
-          transition: { duration: 1, repeat: Infinity, ease: "easeInOut" },
-        }}
-        target="_blank"
-      >
-        <SplitText
-          client:load
-          text="CV"
-          className="title absolute top-3 md:top-7 left-0 right-0 text-[40px]"
-          delay={200}
-          duration={4}
-          ease="elastic.out(1,0.3)"
-          splitType="chars"
-          from={{ opacity: 0, y: 40 }}
-          to={{ opacity: 1, y: 0 }}
-          threshold={0.1}
-          rootMargin="-100px"
+  <!-- Mobile contact CTA -->
+  <div class="flex md:hidden">
+    <PixelCVFolder
+      client:visible
+      cvLink={home["cvLink"] ?? "#"}
+      label={home["cvLabel"] ?? "View my CV"}
+    />
+  </div>
+    <!-- CTA buttons row: CV + Contact -->
+    <div
+      class="cta-group hidden md:flex flex-col gap-20 items-center justify-start mt-2 w-full -pt-10"
+    >
+      <div class="cta-row h-30 w-full flex items-center justify-center">
+        <PixelCVFolder
+          client:visible
+          cvLink={home["cvLink"] ?? "#"}
+          label={home["cvLabel"] ?? "View my CV"}
         />
-        <svg width="158" height="150" viewBox="0 0 208 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g filter="url(#filter0_d_172_1046)">
-            <path d="M194.437 166.656H13.5V147.594H4V176.156H13.5V185.719H194.437V176.156H204V147.594H194.437V166.656Z" fill="var(--color-text-primary)"></path>
-            <path d="M184.938 128.531H194.438V147.594H184.938V128.531ZM89.6875 147.594H118.25V157.094H89.6875V147.594ZM32.5625 14.2812H175.438V23.7812H32.5625V14.2812Z" fill="var(--color-text-primary)"></path>
-            <path d="M184.937 128.531V23.7812H175.437V119.031H32.5625V23.7812H23.0625V128.531H184.937ZM13.5 128.531H23.0625V147.594H13.5V128.531Z" fill="var(--color-text-primary)"></path>
-          </g>
-          <defs>
-            <filter id="filter0_d_172_1046" x="0" y="0" width="208" height="208" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-              <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
-              <feOffset dy="4"></feOffset>
-              <feGaussianBlur stdDeviation="2"></feGaussianBlur>
-              <feComposite in2="hardAlpha" operator="out"></feComposite>
-              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
-              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_172_1046"></feBlend>
-              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_172_1046" result="shape"></feBlend>
-            </filter>
-          </defs>
-        </svg>
-      </motion.a>
-    </div>
-
-    <!-- Contact CTA + scroll nudge -->
-    <div class="cta-group hidden md:flex flex-col gap-3 items-start mt-2">
-      <a href="#contact" class="pixel-contact-btn">
-        <span>✉</span>
-        <span>{home["contactCta"] ?? "Contact me!"}</span>
-        <span class="btn-px-arrow">→</span>
-      </a>
+      </div>
       <div class="scroll-nudge">
-        <span class="scroll-nudge-label title">{home["scrollHint"] ?? "↓ scroll to explore"}</span>
+        <span class="scroll-nudge-label title"
+          >{home["scrollHint"] ?? "↓ scroll to explore"}</span
+        >
         <span class="sdot s1"></span>
         <span class="sdot s2"></span>
         <span class="sdot s3"></span>
@@ -131,8 +117,9 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
   <!-- ═══════════════════════════════
        RIGHT COLUMN — RETRO ID BADGE
   ════════════════════════════════ -->
-  <div class="h-screen md:h-fit flex flex-col items-center justify-center w-full md:w-auto relative">
-
+  <div
+    class="h-screen md:h-fit flex flex-col items-center justify-center w-full md:w-auto relative"
+  >
     <div class="transform-3d -rotate-10 md:hidden mb-6">
       <DecryptedText
         client:load
@@ -147,26 +134,49 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
 
     <!-- ══ LANYARD + ID CARD ══ -->
     <div class="lanyard-wrap">
-
       <!-- lanyard string SVG -->
-      <svg class="lanyard-svg" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg
+        class="lanyard-svg"
+        viewBox="0 0 100 60"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
         <!-- left cord -->
-        <path d="M 20 0 Q 20 30 50 58" stroke="var(--color-text-primary)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path
+          d="M 20 0 Q 20 30 50 58"
+          stroke="var(--color-text-primary)"
+          stroke-width="3"
+          fill="none"
+          stroke-linecap="round"></path>
         <!-- right cord -->
-        <path d="M 80 0 Q 80 30 50 58" stroke="var(--color-text-primary)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path
+          d="M 80 0 Q 80 30 50 58"
+          stroke="var(--color-text-primary)"
+          stroke-width="3"
+          fill="none"
+          stroke-linecap="round"></path>
         <!-- clip ring -->
-        <rect x="44" y="52" width="12" height="10" rx="2" fill="var(--color-container-primary)" stroke="var(--color-text-primary)" stroke-width="2.5"/>
+        <rect
+          x="44"
+          y="52"
+          width="12"
+          height="10"
+          rx="2"
+          fill="var(--color-container-primary)"
+          stroke="var(--color-text-primary)"
+          stroke-width="2.5"></rect>
       </svg>
 
       <!-- THE CARD -->
       <div class="id-card">
-
         <!-- card header bar -->
         <div class="card-header">
           <span class="status-dot-wrap">
             <span class="status-green-dot"></span>
           </span>
-          <span class="card-header-title title">{home["status"] ?? "Open to work ✦"}</span>
+          <span class="card-header-title title"
+            >{home["status"] ?? "Open to work ✦"}</span
+          >
           <span class="card-header-id title">#{currentYear}</span>
         </div>
 
@@ -179,7 +189,11 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
             <motion.img
               client:load
               initial={{ bottom: "4px", left: "4px" }}
-              animate={{ bottom: [0,"4px",0], left: [0,"4px",0], transition: { repeat: Infinity, duration: 8 } }}
+              animate={{
+                bottom: [0, "4px", 0],
+                left: [0, "4px", 0],
+                transition: { repeat: Infinity, duration: 8 },
+              }}
               className="photo-img photo-red  mix-blend-normal"
               src={"/image_home_red.webp"}
               alt=""
@@ -187,12 +201,20 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
             <motion.img
               client:load
               initial={{ bottom: "-4px", left: "-4px" }}
-              animate={{ bottom: [0,"-4px",0], left: [0,"-4px",0], transition: { repeat: Infinity, duration: 8 } }}
+              animate={{
+                bottom: [0, "-4px", 0],
+                left: [0, "-4px", 0],
+                transition: { repeat: Infinity, duration: 8 },
+              }}
               className="photo-img photo-blue  mix-blend-normal"
               src={"/image_home_blue.webp"}
               alt=""
             />
-            <img class="photo-img mix-blend-normal" src={"/image_home.webp"} alt="Avatar" />
+            <img
+              class="photo-img mix-blend-normal"
+              src={"/image_home.webp"}
+              alt="Avatar"
+            />
           </div>
         </div>
 
@@ -231,39 +253,23 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
         <!-- bottom barcode decoration -->
         <div class="card-barcode" aria-hidden="true">
           <div class="barcode-bars">
-            {Array.from({length: 28}).map((_, i) => (
-              <span class={`bar bar-${i % 3}`}></span>
-            ))}
+            {
+              Array.from({ length: 28 }).map((_, i) => (
+                <span class={`bar bar-${i % 3}`} />
+              ))
+            }
           </div>
           <span class="barcode-num title">YF-{initDate}-{currentYear}</span>
         </div>
-
       </div><!-- /id-card -->
 
       <!-- floating pixel sparkles near the card -->
       <span class="card-spark cs1">✦</span>
       <span class="card-spark cs2">✧</span>
       <span class="card-spark cs3">♥</span>
-
     </div><!-- /lanyard-wrap -->
 
-    <!-- Mobile contact CTA -->
-    <div class="flex md:hidden mt-6">
-      <a href="#contact" class="pixel-contact-btn">
-        <span>✉</span>
-        <span>{home["contactCta"] ?? "Contact me!"}</span>
-        <span class="btn-px-arrow">→</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- Pixel marquee ticker -->
-  <div class="pixel-ticker" aria-hidden="true">
-    <div class="ticker-track">
-      {[...tickerItems, ...tickerItems].map((item) => (
-        <span class="ticker-item title">{item}</span>
-      ))}
-    </div>
+    
   </div>
 
 </div>
@@ -286,20 +292,81 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
     animation: pixelFloat 4s ease-in-out infinite;
     color: var(--color-text-primary);
   }
-  .fi-1  { top: 6%;  left: 4%;    font-size: 1.4rem; animation-delay: 0s;   color: #efb8c8; }
-  .fi-2  { top: 12%; right: 6%;   font-size: 0.9rem; animation-delay: 0.8s; color: #a5f3fc; }
-  .fi-3  { top: 22%; left: 10%;   font-size: 1.3rem; animation-delay: 0.3s; }
-  .fi-4  { top: 55%; right: 4%;   font-size: 1.4rem; animation-delay: 1.2s; }
-  .fi-5  { top: 35%; left: 2%;    font-size: 1rem;   animation-delay: 1.9s; color: #efb8c8; }
-  .fi-6  { top: 78%; left: 6%;    font-size: 1.2rem; animation-delay: 0.5s; color: #efb8c8; }
-  .fi-7  { top: 82%; right: 10%;  font-size: 1rem;   animation-delay: 1.0s; color: #fde68a; }
-  .fi-8  { top: 48%; right: 2%;   font-size: 1.2rem; animation-delay: 2.3s; }
-  .fi-9  { top: 68%; right: 7%;   font-size: 0.85rem;animation-delay: 1.6s; color: #a5f3fc; }
-  .fi-10 { top: 42%; left: 5%;    font-size: 1.1rem; animation-delay: 0.1s; }
+  .fi-1 {
+    top: 6%;
+    left: 4%;
+    font-size: 1.4rem;
+    animation-delay: 0s;
+    color: #efb8c8;
+  }
+  .fi-2 {
+    top: 12%;
+    right: 6%;
+    font-size: 0.9rem;
+    animation-delay: 0.8s;
+    color: #a5f3fc;
+  }
+  .fi-3 {
+    top: 22%;
+    left: 10%;
+    font-size: 1.3rem;
+    animation-delay: 0.3s;
+  }
+  .fi-4 {
+    top: 55%;
+    right: 4%;
+    font-size: 1.4rem;
+    animation-delay: 1.2s;
+  }
+  .fi-5 {
+    top: 35%;
+    left: 2%;
+    font-size: 1rem;
+    animation-delay: 1.9s;
+    color: #efb8c8;
+  }
+  .fi-6 {
+    top: 78%;
+    left: 6%;
+    font-size: 1.2rem;
+    animation-delay: 0.5s;
+    color: #efb8c8;
+  }
+  .fi-7 {
+    top: 82%;
+    right: 10%;
+    font-size: 1rem;
+    animation-delay: 1s;
+    color: #fde68a;
+  }
+  .fi-8 {
+    top: 48%;
+    right: 2%;
+    font-size: 1.2rem;
+    animation-delay: 2.3s;
+  }
+  .fi-9 {
+    top: 68%;
+    right: 7%;
+    font-size: 0.85rem;
+    animation-delay: 1.6s;
+    color: #a5f3fc;
+  }
+  .fi-10 {
+    top: 42%;
+    left: 5%;
+    font-size: 1.1rem;
+    animation-delay: 0.1s;
+  }
 
   @keyframes pixelFloat {
-    0%, 100% { transform: translateY(0)     rotate(0deg); }
-    50%       { transform: translateY(-12px) rotate(8deg); }
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-12px) rotate(8deg);
+    }
   }
 
   /* ═══════════════════════════════════════
@@ -316,8 +383,13 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
   }
 
   @keyframes cardSwing {
-    0%,100% { transform: rotate(-1.5deg); }
-    50%      { transform: rotate(1.5deg);  }
+    0%,
+    100% {
+      transform: rotate(-1.5deg);
+    }
+    50% {
+      transform: rotate(1.5deg);
+    }
   }
 
   .lanyard-svg {
@@ -374,7 +446,9 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
   }
 
   /* green dot */
-  .status-dot-wrap { flex-shrink: 0; }
+  .status-dot-wrap {
+    flex-shrink: 0;
+  }
   .status-green-dot {
     display: inline-block;
     width: 7px;
@@ -385,8 +459,15 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
     animation: greenPulse 1.5s ease-in-out infinite;
   }
   @keyframes greenPulse {
-    0%,100% { box-shadow: 0 0 4px #4ade80; transform: scale(1); }
-    50%      { box-shadow: 0 0 12px #4ade80; transform: scale(1.3); }
+    0%,
+    100% {
+      box-shadow: 0 0 4px #4ade80;
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 12px #4ade80;
+      transform: scale(1.3);
+    }
   }
 
   /* dashed separator (pixel-art style) */
@@ -413,8 +494,8 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
 
   .card-photo {
     position: relative;
-    width: 120px;
-    height: 140px;
+    width: 180px;
+    height: 200px;
     border: 2.5px solid var(--color-text-primary);
     box-shadow: 3px 3px 0 var(--color-text-primary);
     overflow: hidden;
@@ -433,8 +514,13 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
     object-position: top center;
   }
 
-  .photo-red  { opacity: 0.45; mix-blend-mode: lighten; }
-  .photo-blue { opacity: 0.45; }
+  .photo-red {
+    opacity: 0.45;
+    mix-blend-mode: lighten;
+  }
+  .photo-blue {
+    opacity: 0.45;
+  }
 
   /* ── NAME + ROLES ── */
   .card-info {
@@ -462,7 +548,7 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
     letter-spacing: 0.06em;
     color: var(--color-text-primary);
     opacity: 0.75;
-    font-family: 'Pixelify Sans', monospace !important;
+    font-family: "Pixelify Sans", monospace !important;
   }
 
   /* ── LINKS ── */
@@ -507,9 +593,18 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
     border-radius: 0;
   }
   /* three bar heights for variety */
-  .bar-0 { width: 2px; height: 22px; }
-  .bar-1 { width: 1px; height: 16px; }
-  .bar-2 { width: 3px; height: 19px; }
+  .bar-0 {
+    width: 2px;
+    height: 22px;
+  }
+  .bar-1 {
+    width: 1px;
+    height: 16px;
+  }
+  .bar-2 {
+    width: 3px;
+    height: 19px;
+  }
 
   .barcode-num {
     font-size: 0.5rem;
@@ -526,9 +621,27 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
     opacity: 0.5;
     animation: pixelFloat 3.5s ease-in-out infinite;
   }
-  .cs1 { bottom: 2rem;  left: -1.5rem;  animation-delay: 0s;   color: #efb8c8; font-size: 1.1rem; }
-  .cs2 { top: 3.5rem;   right: -1.5rem; animation-delay: 1.1s; color: #a5f3fc; font-size: 0.85rem; }
-  .cs3 { bottom: 5rem;  right: -1.2rem; animation-delay: 1.8s; color: #efb8c8; font-size: 0.9rem; }
+  .cs1 {
+    bottom: 2rem;
+    left: -1.5rem;
+    animation-delay: 0s;
+    color: #efb8c8;
+    font-size: 1.1rem;
+  }
+  .cs2 {
+    top: 3.5rem;
+    right: -1.5rem;
+    animation-delay: 1.1s;
+    color: #a5f3fc;
+    font-size: 0.85rem;
+  }
+  .cs3 {
+    bottom: 5rem;
+    right: -1.2rem;
+    animation-delay: 1.8s;
+    color: #efb8c8;
+    font-size: 0.9rem;
+  }
 
   /* ═══════════════════════════════════════
      PIXEL CONTACT BUTTON
@@ -538,7 +651,7 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
     align-items: center;
     gap: 0.5rem;
     padding: 0.65rem 1.2rem;
-    font-family: 'Pixelify Sans', 'Courier New', monospace;
+    font-family: "Pixelify Sans", "Courier New", monospace;
     font-size: 0.95rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -549,7 +662,10 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
     box-shadow: 3px 3px 0 var(--color-text-primary);
     text-decoration: none;
     cursor: pointer;
-    transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+    transition:
+      transform 0.1s ease,
+      box-shadow 0.1s ease,
+      background 0.15s ease;
     position: relative;
     z-index: 1;
   }
@@ -562,26 +678,53 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
     transform: translate(2px, 2px);
     box-shadow: 1px 1px 0 var(--color-text-primary);
   }
-  .btn-px-arrow { transition: transform 0.2s; }
-  .pixel-contact-btn:hover .btn-px-arrow { transform: translateX(5px); }
+  .btn-px-arrow {
+    transition: transform 0.2s;
+  }
+  .pixel-contact-btn:hover .btn-px-arrow {
+    transform: translateX(5px);
+  }
 
   /* ═══════════════════════════════════════
      SCROLL NUDGE
   ═══════════════════════════════════════ */
-  .scroll-nudge { display: flex; align-items: center; gap: 0.45rem; }
-  .scroll-nudge-label { font-size: 0.72rem; letter-spacing: 0.1em; opacity: 0.6; color: var(--color-text-primary); }
+  .scroll-nudge {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+  .scroll-nudge-label {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+    color: var(--color-text-primary);
+  }
   .sdot {
     display: inline-block;
-    width: 5px; height: 5px;
+    width: 5px;
+    height: 5px;
     background: var(--color-text-primary);
     animation: dotPop 1.6s ease-in-out infinite;
   }
-  .s1 { animation-delay: 0s;    }
-  .s2 { animation-delay: 0.28s; }
-  .s3 { animation-delay: 0.56s; }
+  .s1 {
+    animation-delay: 0s;
+  }
+  .s2 {
+    animation-delay: 0.28s;
+  }
+  .s3 {
+    animation-delay: 0.56s;
+  }
   @keyframes dotPop {
-    0%,100% { opacity: 0.25; transform: scale(1); }
-    50%      { opacity: 1;   transform: scale(1.6); }
+    0%,
+    100% {
+      opacity: 0.25;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.6);
+    }
   }
 
   /* ═══════════════════════════════════════
@@ -589,15 +732,16 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
   ═══════════════════════════════════════ */
   .pixel-ticker {
     position: absolute;
-    bottom: 4rem;
-    left: 0; right: 0;
+    top: 8rem;
+    left: 0;
+    right: 0;
     overflow: hidden;
     border-top: 2px solid var(--color-text-primary);
     border-bottom: 2px solid var(--color-text-primary);
     background: var(--color-container-primary);
     padding: 0.28rem 0;
     opacity: 0.65;
-    z-index: 5;
+    z-index: 15;
     pointer-events: none;
   }
   .ticker-track {
@@ -606,7 +750,7 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
     animation: tickerScroll 20s linear infinite;
   }
   .ticker-item {
-    font-family: 'Pixelify Sans', 'Courier New', monospace;
+    font-family: "Pixelify Sans", "Courier New", monospace;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -615,19 +759,41 @@ const tickerItems = ["✦ Frontend Dev", "💾 React", "✧ TypeScript", "🕹�
     white-space: nowrap;
   }
   @keyframes tickerScroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 
   /* ═══════════════════════════════════════
      RESPONSIVE
   ═══════════════════════════════════════ */
   @media (max-width: 640px) {
-    .fi-3, .fi-4, .fi-8, .fi-10 { display: none; }
-    .pixel-ticker { display: none; }
-    .cs1, .cs2, .cs3 { display: none; }
-    .id-card { width: 240; }
-    .lanyard-svg { width: 110px; }
-    .card-photo { width: 100px; height: 116px; }
+    .fi-3,
+    .fi-4,
+    .fi-8,
+    .fi-10 {
+      display: none;
+    }
+    .pixel-ticker {
+      display: none;
+    }
+    .cs1,
+    .cs2,
+    .cs3 {
+      display: none;
+    }
+    .id-card {
+      width: 240;
+    }
+    .lanyard-svg {
+      width: 110px;
+    }
+    .card-photo {
+      width: 150px;
+      height: 170px;
+    }
   }
 </style>
