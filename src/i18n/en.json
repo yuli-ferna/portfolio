@@ -1,10 +1,10 @@
 {
-  "home.description": "I am a passionate software developer with {years} years of experience, focused on creating innovative and efficient solutions. My expertise lies in web development, and I am always eager to learn new technologies and enhance my skills.",
+  "home.description": "I'm a full-stack developer with {years} years of experience building web products end to end: from React and Next.js interfaces to Node.js APIs, PostgreSQL and Supabase databases, and multi-tenant architectures. I care about clean, efficient solutions and I'm always eager to learn new technologies. I'm also a university professor, teaching Discrete Mathematics at Universidad Central de Venezuela.",
   "home": {
     "hello": "Hi, I'm Yuliana Fernandez",
     "titles": [
-      "Software Developer",
-      "Frontend",
+      "Full-stack Developer",
+      "Frontend · Backend",
       "UI/UX Enthusiastic"
     ],
     "contactCta": "Contact me!",
@@ -114,7 +114,7 @@
       {
         "jobTitle": "Full-stack Developer",
         "description": "Developed a comprehensive aviation management solution covering sales, charter operations, and fleet management. The platform features a full admin dashboard, a real-time aircraft inventory system, and a robust white-label architecture configurable per tenant.",
-        "image": "https://res.cloudinary.com/dc8fnv6xk/image/upload/f_auto,q_auto/videoframe_5005_zz6egs",
+        "image": "portfolio/sparkiq.webp",
         "tags": [
           "NextJS",
           "React",
@@ -132,6 +132,21 @@
         "ubication": "Remote",
         "dateStart": "Jan 2026",
         "dateEnd": "Oct 2026"
+      },
+      {
+        "jobTitle": "University Professor",
+        "description": "Teaching Discrete Mathematics as part of the Scientific Computing department (Cátedra de Cálculo Científico) at Universidad Central de Venezuela.",
+        "image": "portfolio/teach.webp",
+        "tags": [
+          "Discrete Mathematics",
+          "Logic",
+          "Computer science",
+          "Teaching"
+        ],
+        "companyName": "Universidad Central de Venezuela",
+        "ubication": "Caracas",
+        "dateStart": "2025",
+        "dateEnd": "Current"
       },
       {
         "jobTitle": "Software Developer",
@@ -313,7 +328,7 @@
   },
   "projects": {
     "title": "Projects & Demos",
-    "description": "A selection of projects where I apply my knowledge to build functional and innovative solutions.",
+    "description": "Full-stack products and features I've built, from the interface to the API and the data.",
     "cta": "See all my projects",
     "list": [
       {
@@ -356,15 +371,15 @@
         ]
       },
       {
-        "title": "Aviation Admin Dashboard",
+        "title": "Private Aviation Platform",
         "meta": "Spark IQ · 2026",
-        "image": "https://res.cloudinary.com/dc8fnv6xk/image/upload/f_auto,q_auto/videoframe_5005_zz6egs",
-        "description": "Multi-tenant platform for charter sales, operations and real-time fleet inventory, white-label per client.",
+        "image": "portfolio/sparkiq.webp",
+        "description": "Full-stack multi-tenant SaaS: public client site, admin dashboard for charter sales and operations, and real-time fleet inventory, built with Next.js and Supabase.",
         "tags": [
           "NextJS",
           "Typescript",
           "Supabase",
-          "Tailwind"
+          "PostgreSQL"
         ],
         "private": "Private · NDA"
       }

@@ -17,8 +17,13 @@ const lang = getLangFromUrl(Astro.url);
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Yuliana</title>
-		<meta name="description" content={"My portfolio"}>
+		<title>Yuliana Fernandez · Full-stack Developer</title>
+		<meta
+			name="description"
+			content={lang === "es"
+				? "Portafolio de Yuliana Fernandez, desarrolladora full-stack: React, Next.js, Node.js, PostgreSQL y Supabase."
+				: "Portfolio of Yuliana Fernandez, full-stack developer: React, Next.js, Node.js, PostgreSQL and Supabase."}
+		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link

@@ -1,13 +1,13 @@
 {
-  "home.description": "Soy una desarrolladora de software apasionada, con {years} años de experiencia, enfocada en crear soluciones innovadoras y eficientes. Mi especialidad es el desarrollo web, y siempre estoy dispuesta a aprender nuevas tecnologías y perfeccionar mis habilidades.",
+  "home.description": "Soy desarrolladora full-stack con {years} años de experiencia construyendo productos web de punta a punta: desde interfaces con React y Next.js hasta APIs en Node.js, bases de datos PostgreSQL y Supabase, y arquitecturas multi-tenant. Me importan las soluciones limpias y eficientes, y siempre estoy aprendiendo nuevas tecnologías. También soy profesora universitaria: dicto Matemáticas Discretas en la Universidad Central de Venezuela.",
   "home": {
     "hello": "Hola, soy Yuliana Fernández",
     "titles": [
-      "Software Developer",
-      "Frontend",
+      "Full-stack Developer",
+      "Frontend · Backend",
       "UI/UX Enthusiastic"
     ],
-    "description": "Soy una desarrolladora de software apasionada, con {years} años de experiencia, enfocada en crear soluciones innovadoras y eficientes. Mi especialidad es el desarrollo web, y siempre estoy dispuesta a aprender nuevas tecnologías y perfeccionar mis habilidades.",
+    "description": "Soy desarrolladora full-stack con {years} años de experiencia construyendo productos web de punta a punta: desde interfaces con React y Next.js hasta APIs en Node.js, bases de datos PostgreSQL y Supabase, y arquitecturas multi-tenant. Me importan las soluciones limpias y eficientes, y siempre estoy aprendiendo nuevas tecnologías. También soy profesora universitaria: dicto Matemáticas Discretas en la Universidad Central de Venezuela.",
     "contactCta": "¡Contáctame!",
     "scrollHint": "↓ desliza para explorar",
     "status": "Disponible para trabajar ✦",
@@ -115,7 +115,7 @@
       {
         "jobTitle": "Full-stack Developer",
         "description": "Desarrollé una plataforma SaaS multi-tenant de aviación privada con Next.js 16 y Supabase, que cubre ventas, charter y gestión de flota con panel admin completo, sistema de inventario de aeronaves y arquitectura white-label configurable por cliente.",
-        "image": "https://res.cloudinary.com/dc8fnv6xk/image/upload/f_auto,q_auto/videoframe_5005_zz6egs",
+        "image": "portfolio/sparkiq.webp",
         "tags": [
           "NextJS",
           "React",
@@ -133,6 +133,21 @@
         "ubication": "Remoto",
         "dateStart": "Ene 2026",
         "dateEnd": "Oct 2026"
+      },
+      {
+        "jobTitle": "Profesora universitaria",
+        "description": "Dicto Matemáticas Discretas en la Cátedra de Cálculo Científico de la Universidad Central de Venezuela.",
+        "image": "portfolio/teach.webp",
+        "tags": [
+          "Matemáticas discretas",
+          "Lógica",
+          "Ciencias de la computación",
+          "Docencia"
+        ],
+        "companyName": "Universidad Central de Venezuela",
+        "ubication": "Caracas",
+        "dateStart": "2025",
+        "dateEnd": "Presente"
       },
       {
         "jobTitle": "Software Developer",
@@ -314,7 +329,7 @@
   },
   "projects": {
     "title": "Proyectos & Demos",
-    "description": "Una selección de proyectos donde aplico mis conocimientos para crear soluciones funcionales e innovadoras.",
+    "description": "Productos y funcionalidades full-stack que he construido, desde la interfaz hasta la API y los datos.",
     "cta": "Ver todos mis proyectos",
     "list": [
       {
@@ -357,15 +372,15 @@
         ]
       },
       {
-        "title": "Panel admin de aviación",
+        "title": "Plataforma de aviación privada",
         "meta": "Spark IQ · 2026",
-        "image": "https://res.cloudinary.com/dc8fnv6xk/image/upload/f_auto,q_auto/videoframe_5005_zz6egs",
-        "description": "Plataforma multi-tenant para ventas de charter, operaciones e inventario de flota en tiempo real, white-label por cliente.",
+        "image": "portfolio/sparkiq.webp",
+        "description": "SaaS multi-tenant full-stack: sitio público para clientes, panel admin para ventas de charter y operaciones, e inventario de flota en tiempo real, construido con Next.js y Supabase.",
         "tags": [
           "NextJS",
           "Typescript",
           "Supabase",
-          "Tailwind"
+          "PostgreSQL"
         ],
         "private": "Privado · NDA"
       }
