@@ -8,7 +8,18 @@
       "UI/UX Enthusiastic"
     ],
     "description": "Soy una desarrolladora de software apasionada, con {years} años de experiencia, enfocada en crear soluciones innovadoras y eficientes. Mi especialidad es el desarrollo web, y siempre estoy dispuesta a aprender nuevas tecnologías y perfeccionar mis habilidades.",
-    "cvLink": "https://drive.google.com/file/d/1yGJ6dtxZoq8EVMc8knAGbRMry4jchf6V/view?usp=sharing"
+    "contactCta": "¡Contáctame!",
+    "scrollHint": "↓ desliza para explorar",
+    "status": "Disponible para trabajar ✦",
+    "cvLink": "https://drive.google.com/file/d/1yGJ6dtxZoq8EVMc8knAGbRMry4jchf6V/view?usp=sharing",
+    "greeting": "Hola, soy",
+    "cvLabel": "Ver mi CV",
+    "talkLabel": "Hablemos",
+    "stats": {
+      "years": "años programando",
+      "companies": "empresas",
+      "remote": "trabajo remoto"
+    }
   },
   "navbar": {
     "home": {
@@ -101,6 +112,28 @@
     "title": "Experiencia",
     "description": "Cada etapa de mi trayectoria profesional ha sido una oportunidad para aprender, colaborar y aportar valor. En esta sección comparto los proyectos y roles que han marcado mi camino en el desarrollo de software.",
     "positions": [
+      {
+        "jobTitle": "Full-stack Developer",
+        "description": "Desarrollé una plataforma SaaS multi-tenant de aviación privada con Next.js 16 y Supabase, que cubre ventas, charter y gestión de flota con panel admin completo, sistema de inventario de aeronaves y arquitectura white-label configurable por cliente.",
+        "image": "https://res.cloudinary.com/dc8fnv6xk/image/upload/f_auto,q_auto/videoframe_5005_zz6egs",
+        "tags": [
+          "NextJS",
+          "React",
+          "HTML",
+          "CSS",
+          "V0",
+          "Typescript",
+          "Framer Motion",
+          "Supabase",
+          "Tailwind",
+          "SQL",
+          "PostgreSQL"
+        ],
+        "companyName": "Spark IQ",
+        "ubication": "Remoto",
+        "dateStart": "Ene 2026",
+        "dateEnd": "Oct 2026"
+      },
       {
         "jobTitle": "Software Developer",
         "description": "Desarrollé el sitio web de la compañía utilizando Next.js. Además, desarrollé y mantuve el Wormhole Portal Token Bridge, un proyecto de puente entre cadenas basado en blockchain que incluye el widget Wormhole Connect, utilizando principalmente Vite y React.",
@@ -215,7 +248,9 @@
         "dateStart": "Mar 2018",
         "dateEnd": "Ago 2020"
       }
-    ]
+    ],
+    "meta": "{start} → hoy · {count} roles",
+    "expandAll": "Abrir todos"
   },
   "education": {
     "title": "Educación & Certificados",
@@ -274,12 +309,73 @@
         "dateStart": "Ago 2020",
         "certificate": "https://www.coursera.org/account/accomplishments/certificate/WX5PL3L58AG8"
       }
-    ]
+    ],
+    "degreeLabel": "Título"
   },
   "projects": {
     "title": "Proyectos & Demos",
     "description": "Una selección de proyectos donde aplico mis conocimientos para crear soluciones funcionales e innovadoras.",
-    "cta": "Ver todos mis proyectos"
+    "cta": "Ver todos mis proyectos",
+    "list": [
+      {
+        "title": "Wormhole Portal Bridge",
+        "meta": "xLabs · 2023–25",
+        "image": "portfolio/xlabs.webp",
+        "description": "Puente de tokens cross-chain construido sobre Wormhole. Desarrollé y mantuve los flujos de transferencia con React y Vite.",
+        "tags": [
+          "React",
+          "Vite",
+          "Typescript",
+          "Web3"
+        ],
+        "links": [
+          {
+            "text": "Ver en vivo",
+            "link": "https://portalbridge.com/"
+          },
+          {
+            "text": "Código",
+            "link": "https://github.com/XLabs/portal-bridge-ui"
+          }
+        ]
+      },
+      {
+        "title": "Wormhole Connect",
+        "meta": "xLabs · 2023–25",
+        "image": "portfolio/xlabs.webp",
+        "description": "Widget de puente embebible que otras dApps integran en sus sitios para mover tokens entre cadenas.",
+        "tags": [
+          "React",
+          "Typescript",
+          "Web3"
+        ],
+        "links": [
+          {
+            "text": "Código",
+            "link": "https://github.com/wormhole-foundation/wormhole-connect/"
+          }
+        ]
+      },
+      {
+        "title": "Panel admin de aviación",
+        "meta": "Spark IQ · 2026",
+        "image": "https://res.cloudinary.com/dc8fnv6xk/image/upload/f_auto,q_auto/videoframe_5005_zz6egs",
+        "description": "Plataforma multi-tenant para ventas de charter, operaciones e inventario de flota en tiempo real, white-label por cliente.",
+        "tags": [
+          "NextJS",
+          "Typescript",
+          "Supabase",
+          "Tailwind"
+        ],
+        "private": "Privado · NDA"
+      }
+    ],
+    "portal": {
+      "kicker": "EL ARCHIVO COMPLETO",
+      "title": "Explora todos mis proyectos y demos",
+      "description": "Experimentos, proyectos personales y demos en vivo, desde un pequeño escritorio retro.",
+      "cta": "Abrir projects.exe"
+    }
   },
   "contact": {
     "title": "Contáctame!",
@@ -306,7 +402,9 @@
         "icon": "gmail.svg",
         "link": "https://mail.google.com/mail/u/0/?fs=1&to=yuliferna123@gmail.com&su=Hey+Yuli!&tf=cm"
       }
-    }
+    },
+    "copy": "Copiar",
+    "copied": "¡Copiado!"
   },
   "footer": {
     "builtWith": "Construido con",
@@ -334,5 +432,19 @@
     "title": "EN CONSTRUCCIÓN",
     "project": "Proyectos & Demos de yuli-ferna",
     "loading": "Cargando"
+  },
+  "playground": {
+    "title": "Playground",
+    "description": "¿Prefieres la línea de comandos? Escribe un comando o toca uno de abajo para conocerme.",
+    "hint": "psst… prueba",
+    "welcome": "¡Hola! Escribe help para ver qué puedo hacer ✦",
+    "help": "comandos: whoami · skills · experience · projects · contact · clear",
+    "notFound": "comando no encontrado: {cmd} — prueba help",
+    "projects": "abriendo projects.exe …",
+    "contact": "escríbeme:",
+    "hire": "✦ permiso concedido ✦ construyamos algo juntos → contacto",
+    "placeholder": "escribe help",
+    "inputLabel": "Comando de terminal",
+    "years": "años"
   }
 }

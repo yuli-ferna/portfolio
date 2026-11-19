@@ -1,23 +1,108 @@
 ---
-import Timeline from "../organisms/Timeline.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-import EducationAndCertificate from "../atoms/icons/EducationAndCertificate";
+import TechTag from "../atoms/TechTag.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const education = t("education") ?? {};
-const items = [ ...(education["titles"] ?? [])];
+const items = [...(education["titles"] ?? [])];
+const degreeLabel = education["degreeLabel"] ?? "Degree";
 ---
 
-<div
-  class="w-full min-h-screen flex flex-col items-center justify-center relative education-section pt-50 pb-50"
->
-  <div class="flex flex-col md:flex-row gap-4 items-center mb-5">
-    <h1 class="title w-min mb-6">{education["title"]}</h1>
-    <EducationAndCertificate client:only="react" />
+<div class="px-section edu">
+  <div class="edu-intro">
+    <h2 class="px-h2">{education["title"]}</h2>
+    <p class="px-lead">{education["description"]}</p>
   </div>
-  <div class="md:max-w-100 text-lg px-3 md:px-0">{education["description"]}</div>
-  <div class="mt-17">
-    <Timeline items={items} type="education" />
+
+  <div class="edu-grid">
+    {
+      items.map((item: any) => {
+        const isDegree = item.type === "education";
+        return (
+          <article class={isDegree ? "px-card edu-card edu-degree" : "px-card-outline edu-card"}>
+            <div class="edu-line px-mono">
+              <span>{isDegree ? degreeLabel.toUpperCase() : String(item.companyName).toUpperCase()}</span>
+              <span>{item.dateStart}</span>
+            </div>
+            <h3 class="edu-title">{item.title}</h3>
+            {isDegree && <p class="edu-school">{item.companyName}</p>}
+            {isDegree && (
+              <div class="edu-tags">
+                {(item.tags ?? []).slice(0, 5).map((tag: string) => <TechTag text={tag} />)}
+              </div>
+            )}
+            {item.certificate && (
+              <a
+                class="px-link edu-cert"
+                href={item.certificate}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {education["seeCertificate"]} ↗
+              </a>
+            )}
+          </article>
+        );
+      })
+    }
   </div>
 </div>
+
+<style>
+  .edu {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  .edu-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 900px) {
+    .edu-grid {
+      grid-template-columns: 1.4fr 1fr 1fr;
+    }
+  }
+  .edu-card {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .edu-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+  }
+  .edu-title {
+    margin: 0;
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 1.25;
+  }
+  .edu-degree .edu-title {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  .edu-school {
+    margin: 0;
+    font-size: 15px;
+  }
+  .edu-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .edu-cert {
+    margin-top: auto;
+  }
+</style>

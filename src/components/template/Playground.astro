@@ -1,0 +1,181 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import Terminal from "../organisms/Terminal";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const pg = t("playground") ?? {};
+const home = t("home") ?? {};
+const skills = t("skills") ?? {};
+const experience = t("experience") ?? {};
+const contact = t("contact") ?? {};
+const links = contact["links"] ?? {};
+
+const years = new Date().getFullYear() - 2018;
+const name = home["name"] ?? "Yuliana Fernandez";
+const status = String(home["status"] ?? "Open to work").replace(/\s*✦\s*$/, "");
+
+const whoami = [
+  `${name} — ${(home["titles"] ?? []).join(" · ")}`,
+  `Caracas, VE · ${years}+ ${pg["years"] ?? "years"} · ${status}`,
+].join("\n");
+
+const skillLines = (skills["skillsList"] ?? [])
+  .filter((group: any) => !group.soft)
+  .map((group: any) => `${String(group.name).toLowerCase().padEnd(14)}${group.items.join(", ")}`)
+  .join("\n");
+
+const experienceLines = (experience["positions"] ?? [])
+  .map((p: any) => `${String(p.dateStart).slice(-4)}  ${String(p.companyName).padEnd(14).slice(0, 14)}${p.jobTitle}`)
+  .join("\n");
+
+const contactLinks = Object.values(links).map((l: any) => ({
+  text: l.name === "Gmail" ? "email" : String(l.name).toLowerCase(),
+  href: l.link,
+}));
+
+const commands = {
+  help: { text: pg["help"] ?? "commands: whoami · skills · experience · projects · contact · clear" },
+  whoami: { text: whoami },
+  skills: { text: skillLines },
+  experience: { text: experienceLines },
+  projects: {
+    text: pg["projects"] ?? "opening projects.exe …",
+    links: [{ text: "yuli-ferna.github.io", href: "https://yuli-ferna.github.io/" }],
+  },
+  contact: { text: pg["contact"] ?? "say hi:", links: contactLinks },
+  "sudo hire-me": {
+    text: pg["hire"] ?? "✦ permission granted ✦ let's build something together → contact",
+    kind: "gold" as const,
+  },
+};
+---
+
+<div class="px-section pg">
+  <div class="pg-intro">
+    <h2 class="px-h2">{pg["title"] ?? "Playground"}</h2>
+    <p class="px-lead">
+      {pg["description"] ?? "Prefer the command line? Type a command or tap one below to get to know me."}
+    </p>
+    <p class="px-mono px-muted pg-hint">
+      {pg["hint"] ?? "psst… try"} <code>sudo hire-me</code>
+    </p>
+  </div>
+
+  <Terminal
+    client:visible
+    commands={commands}
+    quick={["help", "whoami", "skills", "experience", "projects", "contact"]}
+    welcome={pg["welcome"] ?? "Welcome! Type help to see what I can do ✦"}
+    notFound={pg["notFound"] ?? "command not found: {cmd} — try help"}
+    placeholder={pg["placeholder"] ?? "type help"}
+    inputLabel={pg["inputLabel"] ?? "Terminal command"}
+  />
+</div>
+
+<style>
+  .pg {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  @media (min-width: 990px) {
+    .pg {
+      grid-template-columns: 320px 1fr;
+      gap: 56px;
+    }
+  }
+  .pg-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .pg-hint {
+    margin: 0;
+    font-size: 14px;
+  }
+  .pg-hint code {
+    font-family: inherit;
+    color: var(--color-spark-1);
+  }
+  :global([data-theme="dark"]) .pg-hint code {
+    color: var(--color-spark-3);
+  }
+
+  .pg :global(.terminal) {
+    box-shadow: 6px 6px 0 0 var(--shadow-hard);
+    min-width: 0;
+  }
+  .pg :global(.terminal-screen) {
+    background: #240c15;
+    height: 380px;
+    overflow-y: auto;
+    padding: 18px 20px;
+    box-sizing: border-box;
+    font-family: "VT323", monospace;
+    font-size: 21px;
+    line-height: 1.25;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: text;
+  }
+  .pg :global(.terminal-line) {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .pg :global(.terminal-line a) {
+    color: #a5f3fc;
+  }
+  .pg :global(.terminal-line a:hover) {
+    color: #ffd8e4;
+  }
+  .pg :global(.terminal-prompt) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pg :global(.terminal-ps1) {
+    white-space: nowrap;
+  }
+  .pg :global(.terminal-prompt input) {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    outline: none;
+    color: #ffd8e4;
+    font: inherit;
+  }
+  .pg :global(.terminal-prompt input::placeholder) {
+    color: #efb8c8;
+    opacity: 0.6;
+  }
+  .pg :global(.terminal-prompt .px-blink) {
+    color: #ffd8e4;
+  }
+  .pg :global(.terminal-quick) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 16px;
+    border-top: 3px solid var(--color-text-primary);
+  }
+  .pg :global(.terminal-cmd) {
+    min-height: 44px;
+    padding: 0 14px;
+    background: transparent;
+    color: var(--color-text-primary);
+    border: 2px solid var(--color-text-primary);
+    border-radius: 10px;
+    font-family: "VT323", monospace;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .pg :global(.terminal-cmd:hover),
+  .pg :global(.terminal-cmd:focus-visible) {
+    background: var(--color-text-primary);
+    color: var(--color-bg-default);
+  }
+</style>

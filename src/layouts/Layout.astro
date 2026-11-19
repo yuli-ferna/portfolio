@@ -22,7 +22,7 @@ const lang = getLangFromUrl(Astro.url);
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pixelify+Sans:wght@400..700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pixelify+Sans:wght@400..700&family=VT323&display=swap"
 			rel="stylesheet"
 		/>
 		<link href="/src/styles/global.css" rel="stylesheet">
@@ -32,8 +32,11 @@ const lang = getLangFromUrl(Astro.url);
 		<div
 			class="flex justify-end items-center p-4 gap-4 fixed top-0 right-0 z-99999"
 		>
-			<ThemeIcon />
-			<LanguagePicker lang={lang} client:load />
+			<div class="settings-pill" role="group" aria-label={lang === "es" ? "Ajustes de visualización" : "Display settings"}>
+				<ThemeIcon />
+				<span class="settings-divider" aria-hidden="true"></span>
+				<LanguagePicker lang={lang} client:load />
+			</div>
 		</div>
 		<div class="fixed top-0 left-0 p-5 z-99999">
 			<div class="bg-container-paper/[40] rounded-xl backdrop-blur-md cursor-pointer" onclick="window.scrollTo(0,0)">
@@ -42,7 +45,7 @@ const lang = getLangFromUrl(Astro.url);
 		</div>
 		<slot />
 		<div
-			class="fixed bottom-0 left-0 right-0 w-full md:w-fit md:left-[calc(50vw-189px)] flex justify-center items-center p-4 z-99999"
+			class="fixed bottom-0 left-0 right-0 w-full flex justify-center items-center p-4 z-99999 pointer-events-none"
 		>
 			<Navbar lang={lang} />
 		</div>

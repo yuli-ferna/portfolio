@@ -5,29 +5,35 @@ import BlurText from "../molecules/BlurText";
 import ContactLinks from "../molecules/ContactLinks.astro";
 import SplitText from "../SplitText";
 import { motion } from "motion/react";
-import PixelCVFolder from "../molecules/PixelCVFolder";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const home = t("home") ?? {};
+const experience = t("experience") ?? {};
 const currentYear = new Date().getFullYear();
 const initDate = 2018;
-const description = t("home.description", { years: currentYear - initDate });
+const years = currentYear - initDate;
+const description = t("home.description", { years });
+const name = home["name"] ?? "Yuliana Fernandez";
+const stats = home["stats"] ?? {};
+const companies = new Set(
+  (experience["positions"] ?? []).map((p: any) => p.companyName),
+).size;
 
 const tickerItems = [
-  "✦ Frontend Dev",
-  "💾 React",
-  "✧ TypeScript",
-  "🕹️ Astro",
-  "♥ UI/UX",
-  "⭐ Open to work",
-  "💿 CSS",
-  "✦ Web Design",
+  { sym: "✦", text: "Frontend Dev" },
+  { sym: "✧", text: "React" },
+  { sym: "✦", text: "TypeScript" },
+  { sym: "✦", text: "Astro" },
+  { sym: "♥", text: "UI/UX" },
+  { sym: "●", text: "Open to work", ok: true },
+  { sym: "✦", text: "CSS" },
+  { sym: "✧", text: "Web Design" },
 ];
 ---
 
 <div
-  class="flex flex-col-reverse md:flex-row items-center justify-around lg:gap-20 w-fit w-max-85 md:w-full size-4 h-fit md:h-[calc(100vh+30px)] relative overflow-hidden"
+  class="flex flex-col-reverse md:flex-row items-center justify-around gap-6 lg:gap-20 w-full md:px-10 h-fit md:min-h-[calc(100vh+30px)] relative overflow-hidden"
   transition:animate="none"
 >
   <!-- ═══════════════════════════════
@@ -36,14 +42,14 @@ const tickerItems = [
   <div class="pixel-floats" aria-hidden="true">
     <span class="fi fi-1">✦</span>
     <span class="fi fi-2">✧</span>
-    <span class="fi fi-3">💾</span>
-    <span class="fi fi-4">🕹️</span>
+    <span class="fi fi-3">♥</span>
+    <span class="fi fi-4">✦</span>
     <span class="fi fi-5">♥</span>
     <span class="fi fi-6">✦</span>
-    <span class="fi fi-7">⭐</span>
-    <span class="fi fi-8">💿</span>
+    <span class="fi fi-7">✧</span>
+    <span class="fi fi-8">✦</span>
     <span class="fi fi-9">✧</span>
-    <span class="fi fi-10">📟</span>
+    <span class="fi fi-10">✧</span>
   </div>
 
   <!-- Pixel marquee ticker -->
@@ -51,7 +57,9 @@ const tickerItems = [
     <div class="ticker-track">
       {
         [...tickerItems, ...tickerItems].map((item) => (
-          <span class="ticker-item title">{item}</span>
+          <span class="ticker-item title">
+            <span class={item.ok ? "px-ok" : undefined}>{item.sym}</span> {item.text}
+          </span>
         ))
       }
     </div>
@@ -59,59 +67,56 @@ const tickerItems = [
   <!-- ═══════════════════════════════
        LEFT COLUMN
   ════════════════════════════════ -->
-  <div
-    class="h-screen flex flex-col items-center justify-center gap-14 md:gap-7 md:max-w-100 md:items-start"
-  >
-    <div class="transform-3d -rotate-10 hidden md:block md:mt-10">
-      <DecryptedText
-        client:load
-        className="title text-lg"
-        text={`${home["hello"] ?? ""} ✨`}
-        animateOn="view"
-        revealDirection="start"
-        speed={60}
-        sequential
-      />
+  <div class="hero-left">
+    <DecryptedText
+      client:load
+      className="hero-kicker"
+      text={home["greeting"] ?? "Hi, I'm"}
+      animateOn="view"
+      revealDirection="start"
+      speed={60}
+      sequential
+    />
+
+    <h1 class="hero-name">{name}</h1>
+
+    <BlurText
+      client:load
+      text={description}
+      className="hero-desc"
+      delay={30}
+      animateBy="words"
+      direction="top"
+    />
+
+    <div class="hero-ctas">
+      <a
+        class="px-btn px-btn-primary"
+        href={home["cvLink"] ?? "#"}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {home["cvLabel"] ?? "View my CV"} <span aria-hidden="true">↗</span>
+      </a>
+      <a class="px-btn" href="#contact">
+        {home["talkLabel"] ?? "Let's talk"} <span aria-hidden="true">→</span>
+      </a>
     </div>
 
-    <div>
-      <BlurText
-        client:load
-        text={description}
-        className="title text-xl mt-6 justify-center w-max-50 md:justify-start md:text-start px-4 md:px-0"
-        delay={50}
-        animateBy="words"
-        direction="top"
-      />
-    </div>
-  <!-- Mobile contact CTA -->
-  <div class="flex md:hidden">
-    <PixelCVFolder
-      client:visible
-      cvLink={home["cvLink"] ?? "#"}
-      label={home["cvLabel"] ?? "View my CV"}
-    />
-  </div>
-    <!-- CTA buttons row: CV + Contact -->
-    <div
-      class="cta-group hidden md:flex flex-col gap-20 items-center justify-start mt-2 w-full -pt-10"
-    >
-      <div class="cta-row h-30 w-full flex items-center justify-center">
-        <PixelCVFolder
-          client:visible
-          cvLink={home["cvLink"] ?? "#"}
-          label={home["cvLabel"] ?? "View my CV"}
-        />
+    <dl class="hero-stats">
+      <div class="hero-stat">
+        <dt class="px-muted">{stats["years"] ?? "years coding"}</dt>
+        <dd class="px-mono">{years}+</dd>
       </div>
-      <div class="scroll-nudge">
-        <span class="scroll-nudge-label title"
-          >{home["scrollHint"] ?? "↓ scroll to explore"}</span
-        >
-        <span class="sdot s1"></span>
-        <span class="sdot s2"></span>
-        <span class="sdot s3"></span>
+      <div class="hero-stat">
+        <dt class="px-muted">{stats["companies"] ?? "companies"}</dt>
+        <dd class="px-mono">{companies}</dd>
       </div>
-    </div>
+      <div class="hero-stat">
+        <dt class="px-muted">{stats["remote"] ?? "remote-ready"}</dt>
+        <dd class="px-mono">100%</dd>
+      </div>
+    </dl>
   </div>
 
   <!-- ═══════════════════════════════
@@ -120,18 +125,6 @@ const tickerItems = [
   <div
     class="h-screen md:h-fit flex flex-col items-center justify-center w-full md:w-auto relative"
   >
-    <div class="transform-3d -rotate-10 md:hidden mb-6">
-      <DecryptedText
-        client:load
-        className="title text-lg"
-        text={`${home["hello"]} ✨`}
-        animateOn="view"
-        revealDirection="start"
-        speed={60}
-        sequential
-      />
-    </div>
-
     <!-- ══ LANYARD + ID CARD ══ -->
     <div class="lanyard-wrap">
       <!-- lanyard string SVG -->
@@ -276,6 +269,81 @@ const tickerItems = [
 
 <style>
   /* ═══════════════════════════════════════
+     HERO LEFT COLUMN
+  ═══════════════════════════════════════ */
+  .hero-left {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 560px;
+    padding: 48px 20px 120px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  @media (min-width: 768px) {
+    .hero-left {
+      padding: 0;
+      margin-top: 6rem;
+    }
+  }
+
+  .hero-left :global(.hero-kicker) {
+    font-family: "Pixelify Sans", monospace;
+    font-size: 18px;
+    color: var(--color-text-secondary);
+  }
+
+  .hero-name {
+    margin: 0;
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: 600;
+    font-size: clamp(48px, 7vw, 72px);
+    line-height: 1;
+  }
+
+  .hero-left :global(.hero-desc) {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.6;
+    max-width: 540px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .hero-stats {
+    display: flex;
+    margin: 8px 0 0;
+    max-width: 540px;
+    border: 1px solid var(--color-hair);
+    border-radius: 17px;
+    overflow: hidden;
+  }
+  .hero-stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 16px 20px;
+    border-right: 1px solid var(--color-hair);
+  }
+  .hero-stat:last-child {
+    border-right: 0;
+  }
+  .hero-stat dt {
+    font-size: 13px;
+  }
+  .hero-stat dd {
+    margin: 0;
+    font-size: 28px;
+  }
+
+  /* ═══════════════════════════════════════
      FLOATING BG DECORATIONS
   ═══════════════════════════════════════ */
   .pixel-floats {
@@ -297,14 +365,14 @@ const tickerItems = [
     left: 4%;
     font-size: 1.4rem;
     animation-delay: 0s;
-    color: #efb8c8;
+    color: var(--color-spark-1);
   }
   .fi-2 {
     top: 12%;
     right: 6%;
     font-size: 0.9rem;
     animation-delay: 0.8s;
-    color: #a5f3fc;
+    color: var(--color-spark-2);
   }
   .fi-3 {
     top: 22%;
@@ -323,21 +391,21 @@ const tickerItems = [
     left: 2%;
     font-size: 1rem;
     animation-delay: 1.9s;
-    color: #efb8c8;
+    color: var(--color-spark-1);
   }
   .fi-6 {
     top: 78%;
     left: 6%;
     font-size: 1.2rem;
     animation-delay: 0.5s;
-    color: #efb8c8;
+    color: var(--color-spark-1);
   }
   .fi-7 {
     top: 82%;
     right: 10%;
     font-size: 1rem;
     animation-delay: 1s;
-    color: #fde68a;
+    color: var(--color-spark-3);
   }
   .fi-8 {
     top: 48%;
@@ -350,7 +418,7 @@ const tickerItems = [
     right: 7%;
     font-size: 0.85rem;
     animation-delay: 1.6s;
-    color: #a5f3fc;
+    color: var(--color-spark-2);
   }
   .fi-10 {
     top: 42%;
@@ -625,7 +693,7 @@ const tickerItems = [
     bottom: 2rem;
     left: -1.5rem;
     animation-delay: 0s;
-    color: #efb8c8;
+    color: var(--color-spark-1);
     font-size: 1.1rem;
   }
   .cs2 {
@@ -683,48 +751,6 @@ const tickerItems = [
   }
   .pixel-contact-btn:hover .btn-px-arrow {
     transform: translateX(5px);
-  }
-
-  /* ═══════════════════════════════════════
-     SCROLL NUDGE
-  ═══════════════════════════════════════ */
-  .scroll-nudge {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-  }
-  .scroll-nudge-label {
-    font-size: 1rem;
-    letter-spacing: 0.1em;
-    opacity: 0.6;
-    color: var(--color-text-primary);
-  }
-  .sdot {
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    background: var(--color-text-primary);
-    animation: dotPop 1.6s ease-in-out infinite;
-  }
-  .s1 {
-    animation-delay: 0s;
-  }
-  .s2 {
-    animation-delay: 0.28s;
-  }
-  .s3 {
-    animation-delay: 0.56s;
-  }
-  @keyframes dotPop {
-    0%,
-    100% {
-      opacity: 0.25;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1.6);
-    }
   }
 
   /* ═══════════════════════════════════════

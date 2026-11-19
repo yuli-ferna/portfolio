@@ -59,12 +59,16 @@ const Contact = ({ lang }) => {
       `New message from portfolio -  ${message.fullName}`,
     );
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
+    let data: { success?: boolean; message?: string };
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      data = await response.json();
+    } catch {
+      data = { success: false };
+    }
 
     if (data.success) {
       //console.log("Success", data);
@@ -100,96 +104,102 @@ const Contact = ({ lang }) => {
     })
   };
 
+  const fieldClass = (error: string) =>
+    `px-field ${error ? "px-field-error" : ""}`;
+
+  const errorIcon = (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="w-4 h-4 text-red-500"><path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clipRule="evenodd"></path></svg>
+  );
+
   return (
     <div className="h-fit w-full">
-      <form id="form" onSubmit={onSubmit} className="md:h-full mt-10 flex flex-col items-center justify-center text-color-primary color-primary">
-        <h2 className="title text-xl font-semibold">{contact["form"]}</h2>
-        {/* name */}
-        <div className="w-full mt-3 text-left">
-          <label htmlFor="name" className="block text-sm/6 font-medium">{contact["name"]}</label>
-          <div className="mt-2">
-            <div className={`flex items-center rounded-md outline-1 -outline-offset-1 outline-primary focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-blue-300 ${!!messageError.fullName && "outline-red-600 focus-within:outline-red-600"}`}>
-              <input
-                id="email"
-                className="block min-w-0 grow py-1.5 pr-3 pl-3 text-base placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
-                name="email"
-                placeholder={contact["name"]}
-                value={message.fullName}
-                onChange={(event) => handleChange(event.target.value, "fullName")}
-                required
-              />
-              <div className="shrink-0 text-base text-red-500 select-none sm:text-sm/6">{!!messageError.fullName && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" className="jmn jmo jmp jms jmw jnc jnd jnp jnz"><path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clipRule="evenodd"></path></svg>}</div>
+      <form id="form" onSubmit={onSubmit} className="px-card px-form text-left" noValidate={false}>
+        <div className="px-bar">
+          <span className="px-dot px-dot-red" aria-hidden="true" /><span className="px-dot px-dot-yellow" aria-hidden="true" /><span className="px-dot px-dot-green" aria-hidden="true" />
+          <h2 className="px-bar-title text-xs font-normal m-0">{contact["form"]}</h2>
+        </div>
+        <div className="px-form-body">
+          <div className="px-form-row">
+            {/* name */}
+            <div className="px-label">
+              <label htmlFor="name">{contact["name"]}</label>
+              <span className={fieldClass(messageError.fullName)}>
+                <input
+                  id="name"
+                  name="name"
+                  placeholder={contact["name"]}
+                  value={message.fullName}
+                  onChange={(event) => handleChange(event.target.value, "fullName")}
+                  required
+                />
+                {!!messageError.fullName && errorIcon}
+              </span>
+              <span className="px-error capitalize">
+                {!!messageError.fullName && messageError.fullName}
+              </span>
             </div>
-            <div className="mt-1 text-xs text-red-500 absolute capitalize">
-              {!!messageError.fullName && messageError.fullName}
+            {/* email */}
+            <div className="px-label">
+              <label htmlFor="email">{contact["email"]}</label>
+              <span className={fieldClass(messageError.email)}>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder={"email@gmail.com"}
+                  value={message.email}
+                  onChange={(event) => handleChange(event.target.value, "email")}
+                  required
+                />
+                {!!messageError.email && errorIcon}
+              </span>
+              <span className="px-error capitalize">
+                {!!messageError.email && messageError.email}
+              </span>
             </div>
           </div>
-        </div>
-        {/* email */}
-        <div className="w-full mt-8 text-left">
-          <label htmlFor="email" className="block text-sm/6 font-medium">{contact["email"]}</label>
-          <div className="mt-2">
-            <div className={`flex items-center rounded-md outline-1 -outline-offset-1 outline-primary focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-blue-300 ${!!messageError.email && "outline-red-600 focus-within:outline-red-600"}`}>
-              <input
-                id="name"
-                className="block min-w-0 grow py-1.5 pr-3 pl-3 text-base placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md "
-                name="name"
-                placeholder={"email@gmail.com"}
-                value={message.email}
-                onChange={(event) => handleChange(event.target.value, "email")}
-                required
-              />
-              <div className="shrink-0 text-base text-red-500 select-none sm:text-sm/6">{!!messageError.email && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" className="jmn jmo jmp jms jmw jnc jnd jnp jnz"><path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clipRule="evenodd"></path></svg>}</div>
-            </div>
-            <div className="mt-1 text-xs text-red-500 absolute capitalize">
-              {!!messageError.email && messageError.email}
-            </div>
-          </div>
-        </div>
-        <div className="w-full mt-8 text-left">
-          <label htmlFor="message" className="block text-sm/6 font-medium">{contact["message"]}</label>
-          <div className="mt-2">
-            <div className={`flex items-center rounded-md outline-1 -outline-offset-1 outline-primary focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-blue-300 ${!!messageError.content && "outline-red-600 focus-within:outline-red-600"}`}>
+          {/* message */}
+          <div className="px-label">
+            <label htmlFor="message">{contact["message"]}</label>
+            <span className={fieldClass(messageError.content)}>
               <textarea
                 id="message"
-                className="block min-w-0 grow py-1.5 pr-3 pl-3 text-base placeholder:text-gray-400 focus:outline-none sm:text-sm/6 autofill:!bg-white rounded-md"
                 name="message"
-                rows={3}
+                rows={5}
                 placeholder={contact["message"]}
                 value={message.content}
                 onChange={(event) => handleChange(event.target.value, "content")}
                 required
               />
-              <div className="shrink-0 text-base text-red-500 select-none sm:text-sm/6">{!!messageError.content && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" className="jmn jmo jmp jms jmw jnc jnd jnp jnz"><path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clipRule="evenodd"></path></svg>}</div>
-            </div>
-            <div className="mt-1 text-xs text-red-500 absolute capitalize">
+              {!!messageError.content && errorIcon}
+            </span>
+            <span className="px-error capitalize">
               {!!messageError.content && messageError.content}
-            </div>
+            </span>
           </div>
-        </div>
-        <button
-          type="submit"
-          className="bg-container-primary button w-full mt-5"
-          aria-label="Submit message"
-          disabled={isFetching || !isValid()}
-        >
-          Send!
-        </button>
-        {!!resultMessage.content && (
-          <div className={`mt-10 flex flex-row justify-between p-5 rounded-md bg-primary/40 border-primary ${resultMessage.isError && "bg-red-500/30 border-red-200"}`}>
-            <div>
-              {resultMessage.content}
-            </div>
-            <div>
-              <button onClick={close} className="close cursor-pointer">
-                <svg width="17" height="17" viewBox="0 0 17 17" className="fill-primary">
-                  <path d="M 3 16.5 L 17 2.5"  className="stroke-2 stroke-primary"/>
+          <button
+            type="submit"
+            className="px-btn px-btn-primary self-end"
+            aria-label="Submit message"
+            disabled={isFetching || !isValid()}
+          >
+            {contact["send"] ?? "Send"} <span aria-hidden="true">→</span>
+          </button>
+          {!!resultMessage.content && (
+            <div
+              role="status"
+              className={`flex flex-row justify-between gap-4 p-4 rounded-[12px] border-2 border-primary bg-container-paper/60 ${resultMessage.isError ? "bg-red-500/30 border-red-300" : ""}`}
+            >
+              <div>{resultMessage.content}</div>
+              <button type="button" onClick={close} className="close cursor-pointer" aria-label="Close">
+                <svg width="17" height="17" viewBox="0 0 17 17" className="fill-primary" aria-hidden="true">
+                  <path d="M 3 16.5 L 17 2.5" className="stroke-2 stroke-primary" />
                   <path d="M 3 2.5 L 17 16.346" className="stroke-2 stroke-primary" />
                 </svg>
               </button>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </form>
     </div>
   );

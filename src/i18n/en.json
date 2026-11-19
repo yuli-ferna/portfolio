@@ -10,7 +10,15 @@
     "contactCta": "Contact me!",
     "scrollHint": "↓ scroll to explore",
     "status": "Open to work ✦",
-    "cvLink": "https://drive.google.com/file/d/1sSVrtH3qR1Me4MWeMP9hFFDV4c7bqtxF/view?usp=sharing"
+    "cvLink": "https://drive.google.com/file/d/1sSVrtH3qR1Me4MWeMP9hFFDV4c7bqtxF/view?usp=sharing",
+    "greeting": "Hi, I'm",
+    "cvLabel": "View my CV",
+    "talkLabel": "Let's talk",
+    "stats": {
+      "years": "years coding",
+      "companies": "companies",
+      "remote": "remote-ready"
+    }
   },
   "navbar": {
     "home": {
@@ -103,6 +111,28 @@
     "title": "Experience",
     "description": "Every stage of my professional journey has been an opportunity to learn, collaborate, and create value. In this section, I share the projects and roles that have shaped my path in software development.",
     "positions": [
+      {
+        "jobTitle": "Full-stack Developer",
+        "description": "Developed a comprehensive aviation management solution covering sales, charter operations, and fleet management. The platform features a full admin dashboard, a real-time aircraft inventory system, and a robust white-label architecture configurable per tenant.",
+        "image": "https://res.cloudinary.com/dc8fnv6xk/image/upload/f_auto,q_auto/videoframe_5005_zz6egs",
+        "tags": [
+          "NextJS",
+          "React",
+          "HTML",
+          "CSS",
+          "V0",
+          "Typescript",
+          "Framer Motion",
+          "Supabase",
+          "Tailwind",
+          "SQL",
+          "PostgreSQL"
+        ],
+        "companyName": "Spark IQ",
+        "ubication": "Remote",
+        "dateStart": "Jan 2026",
+        "dateEnd": "Oct 2026"
+      },
       {
         "jobTitle": "Software Developer",
         "description": "Developed the company website using Next.js. Additionally, I developed and maintained the Wormhole Portal Token Bridge, a blockchain-based cross-chain bridge project that includes the Wormhole Connect widget, primarily using Vite and React.",
@@ -217,7 +247,9 @@
         "dateStart": "Mar 2018",
         "dateEnd": "Aug 2020"
       }
-    ]
+    ],
+    "meta": "{start} → today · {count} roles",
+    "expandAll": "Expand all"
   },
   "education": {
     "title": "Education & Certificates",
@@ -276,12 +308,73 @@
         "dateStart": "Aug 2020",
         "certificate": "https://www.coursera.org/account/accomplishments/certificate/WX5PL3L58AG8"
       }
-    ]
+    ],
+    "degreeLabel": "Degree"
   },
   "projects": {
     "title": "Projects & Demos",
     "description": "A selection of projects where I apply my knowledge to build functional and innovative solutions.",
-    "cta": "See all my projects"
+    "cta": "See all my projects",
+    "list": [
+      {
+        "title": "Wormhole Portal Bridge",
+        "meta": "xLabs · 2023–25",
+        "image": "portfolio/xlabs.webp",
+        "description": "Cross-chain token bridge built on Wormhole. I built and maintained the transfer flows with React and Vite.",
+        "tags": [
+          "React",
+          "Vite",
+          "Typescript",
+          "Web3"
+        ],
+        "links": [
+          {
+            "text": "Live",
+            "link": "https://portalbridge.com/"
+          },
+          {
+            "text": "Code",
+            "link": "https://github.com/XLabs/portal-bridge-ui"
+          }
+        ]
+      },
+      {
+        "title": "Wormhole Connect",
+        "meta": "xLabs · 2023–25",
+        "image": "portfolio/xlabs.webp",
+        "description": "Embeddable bridge widget that other dApps drop into their sites to move tokens across chains.",
+        "tags": [
+          "React",
+          "Typescript",
+          "Web3"
+        ],
+        "links": [
+          {
+            "text": "Code",
+            "link": "https://github.com/wormhole-foundation/wormhole-connect/"
+          }
+        ]
+      },
+      {
+        "title": "Aviation Admin Dashboard",
+        "meta": "Spark IQ · 2026",
+        "image": "https://res.cloudinary.com/dc8fnv6xk/image/upload/f_auto,q_auto/videoframe_5005_zz6egs",
+        "description": "Multi-tenant platform for charter sales, operations and real-time fleet inventory, white-label per client.",
+        "tags": [
+          "NextJS",
+          "Typescript",
+          "Supabase",
+          "Tailwind"
+        ],
+        "private": "Private · NDA"
+      }
+    ],
+    "portal": {
+      "kicker": "THE FULL ARCHIVE",
+      "title": "Explore all my projects & demos",
+      "description": "Experiments, side projects and live demos, browsable from a little retro desktop.",
+      "cta": "Open projects.exe"
+    }
   },
   "contact": {
     "title": "Contact me!",
@@ -308,7 +401,9 @@
         "icon": "gmail.svg",
         "link": "https://mail.google.com/mail/u/0/?fs=1&to=yuliferna123@gmail.com&su=Hey+Yuli!&tf=cm"
       }
-    }
+    },
+    "copy": "Copy",
+    "copied": "Copied!"
   },
   "footer": {
     "builtWith": "Built with",
@@ -336,5 +431,19 @@
     "title": "UNDER CONSTRUCTION",
     "project": "yuli-ferna's Projects & Demos",
     "loading": "Loading"
+  },
+  "playground": {
+    "title": "Playground",
+    "description": "Prefer the command line? Type a command or tap one below to get to know me.",
+    "hint": "psst… try",
+    "welcome": "Welcome! Type help to see what I can do ✦",
+    "help": "commands: whoami · skills · experience · projects · contact · clear",
+    "notFound": "command not found: {cmd} — try help",
+    "projects": "opening projects.exe …",
+    "contact": "say hi:",
+    "hire": "✦ permission granted ✦ let's build something together → contact",
+    "placeholder": "type help",
+    "inputLabel": "Terminal command",
+    "years": "years"
   }
 }

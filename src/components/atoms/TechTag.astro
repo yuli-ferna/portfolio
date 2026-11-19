@@ -1,0 +1,50 @@
+---
+/**
+ * Pill-shaped tech tag. When the tag matches a known skill icon in
+ * assets.json, the icon is drawn with a CSS mask so it follows the
+ * current theme's text color (the source SVGs are single-color).
+ */
+import { useAssets } from "../../i18n/utils";
+
+const { text } = Astro.props as { text: string };
+const resolved = useAssets().skill(text);
+const hasIcon = resolved !== "checkbox.svg";
+const iconUrl = resolved.startsWith("http") ? resolved : `/${resolved}`;
+---
+
+<span class="tech-tag" translate="no">
+  {
+    hasIcon && (
+      <span
+        class="tech-tag-icon"
+        aria-hidden="true"
+        style={`--icon: url("${iconUrl}")`}
+      />
+    )
+  }
+  {text}
+</span>
+
+<style>
+  .tech-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border: 1.5px solid var(--color-text-primary);
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+  }
+
+  .tech-tag-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    background: currentColor;
+    -webkit-mask: var(--icon) center / contain no-repeat;
+    mask: var(--icon) center / contain no-repeat;
+  }
+</style>

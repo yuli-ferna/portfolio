@@ -1,29 +1,363 @@
 ---
-import Timeline from "../organisms/Timeline.astro";
-import Exp from "../atoms/icons/Experience"
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-import Projects from "./Projects.astro";
-
+import { getLangFromUrl, useTranslations, getImage } from "../../i18n/utils";
+import TechTag from "../atoms/TechTag.astro";
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang); 
+const t = useTranslations(lang);
 const experience = t("experience") ?? {};
-const items = [ ...(experience["positions"] ?? [])];
+const positions = [...(experience["positions"] ?? [])];
+const [featured, ...rest] = positions;
+
+const range = (p: any) => [p.dateStart, p.dateEnd].filter(Boolean).join(" – ");
+const firstYear = positions.length
+  ? positions[positions.length - 1].dateStart?.slice(-4)
+  : "";
+const meta = String(experience["meta"] ?? "{start} → today · {count} roles")
+  .replace("{start}", firstYear ?? "")
+  .replace("{count}", String(positions.length));
+
+const links = (p: any) => [
+  ...(p.projects ?? []).map((l: any) => ({ text: l.text || t("seeHere"), link: l.link })),
+  ...(p.github ?? []).map((l: any) => ({ text: `${l.text || "Repo"} · GitHub`, link: l.link })),
+];
 ---
 
-<div
-  class="w-full min-h-screen flex flex-col items-center justify-center relative experience-section pt-50"
->
-  <div class="flex flex-row gap-4 mb-10 relative">
-    <h1 class="title mb-6">{experience["title"]}</h1>
-    <div class="absolute -top-5 -right-6 md:static">
-      <Exp client:visible />
-    </div>
-  </div>
-  <div class="md:max-w-150 text-lg px-3 md:px-0">{experience["description"]}</div>
-  <div class="mt-17">
-    <Timeline items={items} type="work" />
+<div class="px-section exp">
+  <div class="exp-intro">
+    <h2 class="px-h2">{experience["title"]}</h2>
+    <p class="px-lead">{experience["description"]}</p>
+    <p class="px-mono px-muted exp-meta">{meta}</p>
+    {
+      rest.length > 1 && (
+        <label class="exp-expand px-mono">
+          <input type="checkbox" class="exp-expand-input" />
+          <span class="exp-expand-box" aria-hidden="true" />
+          {experience["expandAll"] ?? "Expand all"}
+        </label>
+      )
+    }
   </div>
 
-  <Projects />
+  <ol class="exp-list">
+    {
+      featured && (
+        <li class="px-card exp-featured">
+          <img class="exp-thumb" src={getImage(featured.image)} alt={featured.companyName} loading="lazy" />
+          <div class="exp-body">
+            <div class="exp-line px-mono">
+              <span>{range(featured)}</span>
+              <span>{featured.ubication}</span>
+            </div>
+            <h3 class="exp-title">
+              {featured.jobTitle} · {featured.companyName}
+            </h3>
+            <p class="exp-desc">{featured.description}</p>
+            <div class="exp-tags">
+              {(featured.tags ?? []).map((tag: string) => <TechTag text={tag} />)}
+            </div>
+            {links(featured).length > 0 && (
+              <div class="exp-links">
+                {links(featured).map((l: any) => (
+                  <a class="px-link" href={l.link} target="_blank" rel="noopener noreferrer">
+                    {l.text} ↗
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </li>
+      )
+    }
+
+    {
+      rest.map((p: any) => (
+        <li>
+          <details class="exp-row" name="experience">
+            <summary>
+              <span class="px-mono exp-row-date">{range(p)}</span>
+              <span class="exp-row-role">
+                <b>{p.jobTitle}</b> · {p.companyName}
+                <span class="px-muted"> — {p.ubication}</span>
+              </span>
+              <span class="px-mono exp-row-toggle" aria-hidden="true" />
+            </summary>
+            <div class="exp-row-body">
+              <img class="exp-row-thumb" src={getImage(p.image)} alt={p.companyName} loading="lazy" />
+              <div class="exp-body">
+                <p class="exp-desc">{p.description}</p>
+                <div class="exp-tags">
+                  {(p.tags ?? []).map((tag: string) => <TechTag text={tag} />)}
+                </div>
+                {links(p).length > 0 && (
+                  <div class="exp-links">
+                    {links(p).map((l: any) => (
+                      <a class="px-link" href={l.link} target="_blank" rel="noopener noreferrer">
+                        {l.text} ↗
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </details>
+        </li>
+      ))
+    }
+  </ol>
 </div>
+
+<script is:inline>
+  (() => {
+    const list = document.querySelector(".exp-list");
+    if (!list || list.dataset.bound) return;
+    list.dataset.bound = "1";
+    const rows = () => Array.from(list.querySelectorAll("details.exp-row"));
+    const toggle = document.querySelector(".exp-expand-input");
+
+    // Accordion: opening one row closes the others, unless "expand all" is on.
+    // (Native <details name> does this too; this covers older browsers.)
+    rows().forEach((row) =>
+      row.addEventListener("toggle", () => {
+        if (!row.open || toggle?.checked) return;
+        rows().forEach((other) => other !== row && (other.open = false));
+      }),
+    );
+
+    toggle?.addEventListener("change", () => {
+      rows().forEach((row) => {
+        if (toggle.checked) {
+          row.removeAttribute("name");
+          row.open = true;
+        } else {
+          row.open = false;
+          row.setAttribute("name", "experience");
+        }
+      });
+    });
+  })();
+</script>
+
+<style>
+  .exp-expand {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    font-size: 15px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .exp-expand-input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+  .exp-expand-box {
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    border: 2px solid var(--color-text-primary);
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 0 0 var(--shadow-hard);
+  }
+  .exp-expand-input:checked + .exp-expand-box {
+    background: var(--color-text-primary);
+  }
+  .exp-expand-input:checked + .exp-expand-box::after {
+    content: "";
+    width: 5px;
+    height: 10px;
+    margin-top: -2px;
+    border: solid var(--color-bg-default);
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+  }
+  .exp-expand-input:focus-visible + .exp-expand-box {
+    outline: 2px solid var(--color-text-primary);
+    outline-offset: 3px;
+  }
+
+  .exp {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  @media (min-width: 990px) {
+    .exp {
+      grid-template-columns: 320px 1fr;
+      gap: 56px;
+    }
+    .exp-intro {
+      position: sticky;
+      top: 120px;
+      align-self: start;
+    }
+  }
+
+  .exp-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .exp-meta {
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .exp-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border-left: 3px solid var(--color-text-primary);
+  }
+  @media (min-width: 768px) {
+    .exp-list {
+      padding-left: 28px;
+    }
+  }
+
+  .exp-featured {
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  @media (min-width: 640px) {
+    .exp-featured {
+      grid-template-columns: 200px 1fr;
+    }
+  }
+
+  .exp-thumb,
+  .exp-row-thumb {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid var(--color-text-primary);
+    background: var(--color-bg-default);
+  }
+
+  .exp-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+  }
+  .exp-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+  }
+  .exp-title {
+    margin: 0;
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  .exp-desc {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .exp-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+  }
+
+  .exp-row {
+    border: 1px solid var(--color-hair);
+    border-radius: 17px;
+    transition: background 0.15s ease;
+  }
+  .exp-row[open] {
+    background: var(--color-primary);
+    border: 3px solid var(--color-text-primary);
+    border-radius: 20px;
+  }
+  .exp-row summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px 18px;
+    align-items: center;
+    min-height: 64px;
+    padding: 14px 22px;
+    box-sizing: border-box;
+  }
+  .exp-row summary::-webkit-details-marker {
+    display: none;
+  }
+  .exp-row summary:hover {
+    background: var(--color-hair);
+    border-radius: 16px;
+  }
+  .exp-row summary:focus-visible {
+    outline: 2px solid var(--color-text-primary);
+    outline-offset: 2px;
+    border-radius: 16px;
+  }
+  .exp-row-date {
+    font-size: 14px;
+    grid-column: 1;
+  }
+  .exp-row-role {
+    font-size: 16px;
+    grid-column: 1;
+  }
+  .exp-row-role b {
+    font-weight: 600;
+  }
+  .exp-row-toggle {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    font-size: 20px;
+  }
+  .exp-row-toggle::before {
+    content: "+";
+  }
+  .exp-row[open] .exp-row-toggle::before {
+    content: "−";
+  }
+  @media (min-width: 768px) {
+    .exp-row summary {
+      grid-template-columns: 170px 1fr auto;
+    }
+    .exp-row-role {
+      grid-column: 2;
+    }
+    .exp-row-toggle {
+      grid-column: 3;
+      grid-row: 1;
+    }
+  }
+
+  .exp-row-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0 22px 22px;
+  }
+  @media (min-width: 640px) {
+    .exp-row-body {
+      grid-template-columns: 170px 1fr;
+    }
+  }
+</style>

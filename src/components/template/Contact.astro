@@ -4,26 +4,141 @@ import Ubication from "../atoms/Ubication";
 import ContactForm from "../organisms/ContactForm";
 import Footer from "../organisms/Footer.astro";
 
-
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang); 
+const t = useTranslations(lang);
 const contact = t("contact") ?? {};
+const home = t("home") ?? {};
+const links = contact["links"] ?? {};
+
+const gmailLink: string = links.gmail?.link ?? "";
+const email = decodeURIComponent(gmailLink.match(/[?&]to=([^&]+)/)?.[1] ?? "");
+const status = String(home["status"] ?? "Open to work").replace(/\s*✦\s*$/, "");
+const socials = ["github", "linkedin"].filter((k) => links[k]);
 ---
+
 <div class="w-full">
-  <div class="w-full md:h-screen flex flex-col justify-around items-center md:flex-row gap-5 md:gap-10 algin-middle pt-30 md:pt-0">
-    <div class="max-w-80 md:h-fit md:max-w-100 flex flex-col gap-10 justify-center items-center">
-      <h1 class="title">{contact["title"]}</h1>
-      <p class="text-lg px-3 md:px-0">{contact["description"]}</p>
-      <div class="self-start hidden md:block">
-        <Ubication text={"Caracas, Venezuela"}/>
+  <div class="px-section contact">
+    <div class="contact-info">
+      <h2 class="px-h2">{contact["title"]}</h2>
+      <p class="px-lead">{contact["description"]}</p>
+
+      {
+        email && (
+          <div class="contact-email">
+            <a class="contact-email-text" href={`mailto:${email}`}>{email}</a>
+            <button
+              type="button"
+              class="px-btn px-btn-primary contact-copy"
+              data-copy={email}
+              data-copied={contact["copied"] ?? "Copied!"}
+            >
+              {contact["copy"] ?? "Copy"}
+            </button>
+          </div>
+        )
+      }
+
+      <div class="contact-meta px-mono">
+        <Ubication text={"Caracas, Venezuela"} />
+        <span><span class="px-ok" aria-hidden="true">●</span> {status}</span>
+      </div>
+
+      <div class="contact-socials">
+        {
+          socials.map((k) => (
+            <a class="px-link" href={links[k].link} target="_blank" rel="noopener noreferrer">
+              {links[k].name} ↗
+            </a>
+          ))
+        }
       </div>
     </div>
-    <div class="max-w-80 w-full md:h-fit md:w-[400px] flex flex-col gap-8 mb-30">
+
+    <div class="contact-form">
       <ContactForm lang={lang} client:visible />
-      <div class="self-start md:hidden">
-        <Ubication text={"Caracas, Venezuela"}/>
-      </div>
     </div>
   </div>
   <Footer />
 </div>
+
+<script is:inline>
+  (() => {
+    document.querySelectorAll("button[data-copy]").forEach((btn) => {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = "1";
+      const label = btn.textContent;
+      btn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(btn.dataset.copy);
+          btn.textContent = btn.dataset.copied;
+          setTimeout(() => (btn.textContent = label), 1600);
+        } catch {
+          window.location.href = `mailto:${btn.dataset.copy}`;
+        }
+      });
+    });
+  })();
+</script>
+
+<style>
+  .contact {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  @media (min-width: 900px) {
+    .contact {
+      grid-template-columns: 1fr 1.1fr;
+      gap: 56px;
+    }
+  }
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .contact-email {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--color-hair);
+    border-radius: 17px;
+    padding: 8px 8px 8px 18px;
+  }
+  .contact-email-text {
+    flex: 1;
+    min-width: 0;
+    font-size: 16px;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .contact-copy {
+    min-height: 44px;
+    padding: 0 16px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+  .contact-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 18px;
+    font-size: 15px;
+  }
+  .contact-meta :global(svg) {
+    width: 22px;
+    height: 22px;
+  }
+  .contact-socials {
+    display: flex;
+    gap: 16px;
+  }
+  .contact-form {
+    width: 100%;
+    min-width: 0;
+  }
+</style>
