@@ -83,16 +83,20 @@ const socials = ["github", "linkedin"].filter((k) => links[k]);
 <style>
   .contact {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 48px;
     align-items: start;
   }
   @media (min-width: 900px) {
     .contact {
-      grid-template-columns: 1fr 1.1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
       gap: 56px;
     }
   }
+  .contact-email {
+    overflow-wrap: anywhere;
+  }
+
   .contact-info {
     display: flex;
     flex-direction: column;

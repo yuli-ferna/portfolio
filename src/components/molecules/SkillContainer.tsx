@@ -21,7 +21,7 @@ const SkillContainer = ({ title, skills, position, soft }: SkillContainerProps) 
       initial={{ y: 50 }}
       animate={{ y: 0 }}
       transition={{ duration: 2, type: "spring", bounce: 0.2 }}
-      className={`skill-item min-[1320px]:absolute ${position} w-[350px] sm:w-[365px] h-fit min-h-[335px] rounded-[20px] dark:bg-[#7d5260] bg-pink-400/80 backdrop-blur-2xl border-[3px] border-primary relative flex flex-col pl-3 pr-2 sm:pl-4 sm:pr-4 pt-14 pb-6 sm:gap-4 gap-2 cursor-grab`}>
+      className={`skill-item min-[1320px]:absolute ${position} w-full max-w-[350px] sm:w-[365px] sm:max-w-none h-fit min-h-[335px] rounded-[20px] dark:bg-[#7d5260] bg-pink-400/80 backdrop-blur-2xl border-[3px] border-primary relative flex flex-col pl-3 pr-2 sm:pl-4 sm:pr-4 pt-14 pb-6 sm:gap-4 gap-2 cursor-grab`}>
       <svg
         width="100%"
         height="3"
